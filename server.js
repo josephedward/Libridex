@@ -23,6 +23,9 @@ app.use("/",routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/libridex");
 
+// console.log("this is the database"+process.env.MONGODB_URI || "mongodb://localhost/libridex");
+
+
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server @ http://localhost:${PORT}`);

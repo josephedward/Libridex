@@ -22,8 +22,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.User
-      .findOneAndUpdate(req.body.email, req.body)
+
+    // console.log("this is what you're trying to update with: \n"+"email: "+req.body.email+"\n likes?: "+req.body.likes);
+"use strict";
+      console.log(db.User);
+console.log(req.body._id);
+console.log(req.params._id);
+      db.User
+      .findOneAndUpdate({_id:req.body._id}, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

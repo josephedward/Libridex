@@ -60,7 +60,7 @@ class AudiobookPlayer extends React.Component {
     }
 
     axios
-      .get(`/api/audiobook/genre/${this.state.searchText || 'history'}`)
+      .get(`/api/audiobook/genre/${this.state.searchText || 'science fiction'}`)
       .then(res => {
         let bookData = res.data;
         // console.log("got here");
@@ -153,29 +153,49 @@ getSpecificBook = (id) => {
       event.preventDefault();
     }
 
+    console.log(this.state.userObj);
 
-  
-    let tempUser = {};
-    axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
-      tempUser = res.data[0];
-      console.log(this.state.book.bkTitle);
-      let titles = [];
-      tempUser.likes.forEach(like => titles.push(like.bkTitle));
-      console.log(titles);
-      console.log();
+    let tempUser = this.state.userObj;
+    tempUser.likes.push(this.state.book);
+    // console.log(tempUser[0]);
 
-      if (!titles.includes(this.state.book.bkTitle)) {
-        tempUser.likes.push(this.state.book);
-      }
+    console.log(this.state.currentUser);
 
-      axios
-        .put(`api/users/?email=${this.state.currentUser}`, tempUser)
-        .then(res => this.setState({ userObj: tempUser }));
-    }).catch(e => {
+
+    this.setState({userObj:tempUser});
+    console.log(this.state.userObj);
+
+    axios
+        .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
+            .catch(e => {
       alert("You must log in to store the books you like!");
-      window.location.reload();
-
+      // window.location.reload();
     });
+   
+
+        
+
+
+    // axios
+    //     .put(`api/users/?email=${this.state.userObj.email}`, tempUser)
+    //     .then(res => this.setState({ userObj: tempUser }))
+    //     .catch(e => {
+    //   alert("You must log in to store the books you like!");
+    //   // window.location.reload();
+    // });
+    // axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
+    //   tempUser = res.data[0];
+    //   console.log(this.state.book.bkTitle);
+    //   let titles = [];
+    //   tempUser.likes.forEach(like => titles.push(like.bkTitle));
+    //   console.log(titles);
+    //   console.log();
+
+    //   if (!titles.includes(this.state.book.bkTitle)) {
+    //     tempUser.likes.push(this.state.book);
+    //   }
+
+    //
   
   };
 
@@ -193,7 +213,7 @@ getSpecificBook = (id) => {
     // console.log(tempUser);
 
     axios
-    .put(`api/users/?email=${this.state.currentUser}`, tempUser)
+    .put(`api/users/?email=${this.state.currentUser}`, tempUser[0])
     .then(res => this.setState({ userObj: tempUser }));
 
   }
