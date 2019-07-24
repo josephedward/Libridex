@@ -316,7 +316,7 @@ getSpecificBook = (id) => {
           </Grid>
         </Container>
         <Sticky>
-        <Footer className="border" />
+        <Footer className="border footer" />
         </Sticky>
       </div>
       </div>

@@ -92,6 +92,10 @@ width: 100% !important;
   background-color:white;
 }
 
+.footer
+{
+  height:10% !important;
+}
 
 .fontBlue{
   font:blue !important;
