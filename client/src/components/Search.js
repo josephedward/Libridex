@@ -18,7 +18,7 @@ function Search(props) {
           </Form.Field>
         </Grid.Column>
         <Grid.Column>
-          <Button className="ui primary button" onClick={props.handleSubmit}>
+          <Button className="ui primary button" onClick={props.handleNext}>
             Search Genre
           </Button>
         </Grid.Column>

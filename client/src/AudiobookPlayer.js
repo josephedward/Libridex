@@ -40,14 +40,7 @@ class AudiobookPlayer extends React.Component {
     bookURL:[]
   };
 
-  // getCurrentUser = userFromLogin => {
-  //   //gets it from Login Component
-  //   this.setState({ currentUser: userFromLogin });
-  //   //Sends it up to Player Component
-  //   this.props.callbackFromPlayer(this.state.currentUser);
-  //   //Make sure
-  //   console.log('user in nav component' + this.state.currentUser);
-  // };
+
 
   handleLogInClick() {
     console.log('login');
@@ -94,7 +87,7 @@ getSpecificBook = (id) => {
 
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-      this.handleSubmit();
+      this.handleNext();
     }
   }
 
@@ -279,7 +272,7 @@ getSpecificBook = (id) => {
               <Search
                 handleInputChange={this.handleInputChange}
                 handleKeyPress={this.handleKeyPress.bind(this)}
-                handleSubmit={this.handleSubmit}
+                handleNext={this.handleNext}
                 searchText={this.state.searchText}
               />
               <br />
