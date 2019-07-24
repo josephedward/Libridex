@@ -15,7 +15,7 @@ import axios from 'axios';
 
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { Button } from 'semantic-ui-react';
+import { Button, Sticky } from 'semantic-ui-react';
 import {
   Grid,
   Container,
@@ -315,7 +315,9 @@ getSpecificBook = (id) => {
             </Grid.Column>
           </Grid>
         </Container>
+        <Sticky>
         <Footer className="border" />
+        </Sticky>
       </div>
       </div>
     );

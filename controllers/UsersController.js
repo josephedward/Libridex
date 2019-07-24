@@ -23,7 +23,6 @@ module.exports = {
   },
   update: function(req, res) {
 
-    // console.log("this is what you're trying to update with: \n"+"email: "+req.body.email+"\n likes?: "+req.body.likes);
 "use strict";
       console.log(db.User);
 console.log(req.body._id);
