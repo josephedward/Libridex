@@ -1,0 +1,128 @@
+body{
+  background-image: url(./images/bookshelf.jpeg) !important;
+}
+
+.segment{
+  height:100% !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width:100%;
+}
+.layout{
+
+  text-align: center !important;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color:   white;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.center{
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float:center!important;
+}
+
+.floatcenter
+{
+  float:center!important;
+}
+
+.floatleft
+{
+  float:left!important;
+}
+
+.floatright{
+  float: right !important;
+}
+
+.maroon{
+background-color: maroon !important;
+}
+
+.border{
+border:3px solid lightseagreen !important;
+}
+
+/* .height300{
+  h
+} */
+
+.width1000
+{
+  width:1000px !important;
+}
+
+.scroll{
+  overflow-y: scroll !important;
+}
+
+.controls{
+  float:center !important;
+}
+
+.black{
+  background-color: black;
+}
+
+.fullWidth{
+width: 100% !important;
+}
+
+.tanish{
+  background-color:  moccasin !important;
+}
+
+.blackborder{
+  border: 3px solid black !important;
+}
+
+.border1{
+  border: 3px solid darkblue !important;
+}
+.lightblue{
+  background-color: lightskyblue !important;
+}
+
+
+.white1{
+  background-color:white;
+}
+
+
+.fontBlue{
+  font:blue !important;
+}
+
+.font50{
+  font-size: 50px !important;
+}
+
+/* .darkBlue{
+  background-color: blue;
+} */
+
+/* .column{
+  height:300px;
+} */
+
+
+/* .signUpButton{
+  float:right;
+} */
+/* 
+.colors{
+  /* brown 
+  #B83B2E
+  /* peru 
+  #D39260
+  /* dark slate grey 
+  #1B2622
+  /* sienna 
+  #8A573F
+  /* dark olive green 
+  #5A3E30
+} */
