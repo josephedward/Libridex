@@ -92,8 +92,21 @@ width: 100% !important;
   background-color:white;
 }
 
+
+.header{
+  height:10% !important;
+
+}
+
+.main{
+  height:80% !important;
+
+}
+
 .footer
 {
+  position: absolute !important;
+  bottom:0 !important;
   height:10% !important;
 }
 

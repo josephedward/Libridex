@@ -233,7 +233,7 @@ getSpecificBook = (id) => {
       <div>
       <div>
 
-        <Menu stackable fluid widths={3} className="blackborder" >
+        <Menu stackable fluid widths={3} className="blackborder header" >
           <Menu.Item className="tanish">
             <Header1 />
           </Menu.Item>
@@ -273,7 +273,7 @@ getSpecificBook = (id) => {
         </Menu>
         </div>
         <div>
-        <Container fluid className="layout width1000 border maroon">
+        <Container fluid className="layout width1000 border maroon main">
           <Grid celled stackable columns={2} className="black">
             <Grid.Column>
               <BookPlayer randomChapter={this.state.randomChapter} />
