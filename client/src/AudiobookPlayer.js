@@ -37,7 +37,8 @@ class AudiobookPlayer extends React.Component {
     randomChapter: [],
     thisIsTheBoolean: true,
     bookID:[],
-    bookURL:[]
+    bookURL:[],
+    loggedIn:false
   };
 
 
@@ -146,6 +147,7 @@ getSpecificBook = (id) => {
   getCurrentUser = userFromNav => {
     this.setState({ currentUser: userFromNav });
     this.getUserObj();
+
   };
 
   handleLike = event => {
@@ -153,68 +155,50 @@ getSpecificBook = (id) => {
       event.preventDefault();
     }
 
-    console.log(this.state.userObj);
+    // console.log(this.state.userObj);
+    // console.log(this.state.currentUser);
+    // console.log(!(this.state.userObj==={}));
+    // console.log(this.state.loggedIn);
+    
+    if(this.state.loggedIn){
+      let tempUser = this.state.userObj;
+    
+      if (!tempUser.likes.includes(this.state.book)) {
+      tempUser.likes.push(this.state.book);
+      }
 
-    let tempUser = this.state.userObj;
-    tempUser.likes.push(this.state.book);
-    // console.log(tempUser[0]);
+      this.setState({userObj:tempUser});
+      console.log(this.state.userObj);
 
-    console.log(this.state.currentUser);
+      axios
+      .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
+          .catch(e => { console.log(e)   });
+ 
+      
 
-
-    this.setState({userObj:tempUser});
-    console.log(this.state.userObj);
-
-    axios
-        .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
-            .catch(e => {
+    }else{
       alert("You must log in to store the books you like!");
-      // window.location.reload();
-    });
-   
-
-        
-
-
-    // axios
-    //     .put(`api/users/?email=${this.state.userObj.email}`, tempUser)
-    //     .then(res => this.setState({ userObj: tempUser }))
-    //     .catch(e => {
-    //   alert("You must log in to store the books you like!");
-    //   // window.location.reload();
-    // });
-    // axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
-    //   tempUser = res.data[0];
-    //   console.log(this.state.book.bkTitle);
-    //   let titles = [];
-    //   tempUser.likes.forEach(like => titles.push(like.bkTitle));
-    //   console.log(titles);
-    //   console.log();
-
-    //   if (!titles.includes(this.state.book.bkTitle)) {
-    //     tempUser.likes.push(this.state.book);
-    //   }
-
-    //
+      window.location.reload();
+    }
   
   };
 
 
   deleteBook=(titleToDelete)=>{
+    // console.log(titleToDelete);
     
     // console.log(this.state.userObj);
     let tempUser=this.state.userObj;
     let titles=this.state.userObj.likes;
     // console.log(titles);
-    // console.log(titleToDelete);
     let newTitles=titles.filter((item) => {return item.bkTitle!==titleToDelete})
     // console.log(newTitles);
     tempUser.likes=newTitles;
+    this.setState({userObj:tempUser});
     // console.log(tempUser);
-
     axios
-    .put(`api/users/?email=${this.state.currentUser}`, tempUser[0])
-    .then(res => this.setState({ userObj: tempUser }));
+      .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
+          .catch(e => { console.log(e)   });
 
   }
 
@@ -223,7 +207,9 @@ getSpecificBook = (id) => {
     axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
       // console.log(res.data);
       this.setState({ userObj: res.data[0] });
+      this.setState({loggedIn:true});
     });
+    
   }
 
 
@@ -316,7 +302,7 @@ getSpecificBook = (id) => {
           </Grid>
         </Container>
         <Sticky>
-        <Footer className="border footer" />
+        <Footer className="border footer ui footer form-page" />
         </Sticky>
       </div>
       </div>
