@@ -173,8 +173,6 @@ getSpecificBook = (id) => {
       axios
       .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
           .catch(e => { console.log(e)   });
- 
-      
 
     }else{
       alert("You must log in to store the books you like!");
@@ -186,7 +184,6 @@ getSpecificBook = (id) => {
 
   deleteBook=(titleToDelete)=>{
     // console.log(titleToDelete);
-    
     // console.log(this.state.userObj);
     let tempUser=this.state.userObj;
     let titles=this.state.userObj.likes;
@@ -216,10 +213,10 @@ getSpecificBook = (id) => {
 
   render() {
     return (
-      <div>
-      <div>
-
-        <Menu stackable fluid widths={3} className="blackborder header" >
+      <div className="all">,
+      {/* <div className="header"> */},
+    {/* <div> */}
+      <Menu stackable fluid widths={3} className="blackborder header " >
           <Menu.Item className="tanish">
             <Header1 />
           </Menu.Item>
@@ -257,7 +254,9 @@ getSpecificBook = (id) => {
             )}
           </Menu.Item>
         </Menu>
-        </div>
+    
+      {/* </div> */}
+
         <div>
         <Container fluid className="layout width1000 border maroon main">
           <Grid celled stackable columns={2} className="black">
@@ -301,12 +300,10 @@ getSpecificBook = (id) => {
             </Grid.Column>
           </Grid>
         </Container>
-        <StickyFooter>
-        <Sticky>
-        <Footer className="border footer ui footer form-page" />
-        </Sticky>
-        </StickyFooter>
+  
       </div>
+
+      <Footer className="border footer" />
       </div>
     );
   }

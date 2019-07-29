@@ -9,8 +9,6 @@ router.route("/")
 // Matches with "/api/users/:id"
 router
   .route("/:id")
-
-
   .get(usersController.findById) 
   .delete(usersController.remove);
 

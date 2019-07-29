@@ -94,28 +94,57 @@ width: 100% !important;
 
 
 .header{
-  height:10% !important;
-
+  /* position: absolute !important; */
+  top:0 !important;
+  /* height:10% !important; */
+  
+width:100% !important;
+}
+.all{
+  height:100% !important;
 }
 
 .main{
-  height:80% !important;
+  /* position: absolute !important; */
+  /* top:0 !important; */
+  /* height:80% !important; */
+  /* margin-top:100px; */
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  /* padding-bottom: 100px; height of your footer */
 
 }
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+ html,
+ body {
+  height: 100%;
+  position: relative;
+ }
+ /* .main-container {
 
-@media (min-height: 320px) {
-  .ui.footer.form-page { /* Increased specificity for SO snippet priority */
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-}
+ } */
+ /* footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ } */
 
 .footer
 {
+
   position: absolute !important;
+ 
   bottom:0 !important;
-  height:10% !important;
+ width:100%;
+  /* height:10% !important; */
 }
 
 .fontBlue{
