@@ -12,7 +12,7 @@ import NextButton from './components/NextButton';
 import LikeButton from './components/LikeButton';
 import Footer from './components/Footer';
 import axios from 'axios';
-
+import StickyFooter from 'react-sticky-footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { Button, Sticky } from 'semantic-ui-react';
@@ -301,9 +301,11 @@ getSpecificBook = (id) => {
             </Grid.Column>
           </Grid>
         </Container>
+        <StickyFooter>
         <Sticky>
         <Footer className="border footer ui footer form-page" />
         </Sticky>
+        </StickyFooter>
       </div>
       </div>
     );
