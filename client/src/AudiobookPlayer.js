@@ -196,7 +196,6 @@ getSpecificBook = (id) => {
     axios
       .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
           .catch(e => { console.log(e)   });
-
   }
 
 
@@ -213,9 +212,7 @@ getSpecificBook = (id) => {
 
   render() {
     return (
-      <div className="all">,
-      {/* <div className="header"> */},
-    {/* <div> */}
+      <div className="all">
       <Menu stackable fluid widths={3} className="blackborder header " >
           <Menu.Item className="tanish">
             <Header1 />
@@ -254,9 +251,6 @@ getSpecificBook = (id) => {
             )}
           </Menu.Item>
         </Menu>
-    
-      {/* </div> */}
-
         <div>
         <Container fluid className="layout width1000 border maroon main">
           <Grid celled stackable columns={2} className="black">

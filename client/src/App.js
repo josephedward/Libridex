@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
           {/* <Route exact path="/" component={Books} /> */}
           <Route exact path="/" component={AudiobookPlayer} />
