@@ -1,22 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AudiobookPlayer from "./AudiobookPlayer";
-import UserLibrary from "./UserLibrary";
+import Library from "./Library";
 import NoMatch from "./NoMatch";
-import Nav from "./components/Nav";
 
 function App() {
   return (
-    <Router>
-      <div>
-        {/* <Nav /> */}
+    <Router >
+      <div   >
         <Switch>
-          {/* <Route exact path="/" component={Books} /> */}
           <Route exact path="/" component={AudiobookPlayer} />
-          <Route exact path="/UserLibrary" component={UserLibrary} />
+          <Route className="fullHeight"  exact path="/Library" component={Library} />
           <Route component={NoMatch} />
         </Switch>
-      </div>
+        </div>
     </Router>
   );
 }

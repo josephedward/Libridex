@@ -1,3 +1,16 @@
+/* body > #root > div {
+  height: 100vh;
+} */
+/* html, body, #app, #app>div {
+  height: 100% !important;
+}
+[data-reactroot] 
+        {height: 100% !important; } */
+/* 
+        root {
+          min-height: 100vh;
+      } */
+
 body{
   background-image: url(./images/bookshelf.jpeg) !important;
 }
@@ -39,12 +52,19 @@ body{
   float: right !important;
 }
 
+
 .maroon{
 background-color: maroon !important;
 }
 
 .border{
 border:3px solid lightseagreen !important;
+}
+
+.border2{
+  border-top: 3px solid lightseagreen !important;
+  border-left: 3px solid lightseagreen !important;
+  border-right: 3px solid lightseagreen !important;
 }
 
 /* .height300{
@@ -92,6 +112,9 @@ width: 100% !important;
   background-color:white;
 }
 
+.fullHeight{
+  height:100vh;
+}
 
 .header{
   /* position: fixed !important; */

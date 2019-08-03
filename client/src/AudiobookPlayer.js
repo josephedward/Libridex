@@ -12,10 +12,12 @@ import NextButton from './components/NextButton';
 import LikeButton from './components/LikeButton';
 import Footer from './components/Footer';
 import axios from 'axios';
-import StickyFooter from 'react-sticky-footer';
+// import StickyFooter from 'react-sticky-footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { Button, Sticky } from 'semantic-ui-react';
+import { Button, 
+  // Sticky 
+} from 'semantic-ui-react';
 import {
   Grid,
   Container,
@@ -115,7 +117,6 @@ getSpecificBook = (id) => {
         bookURL:bookData.bkURL
       });
     });
-    // this.getUserObj();
   }
 
   setBook = bookData => {
@@ -155,10 +156,7 @@ getSpecificBook = (id) => {
       event.preventDefault();
     }
 
-    // console.log(this.state.userObj);
-    // console.log(this.state.currentUser);
-    // console.log(!(this.state.userObj==={}));
-    // console.log(this.state.loggedIn);
+
     
     if(this.state.loggedIn){
       let tempUser = this.state.userObj;
@@ -183,16 +181,11 @@ getSpecificBook = (id) => {
 
 
   deleteBook=(titleToDelete)=>{
-    // console.log(titleToDelete);
-    // console.log(this.state.userObj);
     let tempUser=this.state.userObj;
     let titles=this.state.userObj.likes;
-    // console.log(titles);
     let newTitles=titles.filter((item) => {return item.bkTitle!==titleToDelete})
-    // console.log(newTitles);
     tempUser.likes=newTitles;
     this.setState({userObj:tempUser});
-    // console.log(tempUser);
     axios
       .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
           .catch(e => { console.log(e)   });
@@ -213,7 +206,7 @@ getSpecificBook = (id) => {
   render() {
     return (
       <div className="all">
-      <Menu stackable fluid widths={3} className="blackborder header " >
+      <Menu stackable fluid widths={3} className="blackborder header" >
           <Menu.Item className="tanish">
             <Header1 />
           </Menu.Item>
@@ -252,7 +245,7 @@ getSpecificBook = (id) => {
           </Menu.Item>
         </Menu>
         <div>
-        <Container fluid className="layout width1000 border maroon main">
+        <Container fluid className="layout width1000 border2 maroon main">
           <Grid celled stackable columns={2} className="black">
             <Grid.Column>
               <BookPlayer randomChapter={this.state.randomChapter} />

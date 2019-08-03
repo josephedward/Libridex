@@ -1,22 +1,22 @@
 import React from "react";
-import { Col, Row, Container } from "./components/Grid";
+import { Col, Row} from "./components/Grid";
+
 import Jumbotron from "./components/Jumbotron";
+
+import {Grid, Container} from 'semantic-ui-react';
 
 function NoMatch() {
   return (
-    <Container fluid>
-      <Row>
-        <Col size="md-12">
-          <Jumbotron color="white">
-            <h1>404 Page Not Found</h1>
-            <h1>
-              <span role="img" aria-label="Face With Rolling Eyes Emoji">
-                🙄
-              </span>
+    <Container className="white1 fullHeight">
+          <Jumbotron className="white1 fullHeight center">
+            <Container className="white1 fullHeight center" >
+            <h1>404 Page Not Found
+            <span role="img" aria-label="Face With Rolling Eyes Emoji">
+              🙄
+            </span>
             </h1>
+            </Container>
           </Jumbotron>
-        </Col>
-      </Row>
     </Container>
   );
 }
