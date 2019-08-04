@@ -7,7 +7,8 @@ function UserLibrary(props){
         <div className="layout scroll border"
         style={{ height: 200 }}
         >
-            <h4>Books You Like</h4>
+            <h4><a href="../Library">
+                 Books You Like</a></h4>
            <List >
             {props.books && props.books.map(book => 
             <List.Item key={book.bkTitle}>

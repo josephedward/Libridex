@@ -1,9 +1,8 @@
 import React from "react";
-import { Col, Row} from "./components/Grid";
 
 import Jumbotron from "./components/Jumbotron";
 
-import {Grid, Container} from 'semantic-ui-react';
+import {Container} from 'semantic-ui-react';
 
 function NoMatch() {
   return (

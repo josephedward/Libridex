@@ -11,57 +11,53 @@
           min-height: 100vh;
       } */
 
-body{
+body {
   background-image: url(./images/bookshelf.jpeg) !important;
 }
 
-.segment{
-  height:100% !important;
+.segment {
+  height: 100% !important;
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  width:100%;
+  width: 100%;
 }
-.layout{
-
+.layout {
   text-align: center !important;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-color:   white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: white;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-.center{
+.center {
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  float:center!important;
+  float: center !important;
 }
 
-.floatcenter
-{
-  float:center!important;
+.floatcenter {
+  float: center !important;
 }
 
-.floatleft
-{
-  float:left!important;
+.floatleft {
+  float: left !important;
 }
 
-.floatright{
+.floatright {
   float: right !important;
 }
 
-
-.maroon{
-background-color: maroon !important;
+.maroon {
+  background-color: maroon !important;
 }
 
-.border{
-border:3px solid lightseagreen !important;
+.border {
+  border: 3px solid lightseagreen !important;
 }
 
-.border2{
+.border2 {
   border-top: 3px solid lightseagreen !important;
   border-left: 3px solid lightseagreen !important;
   border-right: 3px solid lightseagreen !important;
@@ -71,115 +67,139 @@ border:3px solid lightseagreen !important;
   h
 } */
 
-.width1000
-{
-  width:1000px !important;
+.width1000 {
+  width: 1000px !important;
 }
 
-.scroll{
+.scroll {
   overflow-y: scroll !important;
 }
 
-.controls{
-  float:center !important;
+.controls {
+  float: center !important;
 }
 
-.black{
+.black {
   background-color: black;
 }
 
-.fullWidth{
-width: 100% !important;
+.fullWidth {
+  width: 100% !important;
 }
 
-.tanish{
-  background-color:  moccasin !important;
+.halfWidth{
+  width:50% !important;
 }
 
-.blackborder{
+.contentMargin
+{
+  margin-top: 10vh !important;
+  margin-bottom: 10vh !important;
+}
+
+.tanish {
+  background-color: moccasin !important;
+}
+
+.blackborder {
   border: 3px solid black !important;
 }
 
-.border1{
+.border1 {
   border: 3px solid darkblue !important;
 }
-.lightblue{
+.lightblue {
   background-color: lightskyblue !important;
 }
 
-
-.white1{
-  background-color:white;
+.white1 {
+  background-color: white;
 }
 
-.fullHeight{
-  height:100vh;
+.fullHeight {
+  height: 100vh;
 }
 
-.header{
+.header {
   /* position: fixed !important; */
   /* margin-bottom:100px !important; */
   overflow: hidden !important;
   margin-bottom: 0 !important;
-  padding-top:0 !important;
-margin-top:0 !important;
-  top:0 !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  top: 0 !important;
   /* position: fixed !important; */
   /* height:10% !important; */
-width:100% !important;
+  width: 100% !important;
 }
-.all{
-  height:100% !important;
+.all {
+  height: 100% !important;
 }
 
-.main{
-  /* position: absolute !important; */
-  /* top:0 !important; */
-  /* height:80% !important; */
-  /* margin-top:100px; */
+.main {
   min-height: 100vh; /* will cover the 100% of viewport */
   overflow: hidden;
   display: block;
   position: relative;
-  /* padding-bottom: 100px; height of your footer */
-
 }
 * {
   box-sizing: border-box;
- }
- *:before,
- *:after {
+}
+*:before,
+*:after {
   box-sizing: border-box;
- }
- html,
- body {
+}
+html,
+body {
   height: 100%;
   position: relative;
- }
- /* .main-container {
+}
 
- } */
- /* footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
- } */
 
-.footer
-{
+.vert50{
+  margin-top:30vh !important;
+}
 
+.vertAlign {
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  width: '..';
+  height: '..';
+}
+
+.main2 {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+.footer {
   position: absolute !important;
- 
-  bottom:0 !important;
- width:100%;
+
+  bottom: 0 !important;
+  width: 100%;
   /* height:10% !important; */
 }
 
-.fontBlue{
-  font:blue !important;
+.fontBlue {
+  font: blue !important;
 }
 
-.font50{
+.font50 {
   font-size: 50px !important;
 }
 
@@ -190,7 +210,6 @@ width:100% !important;
 /* .column{
   height:300px;
 } */
-
 
 /* .signUpButton{
   float:right;
