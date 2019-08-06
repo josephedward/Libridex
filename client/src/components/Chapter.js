@@ -4,7 +4,7 @@ function Chapter(props){
     return(
 <div className="layout border">
 <h5>Chapter</h5>
-{props.randomChapter.chTitle}
+{props.randomChapter && props.randomChapter.chTitle}
 </div>);
 }
 

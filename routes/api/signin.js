@@ -17,15 +17,17 @@ router.route('/signup').post( function (req, res, next) {
     } = body;
     
     if (!email) {
+      alert('Error: Email cannot be blank.');
       return res.send({
         success: false,
-        message: 'Error: Email cannot be blank.'
-      });
+       });
+
+      
     }
     if (!password) {
+      alert('Error: Password cannot be blank.');
       return res.send({
         success: false,
-        message: 'Error: Password cannot be blank.'
       });
     }
     email = email.toLowerCase();
@@ -37,14 +39,16 @@ router.route('/signup').post( function (req, res, next) {
       email: email
     }, (err, previousUsers) => {
       if (err) {
+        alert('Server Error');
         return res.send({
           success: false,
-          message: 'Error: Server error'
+          // message: 'Error: Server error'
         });
       } else if (previousUsers.length > 0) {
+       alert('Error: Account already exist.')
         return res.send({
           success: false,
-          message: 'Error: Account already exist.'
+          // message: 'Error: Account already exist.'
         });
       }
       // Save the new user
@@ -53,14 +57,16 @@ router.route('/signup').post( function (req, res, next) {
       newUser.password = newUser.generateHash(password);
       newUser.save((err, user) => {
         if (err) {
+          alert('Error:Server Error')
           return res.send({
             success: false,
-            message: 'Error: Server error'
+            // message: 'Error: Server error'
           });
         }
+        alert('Signed Up')
         return res.send({
           success: true,
-          message: 'Signed up'
+          // message: 'Signed up'
         });
       });
     });

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import 'whatwg-fetch';
 
-import { getFromStorage, setInStorage } from './storage';
+import { getFromStorage, setInStorage } from '../storage/Storage';
 
 class Login extends Component {
   constructor(props) {

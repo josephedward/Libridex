@@ -8,13 +8,17 @@ import {
 } from 'semantic-ui-react';
 import { Menu } from 'semantic-ui-react';
 import { Grid, Container } from 'semantic-ui-react';
-import Jumbotron from './components/Jumbotron';
 import UserLibrary from './components/UserLibrary';
 import axios from 'axios';
 import Header1 from './components/Header';
 import Footer from './components/Footer';
 import BookContent from './components/BookContent';
 import BookPlayer from './components/BookPlayer';
+import Title from './components/Title';
+import Author from './components/Author';
+import BookImage from './components/BookImage';
+import Description from './components/Description';
+import Chapter from './components/Chapter';
 
 class Library extends React.Component {
   state = {
@@ -135,33 +139,49 @@ console.log(this.state.randomChapter);
         </Menu>
         <Container fluid className="layout width1000 border2 maroon main">
           {/* <Jumbotron className="fullHeight"> */}
-            {/* <Grid celled  stackable columns={2} 
-            className="black vert50" >*/}
-              <Grid.Row className="black halfWidth center contentMargin" >
-              {/*<Grid.Column > */}
+            <Grid celled  stackable columns={2} 
+           >
+              <Grid.Row className="black center contentMargin" >
+              <Grid.Column >
                 <UserLibrary 
 
                   books={this.state.userObj.likes}
                   deleteBook={this.deleteBook}
                   getSpecificBook={this.getSpecificBook}
                   />
-              {/* </Grid.Column>
-              <Grid.Column > */}
-              </Grid.Row>
-              <Grid.Row className="black halfWidth center contentMargin" >
+              </Grid.Column>
+              <Grid.Column >
+              {/* </Grid.Row> */}
+              {/* <Grid.Row className="black halfWidth center contentMargin" > */}
                 <BookContent book={this.state.book}
                 setChapter={this.setChapter}
                 />
-                </Grid.Row>
+
+                </Grid.Column>
+                </Grid.Row>              
                 <Grid.Row className="black halfWidth center contentMargin" >
                   <BookPlayer randomChapter={this.state.randomChapter}/>
                 </Grid.Row>
 
+                {/* <Grid stackable columns={2} className="black"> */}
+           <Grid.Row>
+            <Grid.Column verticalAlign="middle">
+              <BookImage verticalAlign="middle" image={this.state.book.bkImage} />
+            </Grid.Column>
+
+            <Grid.Column>
+              <Chapter randomChapter={this.state.randomChapter.chTitle}/>
+              <Title title={this.state.book.bkTitle} />
+              <Author author={this.state.book.bkAuthor} />
+              <Description description={this.state.book.bkDescription} />
+            </Grid.Column>
+            </Grid.Row>
+          {/* </Grid> */}
 
 
-              {/* </Grid.Column>
+              {/* </Grid.Column> */}
               
-            </Grid> */}
+            </Grid>
           {/* </Jumbotron> */}
         </Container>
         <Footer className="border footer" />

@@ -1,5 +1,7 @@
 import React from 'react';
-import { List, Icon, Popup } from 'semantic-ui-react';
+import { List, 
+  // Icon, Popup
+ } from 'semantic-ui-react';
 
 function BookContent(props) {
   return (
