@@ -1,14 +1,22 @@
 import React from "react";
 import {List, Icon, Popup} from 'semantic-ui-react';
 
+function loadLibrary() {
+    window.location.replace('../Library')
+}
+
+
+
 function UserLibrary(props){
     // console.log(props);
     return(
         <div className="layout scroll border"
         style={{ height: 200 }}
         >
-            <h4><a href="../Library">
-                 Books You Like</a></h4>
+            <h4 onClick={() => loadLibrary()}>Books You Like
+                {/* <a href="../Library">
+                 Books You Like</a> */}
+                 </h4>
            <List >
             {props.books && props.books.map(book => 
             <List.Item key={book.bkTitle}>
