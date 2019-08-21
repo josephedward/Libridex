@@ -12,7 +12,7 @@ function App() {
   return (
     <Router >
       <div   >
-        <GoogLog/>
+        {/* <GoogLog/> */}
         <Switch>
           <Route className="fullHeight" exact path="/" component={AudiobookPlayer} />
           <Route className="fullHeight"  exact path="/Library" component={Library} />
