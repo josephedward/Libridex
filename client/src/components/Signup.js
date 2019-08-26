@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react';
-import 'whatwg-fetch';
-
-
+import React, { Component } from "react";
+import { Button, Form } from "semantic-ui-react";
+import "whatwg-fetch";
 
 class Signup extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      signUpError: '',
-      signUpEmail: '',
-      signUpPassword: ''
+      signUpError: "",
+      signUpEmail: "",
+      signUpPassword: ""
     };
 
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(
@@ -45,10 +43,10 @@ class Signup extends Component {
     });
 
     // Post request to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
+    fetch("/api/account/signup", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         email: signUpEmail,
@@ -59,20 +57,25 @@ class Signup extends Component {
       //     .then(res => res.text())          // convert to plain text
       // .then(text => console.log(text))  // then log it out
       .then(json => {
-        console.log('json', json);
+        console.log("json", json);
         if (json.success) {
+          // json.message=
+
           this.setState({
             signUpError: json.message,
             isLoading: false,
-            signUpEmail: '',
-            signUpPassword: ''
+            signUpEmail: "",
+            signUpPassword: ""
           });
+
+
         } else {
           this.setState({
             signUpError: json.message,
             isLoading: false
           });
         }
+        
       });
   }
 
@@ -80,30 +83,34 @@ class Signup extends Component {
     const { signUpEmail, signUpPassword, signUpError } = this.state;
 
     return (
-      <Form>
+      <div>
+        <Form>
+          <Form.Group>
+            <Form.Input
+              label="Email Address"
+              type="email"
+              placeholder="Email"
+              value={signUpEmail}
+              onChange={this.onTextboxChangeSignUpEmail}
+            />
 
-        {signUpError ? <p>{signUpError}</p> : null}
-        <Form.Group >
-            
-        <Form.Input
-               label="Email Address"
-                type="email"
-                placeholder="Email"
-            value={signUpEmail}
-            onChange={this.onTextboxChangeSignUpEmail}
-          />
-
-<Form.Input
+            <Form.Input
               label="Password"
-                type="password"
-                placeholder="Password"
-            value={signUpPassword}
-            onChange={this.onTextboxChangeSignUpPassword}
-          />
-              <Button className="ui button blue"  onClick={this.onSignUp}>Register</Button>
+              type="password"
+              placeholder="Password"
+              value={signUpPassword}
+              onChange={this.onTextboxChangeSignUpPassword}
+            />
+          </Form.Group>
+          {signUpError ? <p>{signUpError}</p> : null}
 
-              </Form.Group>
-              </Form>
+          <Button className="ui button" color="blue" onClick={this.onSignUp}>
+         Sign Up
+        </Button>
+        </Form>
+
+
+      </div>
     );
   }
 }

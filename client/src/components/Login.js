@@ -1,10 +1,10 @@
 // import React from 'react';
 
-import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react';
-import 'whatwg-fetch';
+import React, { Component } from "react";
+import { Button, Form } from "semantic-ui-react";
+import "whatwg-fetch";
 
-import { getFromStorage, setInStorage } from '../storage/Storage';
+import { getFromStorage, setInStorage } from "../storage/Storage";
 
 class Login extends Component {
   constructor(props) {
@@ -12,13 +12,13 @@ class Login extends Component {
 
     this.state = {
       isLoading: true,
-      token: '',
-      signUpError: '',
-      signInError: '',
-      signInEmail: '',
-      signInPassword: '',
-      signUpEmail: '',
-      signUpPassword: ''
+      token: "",
+      signUpError: "",
+      signInError: "",
+      signInEmail: "",
+      signInPassword: "",
+      signUpEmail: "",
+      signUpPassword: ""
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(
@@ -44,11 +44,11 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    const obj = getFromStorage('the_main_app');
+    const obj = getFromStorage("the_main_app");
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      fetch('/api/account/verify?token=' + token)
+      fetch("/api/account/verify?token=" + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
@@ -102,10 +102,10 @@ class Login extends Component {
     });
 
     // Post request to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
+    fetch("/api/account/signup", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         email: signUpEmail,
@@ -116,13 +116,13 @@ class Login extends Component {
       //     .then(res => res.text())          // convert to plain text
       // .then(text => console.log(text))  // then log it out
       .then(json => {
-        console.log('json', json);
+        console.log("json", json);
         if (json.success) {
           this.setState({
             signUpError: json.message,
             isLoading: false,
-            signUpEmail: '',
-            signUpPassword: ''
+            signUpEmail: "",
+            signUpPassword: ""
           });
         } else {
           this.setState({
@@ -141,10 +141,10 @@ class Login extends Component {
     });
 
     // Post request to backend
-    fetch('/api/account/signin', {
-      method: 'POST',
+    fetch("/api/account/signin", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         email: signInEmail,
@@ -153,14 +153,14 @@ class Login extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        console.log('json', json);
+        console.log("json", json);
         if (json.success) {
-          setInStorage('the_main_app', { token: json.token });
+          setInStorage("the_main_app", { token: json.token });
           // console.log(signInEmail);
           this.setState({
             signInError: json.message,
             isLoading: false,
-            signInPassword: '',
+            signInPassword: "",
             signInEmail: signInEmail,
             token: json.token
           });
@@ -178,16 +178,16 @@ class Login extends Component {
     this.setState({
       isLoading: true
     });
-    const obj = getFromStorage('the_main_app');
+    const obj = getFromStorage("the_main_app");
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      fetch('/api/account/logout?token=' + token)
+      fetch("/api/account/logout?token=" + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
             this.setState({
-              token: '',
+              token: "",
               isLoading: false
             });
           } else {
@@ -213,46 +213,44 @@ class Login extends Component {
     } = this.state;
 
     if (isLoading) {
-      return (
-        <div>
-          {/* <p>Loading...</p> */}
-        </div>
-      );
+      return <div>{/* <p>Loading...</p> */}</div>;
     }
 
     if (!token) {
       return (
-        <Form>
-            {signInError ? <div>{signInError}</div> : null}
-            <Form.Group >
-             
+        <div>
+          <Form>
+            <Form.Group>
               {/* <label>Email Address</label> */}
               <Form.Input
-               label="Email Address"
+                label="Email Address"
                 type="email"
                 placeholder="Email"
                 value={signInEmail}
                 onChange={this.onTextboxChangeSignInEmail}
               />
-            
 
               <Form.Input
-              label="Password"
+                label="Password"
                 type="password"
                 placeholder="Password"
                 value={signInPassword}
                 onChange={this.onTextboxChangeSignInPassword}
               />
-              <Button className="ui button" color="blue" onClick={this.onSignIn}>Sign In</Button>
-              </Form.Group>
-              </Form>
+            </Form.Group>
+          </Form>
+          {signInError ? <div>{signInError}</div> : null}
+          <Button className="ui button" color="blue" onClick={this.onSignIn}>
+            Sign In
+          </Button>
+        </div>
       );
     }
 
     return (
       <div>
-        <h5 >Welcome {this.state.signInEmail}</h5>
-        <Button className="ui secondary button" onClick={this.logout}>
+        <h5>Welcome {this.state.signInEmail}</h5>
+        <Button className="ui button" onClick={this.logout}>
           Logout
         </Button>
         {/* <br/> */}

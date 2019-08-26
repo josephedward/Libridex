@@ -230,7 +230,7 @@ getSpecificBook = (id) => {
                     this.handleSignUpClick();
                   }}
                 >
-                  Sign Up
+                  Register
                 </Button>
               </Grid.Column>
             </Grid>

@@ -1,6 +1,13 @@
 Audiobook Shuffle
 
-Pandora (or Spotify et al) for Audiobooks. Users would log in (authentication etc comes last as compared to core function - simulating the user experience), then select a genre or author. A chapter of an audiobook belonging to said genre/author would be played (this will probably be using a premade react-media-player). Upon finish, another chapter of a different but related audiobook would play. Groupings would initially be built on genre or author, but ideally (there is enough time) could be built on user preferences. This would be accomplished through use of bayesian inference, with the evaluated hypothesis simply being whether or the user will like the next suggested book. This might be challenging with an app with millions of users and books, and then storing the predictions/analytics as well...but I could just start with doing it for a single user in-memory with a handful of books (librivox's API seems to limit to 50/hour anyways) just over the course of a single use period. It would be the simplest possible working implementation of bayes analysis. If that proves too difficult, I can use more simple statistical methods. For the MVP:
+Pandora (or Spotify et al) for Audiobooks. 
+Users would log in (authentication etc comes last as compared to core function - simulating the user experience), then select a genre or author. 
+A chapter of an audiobook belonging to said genre/author would be played (this will probably be using a premade react-media-player). 
+Upon finish, another chapter of a different but related audiobook would play. 
+Groupings would initially be built on genre or author, but ideally (there is enough time) could be built on user preferences. 
+This would be accomplished through use of bayesian inference, with the evaluated hypothesis simply being whether or the user will like the next suggested book. This might be challenging with an app with millions of users and books, and then storing the predictions/analytics as well...but I could just start with doing it for a single user in-memory with a handful of books (librivox's API seems to limit to 50/hour anyways) just over the course of a single use period.
+It would be the simplest possible working implementation of bayes analysis. 
+If that proves too difficult, I can use more simple statistical methods. For the MVP:
 
 - API call to audibook service
 - Database of books (built with call? could be quite large with audio files)

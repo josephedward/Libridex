@@ -17,17 +17,19 @@ router.route('/signup').post( function (req, res, next) {
     } = body;
     
     if (!email) {
-      alert('Error: Email cannot be blank.');
+      // alert('Error: Email cannot be blank.');
       return res.send({
         success: false,
+        message:'EMAIL CANNOT BE BLANK!'
        });
 
       
     }
     if (!password) {
-      alert('Error: Password cannot be blank.');
+      // alert('Error: Password cannot be blank.');
       return res.send({
         success: false,
+        message: 'PASSWORD CANNOT BE BLANK!'
       });
     }
     email = email.toLowerCase();
@@ -39,16 +41,16 @@ router.route('/signup').post( function (req, res, next) {
       email: email
     }, (err, previousUsers) => {
       if (err) {
-        alert('Server Error');
+        // alert('Server Error');
         return res.send({
           success: false,
-          // message: 'Error: Server error'
+          message: 'UNKNOWN SERVER ERROR'
         });
       } else if (previousUsers.length > 0) {
-       alert('Error: Account already exist.')
+      //  alert('')
         return res.send({
           success: false,
-          // message: 'Error: Account already exist.'
+          message: 'ACCOUNT EXISTS - PLEASE LOG IN'
         });
       }
       // Save the new user
@@ -57,16 +59,17 @@ router.route('/signup').post( function (req, res, next) {
       newUser.password = newUser.generateHash(password);
       newUser.save((err, user) => {
         if (err) {
-          alert('Error:Server Error')
+          // alert('Error:Server Error')
           return res.send({
             success: false,
-            // message: 'Error: Server error'
+            message: 'UNKNOWN SERVER ERROR'
+
           });
         }
-        alert('Signed Up')
+        // alert('Signed Up')
         return res.send({
           success: true,
-          // message: 'Signed up'
+          message: 'SIGNED UP'
         });
       });
     });
@@ -94,13 +97,13 @@ router.route('/signup').post( function (req, res, next) {
     if (!email) {
       return res.send({
         success: false,
-        message: 'Error: Email cannot be blank.'
+        message: 'EMAIL CANNOT BE BLANK'
       });
     }
     if (!password) {
       return res.send({
         success: false,
-        message: 'Error: Password cannot be blank.'
+        message: 'PASSWORD CANNOT BE BLANK'
       });
     }
     email = email.toLowerCase();
@@ -112,20 +115,20 @@ router.route('/signup').post( function (req, res, next) {
         console.log('err 2:', err);
         return res.send({
           success: false,
-          message: 'Error: server error'
+          message: 'UNKNOWN SERVER ERROR'
         });
       }
       if (users.length != 1) {
         return res.send({
           success: false,
-          message: 'Error: Invalid'
+          message: 'USER DOES NOT EXIST - PLEASE SIGN UP'
         });
       }
       const user = users[0];
       if (!user.validPassword(password)) {
         return res.send({
           success: false,
-          message: 'Error: Invalid'
+          message: 'INVALID PASSWORD'
         });
       }
       // Otherwise correct user
@@ -136,12 +139,12 @@ router.route('/signup').post( function (req, res, next) {
           console.log(err);
           return res.send({
             success: false,
-            message: 'Error: server error'
+            message: 'UNKNOWN SERVER ERROR'
           });
         }
         return res.send({
           success: true,
-          message: 'Valid sign in',
+          message: 'SESSION STORED',
           token: doc._id,
           name:email
         });
@@ -171,12 +174,12 @@ router.route('/signup').post( function (req, res, next) {
         console.log(err);
         return res.send({
           success: false,
-          message: 'Error: Server error'
+          message: 'SESSION ERROR'
         });
       }
       return res.send({
         success: true,
-        message: 'Good'
+        message: 'LOGGED OUT'
       });
     });
   });
@@ -203,19 +206,19 @@ router.route('/signup').post( function (req, res, next) {
         console.log(err);
         return res.send({
           success: false,
-          message: 'Error: Server error'
+          message: 'SERVER VERIFICATION ERROR'
         });
       }
       if (sessions.length != 1) {
         return res.send({
           success: false,
-          message: 'Error: Invalid'
+          message: 'INVALID SESSION'
         });
       } else {
         // DO ACTION
         return res.send({
           success: true,
-          message: 'Good'
+          message: 'VERIFIED'
         });
       }
     });

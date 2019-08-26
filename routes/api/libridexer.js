@@ -7,17 +7,7 @@ const router = require('express').Router();
 let visitedLink;
 let book = {};
 
-// function testNestedCalls(theCall) {
-//   theCall
-//     .then(() => {
-//       console.log(chalk.blue.bgYellow('API calls executed '));
-//       // console.trace();
-//     })
-//     .catch(e => {
-//       console.log(chalk.red('callback error: ') + e);
-//       // console.trace();
-//     });
-// }
+
 
 getGenreLBVX = genre => {
   console.log(chalk.green('contacting librivox'));
@@ -32,51 +22,9 @@ getSpecificBookLBVX=(id)=>{
     `https://librivox.org/api/feed/audiobooks/id/${id}`
   );
 }
-// getAuthorLBVX = author => {
-//   console.log(chalk.green('contacting librivox'));
-//   return axios.get(
-//     `https://librivox.org/api/feed/audiobooks/author/^${author}?format=json`
-//   );
-// };
 
-// //just returns first 17
-// getAllLBVX = () => {
-//   console.log(chalk.green('contacting librivox'));
-//   return axios.get(
-//     'https://librivox.org/api/feed/audiobooks/title/^all?format=json'
-//   );
-// };
 
-// //SINGLE URL
-// getRequestURL = lbvxRequest => {
-//   console.log(chalk.green('finding 1 URL from Response'));
-//   return (lbvx_URL = lbvxRequest.then(res => {
-//     let lbvx_URL;
-//     wholeResponse = _.toArray(res.data.books);
-//     // console.log([wholeResponse]);
-//     // wholeResponse.forEach(element => lbvx_URLs.push(element.url_librivox));
-//     let randIndex = Math.floor(Math.random() * (wholeResponse.length + 1));
-//     console.log(randIndex);
-//     lbvx_URL = wholeResponse[randIndex].url_librivox;
-//     book.bkID=wholeResponse[randIndex].id;
-//     book.bkURL=lbvx_URL;
-//     console.log(lbvx_URL);
-//     return book;
-//   }));
-// };
 
-// getBookPage = book => {
-//   console.log(book);
-//   console.log(chalk.green('Fetching page content from URL'));
-//   return (bookPage = book.bkURL.then(page => {
-//     axios.get(page).then(
-//       res => {
-//         // buildBookObj(res,book);
-//       }
-//       // playRandomChapter(buildBookObj(res))}
-//     );
-//   }));
-// };
 
 //build book object
 //then send to mongo
