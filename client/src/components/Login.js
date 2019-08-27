@@ -241,7 +241,7 @@ class Login extends Component {
           </Form>
           {signInError ? <div>{signInError}</div> : null}
           <Button className="ui button" color="blue" onClick={this.onSignIn}>
-            Sign In
+            Log In
           </Button>
         </div>
       );

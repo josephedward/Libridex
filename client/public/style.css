@@ -201,6 +201,8 @@ body {
 
 .font50 {
   font-size: 50px !important;
+
+  /* font-stretch: extra-expanded !important; */
 }
 
 a {

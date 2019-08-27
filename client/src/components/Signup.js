@@ -62,7 +62,7 @@ class Signup extends Component {
           // json.message=
 
           this.setState({
-            signUpError: json.message,
+            signUpError: "REGISTRATION SUCCESSFUL",
             isLoading: false,
             signUpEmail: "",
             signUpPassword: ""
@@ -105,7 +105,7 @@ class Signup extends Component {
           {signUpError ? <p>{signUpError}</p> : null}
 
           <Button className="ui button" color="blue" onClick={this.onSignUp}>
-         Sign Up
+         Register
         </Button>
         </Form>
 
