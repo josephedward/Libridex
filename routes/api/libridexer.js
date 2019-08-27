@@ -4,7 +4,6 @@ const cheerio = require('cheerio');
 const chalk = require('chalk');
 const router = require('express').Router();
 
-let visitedLink;
 let book = {};
 
 

@@ -247,7 +247,7 @@ getSpecificBook = (id) => {
         <div>
         <Container fluid className="layout width1000 border2 maroon main">
           <Grid celled stackable columns={2} className="black">
-            <Grid.Column>
+            <Grid.Column verticalAlign="middle">
               <BookPlayer randomChapter={this.state.randomChapter} />
               <Grid.Row>
                 <Grid columns={2}>

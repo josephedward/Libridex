@@ -9,7 +9,7 @@ function NextButton (props){
     return(
         <Button className="fullWidth center" color="blue" onClick={props.handleNext}>
         <p>Next</p>
-        <Icon  name="sync alternate"/>
+        <Icon name="sync alternate"/>
         </Button>
     )
 }
