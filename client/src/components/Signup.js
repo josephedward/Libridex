@@ -52,6 +52,7 @@ class Signup extends Component {
         email: signUpEmail,
         password: signUpPassword
       })
+
     })
       // .then(res => res.json())
       //     .then(res => res.text())          // convert to plain text
@@ -59,15 +60,15 @@ class Signup extends Component {
       .then(json => {
         console.log("json", json);
         if (json.success) {
-          // json.message=
-
+        
           this.setState({
-            signUpError: "REGISTRATION SUCCESSFUL",
+            signUpError:json.message ,
             isLoading: false,
             signUpEmail: "",
             signUpPassword: ""
           });
 
+  json.message="REGISTRATION SUCCESSFUL"
 
         } else {
           this.setState({
