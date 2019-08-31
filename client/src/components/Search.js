@@ -22,52 +22,26 @@ import SearchBox from "./SearchBox";
 //   })
 
 function Search(props) {
-  // state={
-  //   genres:[]
-  // }
-
-  // componentDidMount(){
-
-  //   this.getGenres();
-  // }
-
-  // render(props){
+  
 
   function getGenres() {
     let gList = [];
     $.getJSON(
       "http://www.whateverorigin.org/get?url=" +
         encodeURIComponent(
-          "http://librivox.org/search?primary_key=0&search_category=genre&search_page=1&search_form=get_results"
-        ) +
-        "&callback=?",
+"http://librivox.org/search?primary_key=0&search_category=genre&search_page=1&search_form=get_results")+"&callback=?",
       function(data) {
-        // alert(data.contents);
         let $cl = cheerio.load(data.contents);
-        // console.log($cl.html());
         $cl("option").each(function(i, element) {
-          // if(i<144){
+
           if (i < 144)
             gList.push(
               `<option value="${$cl(element).text()}">${$cl(element).text()}</option>`)
-              // $cl(element).text());
-              
-          // }
+           
         });
-      //   let newGlist=[]
-      
-      //   gList.forEach(elem => {
-      //     newGlist.push(elem.replace("(.*?>)",""));
-      //   })  
-      // console.log(newGlist);  
         return gList;
       }
     );
-    // console.log(gList);
-    // this.setState({genres:gList})
-      let gL=gList.join('');
-      // let newGlist=gL.replace('"(.*?>)"',"");
-    // $("#genreOptions").append(gList.join())
     return gList;
   }
 
@@ -78,7 +52,6 @@ function Search(props) {
       <Grid columns={2}>
         <Grid.Column>
           <Form.Field>
-            {/* {getGenres()} */}
 
             <Form.Input
               name="searchText"
@@ -129,7 +102,8 @@ function Search(props) {
              
              {/* <option value="Short Stories > Anthologies">Short Stories > Anthologies</option><option value="Short Stories > Single Author Collections">Short Stories > Single Author Collections</option>
               */}
-             
+                         
+             <option value="Science Fiction">Science Fiction</option>
              <option value="Sports Fiction">Sports Fiction</option>
              
              {/* <option value="Suspense, Espionage, Political & Thrillers">Suspense, Espionage, Political & Thrillers</option><option value="War & Military Fiction">War & Military Fiction</option>
