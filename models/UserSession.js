@@ -11,6 +11,10 @@ const UserSessionSchema = new mongoose.Schema({
   isDeleted: {
     type: Boolean,
     default: false
+  },
+  bookscalled:{
+    type: Object,
+    default:[]
   }
 });
 module.exports = mongoose.model('UserSession', UserSessionSchema);

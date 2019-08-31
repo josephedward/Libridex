@@ -5,6 +5,13 @@ const Schema = mongoose.Schema;
 
 const userschema = new Schema({
 
+  firstname:{type:String,
+  default:'Assy'
+  },
+  lastname:{type:String,
+    default:'McGhee'
+  },
+
   email: { type: String, 
     required: true,
   default:'' },

@@ -9,6 +9,12 @@ const routes = require("./routes");
 // const lbdx =require("./libridexer");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const passport = require("passport");
+const users = require("./routes/api/users");
+
+
+
+
 app.use(logger('dev'));
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -22,9 +28,20 @@ if (process.env.NODE_ENV === "production") {
 app.use("/",routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/libridex");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/libridex", {useNewUrlParser:true})
+ .then(() => console.log(chalk.blue("MongoDB successfully connected @"+process.env.MONGODB_URI || "mongodb://localhost/libridex")))
+  .catch(err => console.log(err));
 
-// console.log("this is the database"+process.env.MONGODB_URI || "mongodb://localhost/libridex");
+
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/users", users);
+
+
 
 
 // Start the API server
