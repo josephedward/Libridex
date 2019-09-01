@@ -1,29 +1,31 @@
-import React from 'react';
+import React from "react";
 import {
   Button,
   Form,
-  Message,
+  Image,
+  // Segment,
+  Header,
   Menu,
   Grid,
   Container
-} from 'semantic-ui-react';
-import Header1 from './components/Header';
-import Footer from './components/Footer';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import axios from 'axios';
+} from "semantic-ui-react";
+import Header1 from "./components/Header";
+import Footer from "./components/Footer";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import axios from "axios";
 
-
+const padSty = {
+  padding: "20px"
+};
 
 class SignupPage extends React.Component {
-
   state = {
     currentUser: null,
-    userObj: {},
+    userObj: {}
     // book: {},
     // randomChapter:{}
   };
-
 
   getCurrentUser = userFromNav => {
     this.setState({ currentUser: userFromNav });
@@ -39,13 +41,13 @@ class SignupPage extends React.Component {
   }
 
   handleLogInClick() {
-    console.log('login');
+    console.log("login");
     this.setState({ thisIsTheBoolean: true });
     // this.state.thisIsTheBoolean=false;
   }
 
   handleSignUpClick() {
-    console.log('signup');
+    console.log("signup");
     this.setState({ thisIsTheBoolean: false });
     // this.state.thisIsTheBoolean=false;
   }
@@ -91,18 +93,61 @@ class SignupPage extends React.Component {
             )}
           </Menu.Item>
         </Menu>
-        <Container fluid className="layout width1000 border2 maroon main">
-          <Form success>
-            <Form.Input label="Email" placeholder="joe@schmoe.com" />
-            <Message
-              success
-              header="Form Completed"
-              content="You're all signed up for the newsletter"
-            />
-            <Button>Submit</Button>
-          </Form>
+        <Container
+          fluid
+
+          className="main center layout maroon width1000 border2"
+       style={padSty}
+       >
+          {/* <Segment > */}
+          <Header
+          // celled
+            className="text-center blackborder font50 black fontBlue">
+            <h1 className="white1">
+              Create your Libridex account
+            </h1>
+          </Header>
+          <Grid stackable fluid celled columns={2} 
+          className="blackborder"
+          >
+            <Grid.Column color="white1">
+              <Form>
+                <Form.Group widths="equal">
+                  <Form.Input
+                    fluid
+                    label="First name"
+                    placeholder="First name"
+                  />
+                  <Form.Input fluid label="Last name" placeholder="Last name" />
+                </Form.Group>
+                <Form.Input label="Email" placeholder="email@email.com" />
+                <Form.Group widths="equal">
+                  <Form.Input fluid label="Password" placeholder="Password" />
+                  <Form.Input
+                    fluid
+                    label="Confirm Password"
+                    placeholder="Confirm Password"
+                  />
+                </Form.Group>
+
+                <Button>Submit</Button>
+              </Form>
+            </Grid.Column>
+            <Grid.Column color="white1">
+              <Image
+                src="./images/book1.jpg"
+                // size="medium"
+                floated="left"
+                rounded
+                size="large"
+              />
+            </Grid.Column>
+          </Grid>
+          {/* </Segment> */}
         </Container>
-        <Footer className="border footer" />
+        <footer>
+          <Footer className="border footer" />
+        </footer>
       </div>
     );
   }

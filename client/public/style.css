@@ -22,9 +22,15 @@ body {
   margin-right: auto !important;
   width: 100%;
 }
+
+.nicefont{
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ 
+}
+
+
 .layout {
   text-align: center !important;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background-color: white;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -66,6 +72,10 @@ body {
 /* .height300{
   h
 } */
+.padding{
+  padding:20px !important;
+}
+
 
 .width1000 {
   width: 1000px !important;
@@ -188,9 +198,14 @@ body {
 }
 
 .footer {
-  position: absolute !important;
+  position: fixed !important;
 
   bottom: 0 !important;
+  width: 100%;
+
+  /* position: absolute; */
+  left: 0;
+  bottom: 0;
   width: 100%;
   /* height:10% !important; */
 }
