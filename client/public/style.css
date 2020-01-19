@@ -1,0 +1,228 @@
+
+body {
+  background-image: url(./images/bookshelf.jpeg) !important;
+}
+
+.segment {
+  height: 100% !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+}
+
+.nicefont{
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ 
+}
+
+
+.layout {
+  text-align: center !important;
+  background-color: white;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.center {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: center !important;
+}
+
+.floatcenter {
+  float: center !important;
+}
+
+.floatleft {
+  float: left !important;
+}
+
+.floatright {
+  float: right !important;
+}
+
+.maroon {
+  background-color: maroon !important;
+}
+
+.border {
+  border: 3px solid lightseagreen !important;
+}
+
+.border2 {
+  border-top: 3px solid lightseagreen !important;
+  border-left: 3px solid lightseagreen !important;
+  border-right: 3px solid lightseagreen !important;
+}
+
+/* .height300{
+  h
+} */
+.padding{
+  padding:20px !important;
+}
+
+
+.width1000 {
+  width: 1000px !important;
+}
+
+.scroll {
+  overflow-y: scroll !important;
+}
+
+.controls {
+  float: center !important;
+}
+
+.black {
+  background-color: black;
+}
+
+.fullWidth {
+  width: 100% !important;
+}
+
+.halfWidth{
+  width:50% !important;
+}
+
+.contentMargin
+{
+  margin-top: 10vh !important;
+  margin-bottom: 10vh !important;
+}
+
+.tanish {
+  background-color: moccasin !important;
+}
+
+.blackborder {
+  border: 3px solid black !important;
+}
+
+.border1 {
+  border: 3px solid darkblue !important;
+}
+.lightblue {
+  background-color: lightskyblue !important;
+}
+
+.white1 {
+  background-color: white;
+}
+
+.fullHeight {
+  height: 100vh;
+}
+
+.header {
+  overflow: hidden !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  top: 0 !important;
+}
+
+.all {
+  height: 100% !important;
+}
+
+.main {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+
+.vert50{
+  margin-top:30vh !important;
+}
+
+.vertAlign {
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  width: '..';
+  height: '..';
+}
+
+.main2 {
+  min-height: 100vh; 
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+.footer {
+  position: fixed !important;
+  bottom: 0 !important;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.fontBlue {
+  font: blue !important;
+}
+
+.font50 {
+  font-size: 50px !important;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+ }.button {
+  display: inline-block;
+  max-width: 300px;
+  margin-top: 50px;
+  border: 0;
+  padding: 0 18px;
+  text-align: left;
+  width: 100%;
+  height: 37px;
+  border-radius: 4px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+  color: rgba(0, 0, 0, 0.84) !important;
+  fill: rgba(0, 0, 0, 0.84) !important;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
+  font: inherit;
+  outline: none;
+ }.button .svgIcon {
+  vertical-align: middle;
+  fill: rgba(0, 0, 0, 0.54);
+  padding-right: 4px;
+  height: 37px;
+  display: inline-block;
+ }
