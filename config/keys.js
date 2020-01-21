@@ -1,3 +1,3 @@
 module.exports={
-    secretOrKey:'test'
+    secretOrKey:process.env.SECRET_OR_KEY
 }

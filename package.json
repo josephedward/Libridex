@@ -13,7 +13,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "test": "sudo node ./tests/get_reservation_test.js"
   },
   "author": "Joseph Edward",
   "license": "MIT",
@@ -23,6 +24,8 @@
     "babel-jest": "23.6.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cheerio": "^1.0.0-rc.3",
     "concurrently": "^4.1.2",
     "express": "^4.17.1",

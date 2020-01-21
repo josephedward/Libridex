@@ -27,10 +27,12 @@ const userschema = new Schema({
     default:''
    },
 
-  isDeleted:{
-    type:Boolean,
-    default:false
-  },
+/* What was this used for?? */
+  // isDeleted:{
+  //   type:Boolean,
+  //   default:false
+  // },
+  
   date: { type: Date, default: Date.now }
 });
 

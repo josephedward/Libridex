@@ -1,5 +1,4 @@
 node_modules
 authentication/
-a.sh
-cfp.sh
 misc
+.env
