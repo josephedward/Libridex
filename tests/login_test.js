@@ -12,8 +12,8 @@ describe('it should get user account from the API', function () {
     // configure request and response
     var mockReq = {
       body: {
-        username: 'johndoe',
-        password: 'secret'
+        email: 'johndoe@email.com',
+        password: 'testPass'
       },
       logIn: function () {}
     };

@@ -14,7 +14,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "test": "sudo node ./tests/get_reservation_test.js"
+    "test": "sudo node ./tests/login_pp_test.js"
   },
   "author": "Joseph Edward",
   "license": "MIT",
@@ -42,6 +42,7 @@
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
     "passport-jwt": "^4.0.0",
+    "proxyquire": "^2.1.3",
     "qs": "^6.8.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -51,6 +52,8 @@
     "react-textarea-autosize": "^7.1.0",
     "request": "^2.88.0",
     "semantic-ui-react": "^0.87.3",
+    "sinon": "^8.1.0",
+    "sinon-chai": "^3.4.0",
     "typescript": "^3.5.3",
     "validator": "^11.1.0",
     "whatwg-fetch": "^3.0.0"
