@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Player";
-import Library from "./pages/Library";
+import Library from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import RegisterUser from "./pages/Registration"
 import SignOn from "./pages/Login"
@@ -37,8 +37,8 @@ function App(props) {
       <div   >
         <Switch>
           <Route className="fullHeight" exact path="/" component={Home} />
-          <PrivateRoute className="fullHeight"  exact path="/library" component={Library} />
-          <Route className="fullHeight"  exact path="/signon" component={SignOn} />
+          <PrivateRoute className="fullHeight"  exact path="/profile" component={Library} />
+          <Route className="fullHeight"  exact path="/login" component={SignOn} />
           <Route className="fullHeight"  exact path="/register" component={RegisterUser} />
           {/* REDIRECTS IF NOT LOGGED IN */}
           {/* <PrivateRoute className="fullHeight"  exact path="/admin" component={Admin} /> */}

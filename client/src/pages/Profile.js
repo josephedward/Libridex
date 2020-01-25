@@ -13,84 +13,69 @@ import Author from '../components/Author';
 import BookImage from '../components/BookImage';
 import Description from '../components/Description';
 import Chapter from '../components/Chapter';
-
-
 import { useAuth0 } from "../react-auth0-spa";
 
 
-class Library extends React.Component {
-  state = {
-    currentUser: null,
-    userObj: {},
-    book: {},
-    randomChapter: {}
-  };
+// class Library extends React.Component {
+
+function Profile(){
+
+  // state = {
+  //   currentUser: null,
+  //   userObj: {},
+  //   book: {},
+  //   randomChapter: {}
+  // };
   
 
-  componentDidMount() {
-    // this.getCurrentUser();
-    
-  }
 
-  getCurrentUser = userFromNav => {
-    this.setState({ currentUser: userFromNav });
-    this.getUserObj();
-  };
+  // getCurrentUser = userFromNav => {
+  //   this.setState({ currentUser: userFromNav });
+  //   this.getUserObj();
+  // };
 
-  handleLogInClick() {
-    console.log('login');
-    this.setState({ thisIsTheBoolean: true });
-    // this.state.thisIsTheBoolean=false;
-  }
-  
 
-  handleSignUpClick() {
-    console.log('signup');
-    this.setState({ thisIsTheBoolean: false });
-    // this.state.thisIsTheBoolean=false;
-  }
+  // deleteBook = titleToDelete => {
+  //   let tempUser = this.state.userObj;
+  //   let titles = this.state.userObj.likes;
+  //   let newTitles = titles.filter(item => {
+  //     return item.bkTitle !== titleToDelete;
+  //   });
+  //   tempUser.likes = newTitles;
+  //   this.setState({ userObj: tempUser });
+  //   axios
+  //     .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
+  //     .catch(e => {
+  //       console.log(e);
+  //     });
+  // };
 
-  deleteBook = titleToDelete => {
-    let tempUser = this.state.userObj;
-    let titles = this.state.userObj.likes;
-    let newTitles = titles.filter(item => {
-      return item.bkTitle !== titleToDelete;
-    });
-    tempUser.likes = newTitles;
-    this.setState({ userObj: tempUser });
-    axios
-      .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
-      .catch(e => {
-        console.log(e);
-      });
-  };
+  // getSpecificBook = id => {
+  //   console.log(id);
+  //   axios.get(`/api/audiobook/book/${id}`).then(res => {
+  //     let bookData = res.data;
+  //     this.setBook(bookData);
+  //   });
+  // };
 
-  getSpecificBook = id => {
-    console.log(id);
-    axios.get(`/api/audiobook/book/${id}`).then(res => {
-      let bookData = res.data;
-      this.setBook(bookData);
-    });
-  };
+  // setBook = bookData => {
+  //   this.setState({ book: bookData });
+  // };
 
-  setBook = bookData => {
-    this.setState({ book: bookData });
-  };
+  // setChapter = chap => {
+  //   console.log(this.state.randomChapter);
+  //   this.setState({ randomChapter: chap });
+  //   console.log(this.state.randomChapter);
+  // };
 
-  setChapter = chap => {
-    console.log(this.state.randomChapter);
-    this.setState({ randomChapter: chap });
-    console.log(this.state.randomChapter);
-  };
+  // getUserObj() {
+  //   axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
+  //     this.setState({ userObj: res.data[0] });
+  //     this.setState({ loggedIn: true });
+  //   });
+  // }
 
-  getUserObj() {
-    axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
-      this.setState({ userObj: res.data[0] });
-      this.setState({ loggedIn: true });
-    });
-  }
-
-  render() {
+  // render() {
     const { loading, user } = useAuth0();
 
     if (loading || !user) {
@@ -101,7 +86,9 @@ class Library extends React.Component {
       <div className="All">
          <Header1 />
 
-         <Fragment>
+
+        <Container fluid className="layout width1000 border2 maroon main">
+        <Fragment>
       <img src={user.picture} alt="Profile" />
 
       <h2>{user.name}</h2>
@@ -109,8 +96,7 @@ class Library extends React.Component {
       <code>{JSON.stringify(user, null, 2)}</code>
     </Fragment>
 
-        <Container fluid className="layout width1000 border2 maroon main">
-          <Grid stackable columns="equal">
+          {/* <Grid stackable columns="equal">
             <Grid.Row className="black center contentMargin">
               <Grid.Column>
                 <Segment>
@@ -152,11 +138,29 @@ class Library extends React.Component {
                 <Description description={this.state.book.bkDescription} />
               </Grid.Column>
             </Grid.Row>
-          </Grid>
+          </Grid> */}
         </Container>
         <Footer className="border footer" />
       </div>
     );
-  }
 }
-export default Library;
+export default Profile;
+
+
+/*
+
+  handleLogInClick() {
+    console.log('login');
+    this.setState({ thisIsTheBoolean: true });
+    // this.state.thisIsTheBoolean=false;
+  }
+
+
+  handleSignUpClick() {
+    console.log('signup');
+    this.setState({ thisIsTheBoolean: false });
+    // this.state.thisIsTheBoolean=false;
+  }
+
+
+*/
