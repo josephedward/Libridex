@@ -18,9 +18,7 @@ function PrivateRoute({ component: Component, ...rest }) {
         authTokens ? (
           <Component {...props} />
         ) : (
-
           <Redirect
-          //props.location is undefined? 
             to={{ pathname: "/signon", state: { referer: props.location } }}
           />
         )

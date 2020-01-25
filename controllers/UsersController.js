@@ -3,32 +3,32 @@ const db = require("../models");
 // Defining methods for the usersController
 module.exports = {
   findAll: function(req, res) {
-    db.User.find(req.query)
+    db.user.find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.User.findById(req.body.email)
+    db.user.findById(req.body.email)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.User.create(req.body)
+    db.user.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
     "use strict";
-    console.log(db.User);
+    console.log(db.user);
     console.log(req.body._id);
     console.log(req.params._id);
-    db.User.findOneAndUpdate({ _id: req.body._id }, req.body)
+    db.user.findOneAndUpdate({ _id: req.body._id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.User.findById({ _id: req.params.id })
+    db.user.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

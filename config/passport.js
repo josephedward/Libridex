@@ -7,7 +7,8 @@ const keys = require("../config/keys");
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 //wouldn't this typically be an gitignored .env var? 
-opts.secretOrKey = keys.secretOrKey;
+opts.secretOrKey =process.env.SECRET_OR_KEY;
+//  keys.secretOrKey;
 module.exports = passport => {
   passport.use(
     new JwtStrategy(opts, (jwt_payload, done) => {

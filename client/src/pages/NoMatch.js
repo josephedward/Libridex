@@ -26,7 +26,7 @@ style={{textAlign:"center"}}
             <iframe
             title="404 Status Doggo"
             src="https://httpstatusdogs.com/img/404.jpg"
-            style={{height:"100%", width:"100%", textAlign:"center"}}
+            style={{height:"500px", width:"630px", textAlign:"center"}}
             ></iframe>
             {/* </Container> */}
     </Container>

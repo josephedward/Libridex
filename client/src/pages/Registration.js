@@ -1,7 +1,9 @@
 /* NEEDS TO BE BLOCKED IF LOGGED IN - CONTEXT */
 /* SEND REGISTRATION NODEMAILER */
 
-import React from "react";
+import React, { Component, useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+
 import {
   Button,
   Form,
@@ -30,6 +32,7 @@ class SignupPage extends React.Component {
     };
 
     this.postUser = this.postUser.bind(this);
+    const [isLoggedIn, setLoggedIn] = useState(false);
   }
 
   postUser() {
@@ -61,6 +64,12 @@ class SignupPage extends React.Component {
   };
 
   render() {
+    if (this.isLoggedIn) {
+      //need to display username
+      //may not need redirect
+      return <Redirect to="/user/:id" />;
+    }
+
     return (
       <div className="All">
         <Header1 />

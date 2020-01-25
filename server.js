@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const passport = require("passport");
 const users = require("./routes/api/users");
+require('dotenv').config();
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
