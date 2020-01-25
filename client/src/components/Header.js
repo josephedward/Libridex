@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Header, Segment, Menu } from "semantic-ui-react";
+import { useAuth0 } from "../react-auth0-spa.js";
 
-class Navbar extends Component {
+const Navbar =()=> {
 
-  render() {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
     return (
       <div>
+      {isAuthenticated ? 
+      (<button onClick={() => logout()}>Log out</button>)
+      :(<button onClick={() => loginWithRedirect({})}>Log in</button>)
+      }
         <Segment
           inverted
           style={{
@@ -69,7 +75,6 @@ class Navbar extends Component {
         </Segment>
       </div>
     );
-  } //end render
 }
 
 export default Navbar;

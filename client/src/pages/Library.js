@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 // import Login from '../components/Login';
 // import Signup from '../../../misc/Signup';
 import { Button, Menu, Grid, Container, Segment } from 'semantic-ui-react';
@@ -14,6 +14,10 @@ import BookImage from '../components/BookImage';
 import Description from '../components/Description';
 import Chapter from '../components/Chapter';
 
+
+import { useAuth0 } from "../react-auth0-spa";
+
+
 class Library extends React.Component {
   state = {
     currentUser: null,
@@ -21,9 +25,11 @@ class Library extends React.Component {
     book: {},
     randomChapter: {}
   };
+  
 
   componentDidMount() {
     // this.getCurrentUser();
+    
   }
 
   getCurrentUser = userFromNav => {
@@ -62,7 +68,6 @@ class Library extends React.Component {
     console.log(id);
     axios.get(`/api/audiobook/book/${id}`).then(res => {
       let bookData = res.data;
-      // console.log("got here");
       this.setBook(bookData);
     });
   };
@@ -72,7 +77,6 @@ class Library extends React.Component {
   };
 
   setChapter = chap => {
-    // console.log("holy crap")
     console.log(this.state.randomChapter);
     this.setState({ randomChapter: chap });
     console.log(this.state.randomChapter);
@@ -80,54 +84,30 @@ class Library extends React.Component {
 
   getUserObj() {
     axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
-      // console.log(res.data);
       this.setState({ userObj: res.data[0] });
       this.setState({ loggedIn: true });
     });
   }
 
   render() {
+    const { loading, user } = useAuth0();
+
+    if (loading || !user) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div className="All">
          <Header1 />
-         {/* <Menu stackable fluid widths={3} className="blackborder header ">
-          <Menu.Item className="tanish">
-           
-          </Menu.Item>
 
-          <Menu.Item className="maroon">
-            <Grid celled columns={2}>
-              <Grid.Column color="black">
-                <Button
-                  className="ui primary button fullWidth"
-                  onClick={() => {
-                    this.handleLogInClick();
-                  }}
-                >
-                  Log In
-                </Button>
-              </Grid.Column>
-              <Grid.Column color="black">
-                <Button
-                  className="ui primary button fullWidth"
-                  onClick={() => {
-                    this.handleSignUpClick();
-                  }}
-                >
-                  Sign Up
-                </Button>
-              </Grid.Column>
-            </Grid>
-          </Menu.Item>
+         <Fragment>
+      <img src={user.picture} alt="Profile" />
 
-          <Menu.Item className="tanish">
-            {this.state.thisIsTheBoolean ? (
-              <Login callbackFromNav={this.getCurrentUser} />
-            ) : (
-              <Signup />
-            )}
-          </Menu.Item>
-        </Menu> */}
+      <h2>{user.name}</h2>
+      <p>{user.email}</p>
+      <code>{JSON.stringify(user, null, 2)}</code>
+    </Fragment>
+
         <Container fluid className="layout width1000 border2 maroon main">
           <Grid stackable columns="equal">
             <Grid.Row className="black center contentMargin">

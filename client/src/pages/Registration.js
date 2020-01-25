@@ -3,49 +3,40 @@
 
 import React, { Component, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { useAuth } from "../context/auth";
 
 import {
   Button,
   Form,
   Image,
   Header,
-  // Menu,
   Grid,
   Container
 } from "semantic-ui-react";
 import Header1 from "../components/Header";
 import Footer from "../components/Footer";
-// import Login from "../components/Login";
-// import Signup from "../components/Signup";
 import axios from "axios";
 
-class SignupPage extends React.Component {
-  constructor() {
-    super();
+function Registration(){
+let userObj={}
+const [isLoggedIn, setLoggedIn] = useState(false);
+const [isError, setIsError] = useState(false);
+const [email, setemail] = useState("");
+const [password, setPassword] = useState("");
+const { setAuthTokens } = useAuth();
 
-    this.state = {
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-      password2: ""
-    };
 
-    this.postUser = this.postUser.bind(this);
-    const [isLoggedIn, setLoggedIn] = useState(false);
-  }
+function  postUser() {
 
-  postUser() {
     //test
-    console.table(this.state);
-
+    console.table(userObj);
     axios
       .post("/api/users/register", {
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        email: this.state.email,
-        password: this.state.password,
-        password2: this.state.password2
+        firstname: userObj.firstname,
+        lastname: userObj.lastname,
+        email: userObj.email,
+        password:  userObj.password,
+        password2:  userObj.password2
       })
       .then(response => {
         return response;
@@ -56,20 +47,16 @@ class SignupPage extends React.Component {
       });
   }
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+  function handleInputChange (event) {
+    const {name, value } = event.target;
+    userObj[name]= value
   };
 
-  render() {
-    if (this.isLoggedIn) {
-      //need to display username
-      //may not need redirect
-      return <Redirect to="/user/:id" />;
-    }
 
+
+  if (isLoggedIn==true) {
+    return <Redirect to="/library" />;
+  }else
     return (
       <div className="All">
         <Header1 />
@@ -90,24 +77,24 @@ class SignupPage extends React.Component {
                     label="First name"
                     placeholder="First name"
                     name="firstname"
-                    value={this.state.firstname}
-                    onChange={this.handleInputChange}
+                    value={userObj.firstname}
+                    onChange={handleInputChange}
                   />
                   <Form.Input
                     fluid
                     label="Last name"
                     placeholder="Last name"
                     name="lastname"
-                    value={this.state.lastname}
-                    onChange={this.handleInputChange}
+                    value={userObj.lastname}
+                    onChange={handleInputChange}
                   />
                 </Form.Group>
                 <Form.Input
                   label="Email"
                   placeholder="email@email.com"
                   name="email"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
+                  value={userObj.email}
+                  onChange={handleInputChange}
                 />
                 <Form.Group widths="equal">
                   <Form.Input
@@ -116,8 +103,8 @@ class SignupPage extends React.Component {
                     placeholder="Password"
                     type="password"
                     name="password"
-                    value={this.state.password}
-                    onChange={this.handleInputChange}
+                    value={userObj.password}
+                    onChange={handleInputChange}
                   />
                   <Form.Input
                     fluid
@@ -125,11 +112,11 @@ class SignupPage extends React.Component {
                     placeholder="Confirm Password"
                     type="password"
                     name="password2"
-                    value={this.state.password2}
-                    onChange={this.handleInputChange}
+                    value={userObj.password2}
+                    onChange={handleInputChange}
                   />
                 </Form.Group>
-                <Button onClick={this.postUser}>Submit</Button>
+                <Button onClick={postUser}>Submit</Button>
               </Form>
             </Grid.Column>
             <Grid.Column className="white1">
@@ -147,152 +134,13 @@ class SignupPage extends React.Component {
         </footer>
       </div>
     );
-  }
+  
+
 }
 
-export default SignupPage;
+export default Registration;
 
 const padSty = {
   padding: "20px"
 };
 
-// getCurrentUser = userFromNav => {
-//   this.setState({ currentUser: userFromNav });
-//   this.getUserObj();
-// };
-
-// getUserObj() {
-//   axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
-//     this.setState({ userObj: res.data[0] });
-//     this.setState({ loggedIn: true });
-//   });
-// }
-
-// handleLogInClick() {
-//   console.log("login");
-//   this.setState({ thisIsTheBoolean: true });
-// }
-
-// handleSignUpClick() {
-//   console.log("signup");
-//   this.setState({ thisIsTheBoolean: false });
-// }
-
-// import React, { Component } from "react";
-// import { Button, Form } from "semantic-ui-react";
-// import "whatwg-fetch";
-
-// class Signup extends Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       signUpError: "",
-//       signUpEmail: "",
-//       signUpPassword: ""
-//     };
-
-//     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(
-//       this
-//     );
-//     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(
-//       this
-//     );
-
-//     this.onSignUp = this.onSignUp.bind(this);
-//   }
-
-//   onTextboxChangeSignUpEmail(event) {
-//     this.setState({
-//       signUpEmail: event.target.value
-//     });
-//   }
-
-//   onTextboxChangeSignUpPassword(event) {
-//     this.setState({
-//       signUpPassword: event.target.value
-//     });
-//   }
-
-//   onSignUp() {
-//     // Grab state
-//     const { signUpEmail, signUpPassword } = this.state;
-
-//     this.setState({
-//       isLoading: true
-//     });
-
-//     // Post request to backend
-//     fetch("/api/account/signup", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify({
-//         email: signUpEmail,
-//         password: signUpPassword
-//       })
-
-//     })
-//       // .then(res => res.json())
-//       //     .then(res => res.text())          // convert to plain text
-//       // .then(text => console.log(text))  // then log it out
-//       .then(json => {
-//         console.log("json", json);
-//         if (json.success) {
-
-//           this.setState({
-//             signUpError:json.message ,
-//             isLoading: false,
-//             signUpEmail: "",
-//             signUpPassword: ""
-//           });
-
-//   json.message="REGISTRATION SUCCESSFUL"
-
-//         } else {
-//           this.setState({
-//             signUpError: json.message,
-//             isLoading: false
-//           });
-//         }
-
-//       });
-//   }
-
-//   render() {
-//     const { signUpEmail, signUpPassword, signUpError } = this.state;
-
-//     return (
-//       <div>
-//         <Form>
-//           <Form.Group>
-//             <Form.Input
-//               label="Email Address"
-//               type="email"
-//               placeholder="Email"
-//               value={signUpEmail}
-//               onChange={this.onTextboxChangeSignUpEmail}
-//             />
-
-//             <Form.Input
-//               label="Password"
-//               type="password"
-//               placeholder="Password"
-//               value={signUpPassword}
-//               onChange={this.onTextboxChangeSignUpPassword}
-//             />
-//           </Form.Group>
-//           {signUpError ? <p>{signUpError}</p> : null}
-
-//           <Button className="ui button" color="blue" onClick={this.onSignUp}>
-//          Register
-//         </Button>
-//         </Form>
-
-//       </div>
-//     );
-//   }
-// }
-
-// export default Signup;

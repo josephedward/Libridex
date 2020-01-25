@@ -19,6 +19,7 @@
   "author": "Joseph Edward",
   "license": "MIT",
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.6.2",
     "axios": "^0.18.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
