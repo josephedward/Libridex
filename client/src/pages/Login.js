@@ -1,4 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { 
+  // Component, 
+  useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import {
   Button,

@@ -8,8 +8,8 @@ const { join } = require("path");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const passport = require("passport");
-// const users = require("./routes/api/users");
+
+
 require('dotenv').config();
 
 app.use(logger('dev'));
@@ -21,7 +21,9 @@ if (process.env.NODE_ENV === "production") {
 }
 app.use("/",routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/libridex", {useNewUrlParser:true}, { useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/libridex",
+ [{useNewUrlParser:true},  {useUnifiedTopology: true}] 
+ )
  .then(() => console.log(chalk.blue("MongoDB successfully connected @"+(process.env.MONGODB_URI || "mongodb://localhost/libridex"))))
   .catch(err => console.log(err));
 
@@ -31,13 +33,6 @@ app.use(express.static(join(__dirname, "build")));
 app.use((_, res) => {
   res.sendFile(join(__dirname, "build", "index.html"));
 });
-
-// // Passport middleware
-// app.use(passport.initialize());
-// // Passport config
-// require("./config/passport")(passport);
-// // Routes
-// app.use("/api/users", users);
 
 
 app.listen(PORT, function() {

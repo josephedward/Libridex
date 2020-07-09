@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React 
+// { Component } 
+from "react";
 import { Header, Segment, Menu } from "semantic-ui-react";
 import { useAuth0 } from "../react-auth0-spa.js";
 
@@ -10,7 +12,7 @@ const Navbar = () => {
       <Segment
         inverted
         style={{
-          border: "1px solid aqua"
+          border: "1px solid aqua",
         }}
       >
         <Menu
@@ -19,7 +21,7 @@ const Navbar = () => {
           fluid
           style={{
             backgroundColor: "maroon",
-            border: "tan 1px solid"
+            border: "tan 1px solid",
           }}
         >
           <Header as="h1" style={{ ...headStyle }}>
@@ -29,7 +31,7 @@ const Navbar = () => {
                 padding: "20px",
                 color: "darkblue",
                 WebkitTextStrokeWidth: "1px",
-                WebkitTextStrokeColor: "aqua"
+                WebkitTextStrokeColor: "aqua",
               }}
             >
               Libridex
@@ -46,12 +48,12 @@ const Navbar = () => {
 
             {isAuthenticated ? (
               //what to do when logged in
-              <Menu.Item name="logout" onClick={() => logout()} >
-              Logout {user.name}
+              <Menu.Item name="logout" onClick={() => logout()}>
+                Logout {user.name}
               </Menu.Item>
             ) : (
               //what to do when not logged in
-              <Menu.Item name="login" onClick={() => loginWithRedirect({})}/> 
+              <Menu.Item name="login" onClick={() => loginWithRedirect({})} />
             )}
 
             <Menu.Item name="profile" href="/profile" />
@@ -65,5 +67,5 @@ const Navbar = () => {
 export default Navbar;
 
 const headStyle = {
-  fontFamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+  fontFamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
 };

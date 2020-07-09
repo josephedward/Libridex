@@ -7,7 +7,11 @@ function NoMatch() {
     <div style={{ textAlign: "center" }}>
       <Header1 />
       <Container className="white1 fullHeight">
-        <h1>404 Page Not Found 🙄</h1>
+        <span
+        role="img"
+        aria-label="404 emoji"
+        > 🙄</span>
+        <h1>404 Page Not Found</h1>
         <iframe
           title="404 Status Doggo"
           src="https://httpstatusdogs.com/img/404.jpg"
