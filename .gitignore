@@ -2,3 +2,4 @@ node_modules
 authentication/
 misc
 .env
+.DS_Store
