@@ -3,3 +3,4 @@ authentication/
 misc
 .env
 .DS_Store
+/.idea
