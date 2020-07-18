@@ -13,3 +13,6 @@ misc
 /python/resources/libridex_venv/
 /python/resources/libridex_venv/*
 package-lock.json
+/python
+/python/*
+python

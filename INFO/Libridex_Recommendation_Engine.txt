@@ -4,8 +4,8 @@ Link: https://morning-journey-07307.herokuapp.com/
 Steps Required: 
 	1. Scrape as much data as possible from librivox.org 
 	2. Store indexing information alongside classification data in database. 
-	3. Pull from database into python, and train our model via collaborative filtering algorithm.  
-https://www.kdnuggets.com/2019/09/machine-learning-recommender-systems.html#:~:text=Recommender%20systems%20are%20an%20important,to%20follow%20from%20example%20code 
+	3. Pull from database into python, and train our model via collaborative filtering algorithm. 
+https://www.kdnuggets.com/2019/09/machine-learning-recommender-systems.html#:~:text=Recommender%20systems%20are%20an%20important,to%20follow%20from%20example%20code
 https://realpython.com/build-recommendation-engine-collaborative-filtering/
 
 https://towardsdatascience.com/various-implementations-of-collaborative-filtering-100385c6dfe0

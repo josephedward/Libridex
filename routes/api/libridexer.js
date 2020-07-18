@@ -23,6 +23,11 @@ getSpecificBookLBVX=(id)=>{
 }
 
 
+getRecommendations=(bookTitle)=>{
+  console.log(chalk.green("getting recommendations from flask server"));
+  return axios.get(``)
+
+}
 
 
 //build book object
