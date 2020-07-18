@@ -32,7 +32,8 @@ class Player extends React.Component {
     thisIsTheBoolean: true,
     bookID: [],
     bookURL: [],
-    loggedIn: false
+    loggedIn: false,
+    recommendations:[]
   };
 
   handleLogInClick() {
@@ -54,7 +55,6 @@ class Player extends React.Component {
       .get(`/api/audiobook/genre/${this.state.searchText || "science fiction"}`)
       .then(res => {
         let bookData = res.data;
-        // console.log("got here");
         this.setBook(bookData);
       });
   };
@@ -94,7 +94,8 @@ class Player extends React.Component {
         description: bookData.bkDescription,
         randomChapter: randChap,
         bookID: bookData.bkID,
-        bookURL: bookData.bkURL
+        bookURL: bookData.bkURL,
+        recommendations:bookData.bkRecommendations
       });
     });
   }
@@ -110,7 +111,8 @@ class Player extends React.Component {
       description: bookData.bkDescription,
       randomChapter: randChap,
       bookID: bookData.bkID,
-      bookURL: bookData.bkURL
+      bookURL: bookData.bkURL,
+      recommendations:bookData.bkRecommendations
     });
   };
 
@@ -178,7 +180,7 @@ class Player extends React.Component {
 
 
   render() {
-
+console.table(this.state)
     return (
       <div className="all">
         <Navbar/>
@@ -227,6 +229,10 @@ class Player extends React.Component {
                 <Description description={this.state.description} />
               </Grid.Column>
             </Grid>
+            <div>
+              <h5>Recommendations: </h5>
+              <p>{this.state.recommendations}</p>
+            </div>
           </Container>
         </div>
         <Footer className="border footer" />

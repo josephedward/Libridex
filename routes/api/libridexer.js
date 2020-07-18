@@ -23,29 +23,37 @@ getSpecificBookLBVX=(id)=>{
 }
 
 
-getRecommendations=(bookTitle)=>{
+async function getRecommendations(bookTitle){
   console.log(chalk.green("getting recommendations from flask server"));
-  return axios.get(``)
-
+try{
+  return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend/${bookTitle}/`))
+}
+catch(err){
+    console.log("there was an error")
+}
 }
 
 
 //build book object
-//then send to mongo
-//SINGLE BOOK
-function buildBookObj(page) {
+async function buildBookObj(page) {
   console.log(chalk.green('building book object'));
   let $ = cheerio.load(page.data);
 
   book.bkTitle = $('.book-page-book-cover')
     .next('h1')
     .text();
+  try{
+  book.bkRecommendations = await getRecommendations(book.bkTitle)  
+  console.log(Object.values(book.bkRecommendations))
+  book.bkRecommendations = Object.values(book.bkRecommendations)
+  }
+  catch(err)
+  {console.log("there was an error")}
   book.bkAuthor = $('.book-page-author').text();
   book.bkDescription = $('.description').text();
   book.bkImage = $('.book-page-book-cover')
     .children()
     .attr('src');
-  console.log(book.bkImage);
   book.CHS = [];
   $('.chapter-name').each(function(i, element) {
     let chapter = {};
@@ -53,14 +61,12 @@ function buildBookObj(page) {
     chapter.chLink = $(element).attr('href');
     book.CHS.push(chapter);
   });
-  randomBook = book;
+  console.log(chalk.bgCyan(Object.values(book)))
   return book;
 }
 
 
-// testLBVX = () => {
-//   testNestedCalls(getBookPage(getRequestURL(getAllLBVX())));
-// };
+
 
 searchGenre = genre => {
   return getGenreLBVX(genre)
@@ -74,12 +80,11 @@ searchGenre = genre => {
     .then(buildBookObj);
 };
 
-getSpecificBook = id => {
+ getSpecificBook = id => {
   return getSpecificBookLBVX(id)
     .then(res => {
       const books = res.data.books;
       const { url_librivox } = books[Math.floor(Math.random() * books.length)];
- 
       return axios.get(url_librivox);
     })
     .then(buildBookObj);
@@ -87,6 +92,8 @@ getSpecificBook = id => {
 
 
 searchGenre('');
+// getSpecificBook(65)
+// console.log(getRecommendations('Count of Monte Cristo'))
 
 //should match to /api/audiobook
 router.route('/').get(
@@ -98,7 +105,7 @@ router.route('/').get(
 
 router.route('/genre/:id').get(function(req, res) {
   console.log(req.params.id);
-  searchGenre(req.params.id).then(bookData => res.json(bookData));
+  searchGenre(req.params.id).then(bookData => res.send(bookData));
 });
 
 

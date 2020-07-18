@@ -17,7 +17,7 @@ export function getFromStorage(key) {
       console.error('Error: Key is missing');
     }
     try {
-      localStorage.setItem(key, JSON.stringify(obj));
+      // localStorage.setItem(key, JSON.stringify(obj));
     } catch (err) {
       console.error(err);
     }
