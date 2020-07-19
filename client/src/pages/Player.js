@@ -81,6 +81,7 @@ class Player extends React.Component {
     });
   };
 
+
   componentDidMount() {
     axios.get(`/api/audiobook`).then(res => {
       const bookData = res.data;

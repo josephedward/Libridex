@@ -3,6 +3,7 @@ const _ = require('lodash');
 const cheerio = require('cheerio');
 const chalk = require('chalk');
 const router = require('express').Router();
+const {parse, stringify} = require('flatted');
 
 let book = {};
 
@@ -29,9 +30,10 @@ try{
   return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend/${bookTitle}/`))
 }
 catch(err){
-    console.log("there was an error")
+    console.log(err.message)
 }
 }
+
 
 
 //build book object
@@ -42,13 +44,13 @@ async function buildBookObj(page) {
   book.bkTitle = $('.book-page-book-cover')
     .next('h1')
     .text();
-  try{
-  book.bkRecommendations = await getRecommendations(book.bkTitle)  
-  console.log(Object.values(book.bkRecommendations))
-  book.bkRecommendations = Object.values(book.bkRecommendations)
-  }
-  catch(err)
-  {console.log("there was an error")}
+  // try{
+  // book.bkRecommendations = await getRecommendations(book.bkTitle)  
+  // console.log(parse(book.bkRecommendations))
+  // // book.bkRecommendations = Object.values(book.bkRecommendations)
+  // }
+  // catch(err)
+  // {console.log(err.message)}
   book.bkAuthor = $('.book-page-author').text();
   book.bkDescription = $('.description').text();
   book.bkImage = $('.book-page-book-cover')
@@ -61,7 +63,7 @@ async function buildBookObj(page) {
     chapter.chLink = $(element).attr('href');
     book.CHS.push(chapter);
   });
-  console.log(chalk.bgCyan(Object.values(book)))
+  // console.log(chalk.bgCyan(Object.values(book)))
   return book;
 }
 
@@ -91,7 +93,7 @@ searchGenre = genre => {
 };
 
 
-searchGenre('');
+// searchGenre('');
 // getSpecificBook(65)
 // console.log(getRecommendations('Count of Monte Cristo'))
 
@@ -105,13 +107,18 @@ router.route('/').get(
 
 router.route('/genre/:id').get(function(req, res) {
   console.log(req.params.id);
-  searchGenre(req.params.id).then(bookData => res.send(bookData));
+  try{
+  searchGenre(req.params.id).then(bookData => res.json(bookData));}
+  catch(err){
+    console.log(err.message)
+  }
 });
+
 
 
 router.route('/book/:id').get(function(req, res) {
   console.log(req.params.id);
-  getSpecificBook(req.params.id).then(bookData => res.json(bookData));
+  getSpecificBook(req.params.id).then(bookData => res.send(bookData));
 });
 
 module.exports = router;
