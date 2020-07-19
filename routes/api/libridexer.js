@@ -93,7 +93,7 @@ searchGenre = genre => {
 };
 
 
-// searchGenre('');
+searchGenre('');
 // getSpecificBook(65)
 // console.log(getRecommendations('Count of Monte Cristo'))
 
