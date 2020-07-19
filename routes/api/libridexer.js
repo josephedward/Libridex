@@ -25,9 +25,10 @@ getSpecificBookLBVX=(id)=>{
 
 
 async function getRecommendations(bookTitle){
-  console.log(chalk.green("getting recommendations from flask server"));
+  console.log(chalk.green("getting recommendations from flask server: ", bookTitle));
 try{
-  return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend/${bookTitle}/`))
+  // return await axios.get(encodeURI(`http://127.0.0.1:5000/recommend/${bookTitle}/`))
+  return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend/${bookTitle}`))
 }
 catch(err){
     console.log(err.message)
@@ -40,17 +41,33 @@ catch(err){
 async function buildBookObj(page) {
   console.log(chalk.green('building book object'));
   let $ = cheerio.load(page.data);
-
   book.bkTitle = $('.book-page-book-cover')
     .next('h1')
     .text();
-  // try{
-  // book.bkRecommendations = await getRecommendations(book.bkTitle)  
-  // console.log(parse(book.bkRecommendations))
-  // // book.bkRecommendations = Object.values(book.bkRecommendations)
+  try{
+   recArr=[] 
+  book.bkRecommendations = await getRecommendations(book.bkTitle)  
+  // console.log(Object.keys(book.bkRecommendations))
+  // console.log(Object.values(book.bkRecommendations))
+  console.log(book.bkRecommendations.data)
+  book.bkRecommendations = Object.values(book.bkRecommendations.data)
+
+
+  // console.log(chalk.cyan(typeof(book.bkRecommendations),Object.keys(book.bkRecommendations)))
+  // for(x of book.bkRecommendations)
+  // {
+  //   console.log(`${chalk.cyan(Object.keys(x))}: ${chalk.magenta(Object.values(x))}`)
   // }
-  // catch(err)
-  // {console.log(err.message)}
+  // book.bkRecommendations=Object.values(book.bkRecommendations).data
+  // book.bkRecommendations = Object.values(book.bkRecommendations).data
+  // console.log(`${x}:${book.bkRecommendations[x]}`)
+  // recArr.push(`${x}:${book.bkRecommendations[x]}`)
+  // console.log(parse(book.bkRecommendations))
+  // console.log(recArr)
+  // book.bkRecommendations = Object.values(book.bkRecommendations)
+  }
+  catch(err)
+  {console.log(err.message)}
   book.bkAuthor = $('.book-page-author').text();
   book.bkDescription = $('.description').text();
   book.bkImage = $('.book-page-book-cover')
@@ -100,15 +117,17 @@ searchGenre('');
 //should match to /api/audiobook
 router.route('/').get(
   function(req, res) {
-    res.send(book);
+    
+    res.json(book);
   }
   // book
 );
 
-router.route('/genre/:id').get(function(req, res) {
+
+router.route('/genre/:id').get(async function(req, res) {
   console.log(req.params.id);
   try{
-  searchGenre(req.params.id).then(bookData => res.json(bookData));}
+  await searchGenre(req.params.id).then(bookData => res.json(bookData));}
   catch(err){
     console.log(err.message)
   }
@@ -116,9 +135,9 @@ router.route('/genre/:id').get(function(req, res) {
 
 
 
-router.route('/book/:id').get(function(req, res) {
+router.route('/book/:id').get(async function(req, res) {
   console.log(req.params.id);
-  getSpecificBook(req.params.id).then(bookData => res.send(bookData));
+  await getSpecificBook(req.params.id).then(bookData => res.json(bookData));
 });
 
 module.exports = router;

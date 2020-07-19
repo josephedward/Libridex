@@ -55,6 +55,7 @@ class Player extends React.Component {
       .get(`/api/audiobook/genre/${this.state.searchText || "science fiction"}`)
       .then(res => {
         let bookData = res.data;
+        // console.log("got here");
         this.setBook(bookData);
       });
   };
@@ -80,7 +81,6 @@ class Player extends React.Component {
       [name]: value
     });
   };
-
 
   componentDidMount() {
     axios.get(`/api/audiobook`).then(res => {
@@ -181,7 +181,7 @@ class Player extends React.Component {
 
 
   render() {
-console.table(this.state)
+
     return (
       <div className="all">
         <Navbar/>
@@ -231,8 +231,8 @@ console.table(this.state)
               </Grid.Column>
             </Grid>
             <div>
-              <h5>Recommendations: </h5>
-              <p>{this.state.recommendations}</p>
+              <h5>Recs</h5>
+              {this.state.recommendations}
             </div>
           </Container>
         </div>
