@@ -31,18 +31,18 @@ async function findBookRecs(bookTitle) {
 
         rec_list = recommendations[keys[i]].book_recommendation_urls;
         rec_list = rec_list.replace("[", " ");
-        rec_list = rec_list.replace("[", " ");
+        rec_list = rec_list.replace("]", " ");
         rec_list = rec_list.split(",");
 
         console.log(chalk.magenta(rec_list));
         let tempList = [];
         for (var x of rec_list) {
-          // console.log(x)
+          console.log("rec_list ->",x)
           try {
             tempList.push(await buildRecObj(x));
           } catch (error) {}
         }
-        console.log(chalk.red(tempList));
+        console.log("tempList: ", chalk.red(tempList));
         return rec_list;
       }
     }
@@ -58,12 +58,12 @@ async function buildRecObj(url) {
   rec = {};
   console.log(chalk.cyan("building book Rec obj..."));
   try {
-    page = await axios.get(url).then(function (response) {
+    page = await axios.get(url)
+    .then(async function (response) {
+      // console.log("response :",response)
       return response.data;
     });
-  } catch (error) {
-    console.log(chalk.red(error.message))
-  }
+  
 
   let $ = cheerio.load(page);
   rec.bkTitle = $(".book-page-book-cover").next("h1").text();
@@ -71,7 +71,10 @@ async function buildRecObj(url) {
   rec.bkAuthor = $(".book-page-author").text();
   rec.link = url;
   console.log(rec);
-  return await rec;
+  return rec;
+} catch (error) {
+  console.log(chalk.red(error.message))
+}
 }
 
 getGenreLBVX = (genre) => {
@@ -103,16 +106,6 @@ async function buildBookObj(page) {
   let $ = cheerio.load(page.data);
   book.bkTitle = $(".book-page-book-cover").next("h1").text();
   book.bkRecs = await findBookRecs(book.bkTitle);
-  // .then(res =>{
-  // console.log("API findBookRecs: ",res)
-  // })
-  // tempList=[]
-  // for(var x of book.bkRecs)
-  // {
-  //   console.log(x)
-  //   tempList.push(await buildRecObj(x))
-  // }
-  // book.bkRecs=tempList
 
   book.bkAuthor = $(".book-page-author").text();
   book.bkDescription = $(".description").text();
@@ -152,10 +145,14 @@ getSpecificBook = (id) => {
     .then(buildBookObj);
 };
 
-searchGenre("");
-// buildRecObj('https://librivox.org/god-and-the-state-by-mikhail-bakunin/%27')
+
+
+  searchGenre("");  
+
+
+// buildRecObj('https://librivox.org/the-odyssey-by-homer/')
 // getSpecificBook(65)
-// console.log(getRecommendations('Count of Monte Cristo'))
+
 
 //should match to /api/audiobook
 router.route("/").get(
