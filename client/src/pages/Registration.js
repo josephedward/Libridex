@@ -1,9 +1,13 @@
 /* NEEDS TO BE BLOCKED IF LOGGED IN - CONTEXT */
 /* SEND REGISTRATION NODEMAILER */
 
-import React, { Component, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { useAuth } from "../context/auth";
+import React, {
+  //  Component, 
+   useState } from "react";
+import { 
+  // Link,
+   Redirect } from "react-router-dom";
+// import { useAuth } from "../context/auth";
 
 import {
   Button,
@@ -19,11 +23,13 @@ import axios from "axios";
 
 function Registration(){
 let userObj={}
-const [isLoggedIn, setLoggedIn] = useState(false);
-const [isError, setIsError] = useState(false);
-const [email, setemail] = useState("");
-const [password, setPassword] = useState("");
-const { setAuthTokens } = useAuth();
+const [isLoggedIn, 
+  // setLoggedIn
+] = useState(false);
+// const [isError, setIsError] = useState(false);
+// const [email, setemail] = useState("");
+// const [password, setPassword] = useState("");
+// const { setAuthTokens } = useAuth();
 
 
 function  postUser() {
@@ -54,7 +60,7 @@ function  postUser() {
 
 
 
-  if (isLoggedIn==true) {
+  if (isLoggedIn===true) {
     return <Redirect to="/library" />;
   }else
     return (

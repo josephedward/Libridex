@@ -55,6 +55,7 @@ class Player extends React.Component {
       .get(`/api/audiobook/genre/${this.state.searchText || "science fiction"}`)
       .then(res => {
         let bookData = res.data;
+        // console.log("got here");
         this.setBook(bookData);
       });
   };
@@ -84,7 +85,7 @@ class Player extends React.Component {
   componentDidMount() {
     axios.get(`/api/audiobook`).then(res => {
       const bookData = res.data;
-      // console.log(bookData);
+      console.log("componentDidMount bookData: ",bookData);
       let randChap = this.playRandomChapter(bookData);
       this.setState({
         book: bookData,
@@ -95,7 +96,7 @@ class Player extends React.Component {
         randomChapter: randChap,
         bookID: bookData.bkID,
         bookURL: bookData.bkURL,
-        recommendations:bookData.bkRecommendations)
+        recommendations:bookData.bkRecs
       });
     });
   }
@@ -112,7 +113,7 @@ class Player extends React.Component {
       randomChapter: randChap,
       bookID: bookData.bkID,
       bookURL: bookData.bkURL,
-      recommendations:bookData.bkRecommendations
+      recommendations:bookData.bkRecs
     });
   };
 
@@ -180,7 +181,10 @@ class Player extends React.Component {
 
 
   render() {
-console.table(this.state)
+   let listItems =  this.state.recommendations?(this.state.recommendations.map((rec) =>
+  <h5><a href={rec} >{rec}</a></h5>
+        )):""
+
     return (
       <div className="all">
         <Navbar/>
@@ -230,11 +234,21 @@ console.table(this.state)
               </Grid.Column>
             </Grid>
             <div>
-              <h5>Recommendations: </h5>
-              <p>{this.state.recommendations}</p>
             </div>
-          </Container>
+            <h4
+            style={{color:"white"}}
+            >
+              Recommendations
+            </h4>
+            <div>
+        {
+        listItems
+        }
         </div>
+          </Container>
+          
+        </div>
+       
         <Footer className="border footer" />
       </div>
     );
