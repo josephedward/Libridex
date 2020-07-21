@@ -29,7 +29,7 @@ try{
   return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend/${bookTitle}/`))
 }
 catch(err){
-    console.log("there was an error")
+    console.log(err.message)
 }
 }
 
@@ -45,10 +45,10 @@ async function buildBookObj(page) {
   try{
   book.bkRecommendations = await getRecommendations(book.bkTitle)  
   console.log(Object.values(book.bkRecommendations))
-  book.bkRecommendations = Object.values(book.bkRecommendations)
+  book.bkRecommendations = JSON.parse(book.bkRecommendations)
   }
   catch(err)
-  {console.log("there was an error")}
+  {console.log(err.message)}
   book.bkAuthor = $('.book-page-author').text();
   book.bkDescription = $('.description').text();
   book.bkImage = $('.book-page-book-cover')
@@ -61,7 +61,7 @@ async function buildBookObj(page) {
     chapter.chLink = $(element).attr('href');
     book.CHS.push(chapter);
   });
-  console.log(chalk.bgCyan(Object.values(book)))
+  console.log(chalk.cyan(Object.values(book)))
   return book;
 }
 
@@ -98,7 +98,7 @@ searchGenre('');
 //should match to /api/audiobook
 router.route('/').get(
   function(req, res) {
-    res.send(book);
+    res.json(book);
   }
   // book
 );

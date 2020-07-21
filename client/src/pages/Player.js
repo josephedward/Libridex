@@ -95,7 +95,7 @@ class Player extends React.Component {
         randomChapter: randChap,
         bookID: bookData.bkID,
         bookURL: bookData.bkURL,
-        recommendations:bookData.bkRecommendations
+        recommendations:bookData.bkRecommendations)
       });
     });
   }
