@@ -181,9 +181,9 @@ class Player extends React.Component {
 
 
   render() {
-   let listItems =  this.state.recommendations.map((rec) =>
+   let listItems =  this.state.recommendations?(this.state.recommendations.map((rec) =>
   <h5><a href={rec} >{rec}</a></h5>
-        )
+        )):""
 
     return (
       <div className="all">

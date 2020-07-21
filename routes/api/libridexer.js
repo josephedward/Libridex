@@ -36,6 +36,7 @@ async function findBookRecs(bookTitle) {
 
         console.log(chalk.magenta(rec_list));
         let tempList = [];
+        
         for (var x of rec_list) {
           console.log("rec_list ->",x)
           try {
