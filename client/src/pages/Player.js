@@ -181,6 +181,9 @@ class Player extends React.Component {
 
 
   render() {
+   let listItems =  this.state.recommendations.map((rec) =>
+  <h5><a href={rec} >{rec}</a></h5>
+        )
 
     return (
       <div className="all">
@@ -232,8 +235,20 @@ class Player extends React.Component {
             </Grid>
             <div>
             </div>
-          </Container>
+            <h4
+            style={{color:"white"}}
+            >
+              Recommendations
+            </h4>
+            <div>
+        {
+        listItems
+        }
         </div>
+          </Container>
+          
+        </div>
+       
         <Footer className="border footer" />
       </div>
     );
