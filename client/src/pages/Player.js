@@ -85,7 +85,7 @@ class Player extends React.Component {
   componentDidMount() {
     axios.get(`/api/audiobook`).then(res => {
       const bookData = res.data;
-      // console.log(bookData);
+      console.log("componentDidMount bookData: ",bookData);
       let randChap = this.playRandomChapter(bookData);
       this.setState({
         book: bookData,
@@ -96,7 +96,7 @@ class Player extends React.Component {
         randomChapter: randChap,
         bookID: bookData.bkID,
         bookURL: bookData.bkURL,
-        recommendations:bookData.bkRecommendations
+        recommendations:bookData.bkRecs
       });
     });
   }
@@ -113,7 +113,7 @@ class Player extends React.Component {
       randomChapter: randChap,
       bookID: bookData.bkID,
       bookURL: bookData.bkURL,
-      recommendations:bookData.bkRecommendations
+      recommendations:bookData.bkRecs
     });
   };
 
@@ -231,8 +231,6 @@ class Player extends React.Component {
               </Grid.Column>
             </Grid>
             <div>
-              <h5>Recs</h5>
-              {this.state.recommendations}
             </div>
           </Container>
         </div>
