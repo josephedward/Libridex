@@ -13,7 +13,6 @@ const csv = require("csvtojson");
 
 async function findBookRecs(bookTitle) {
   let recommendations = await csv().fromFile(csvFilePath);
-
   console.log(chalk.red("findBookRecs()"));
   try {
     console.log(chalk.red("try"));
@@ -30,20 +29,26 @@ async function findBookRecs(bookTitle) {
         );
 
         rec_list = recommendations[keys[i]].book_recommendation_urls;
-        rec_list = rec_list.replace("[", " ");
-        rec_list = rec_list.replace("]", " ");
+        rec_list = rec_list.replace("[", "");
+        rec_list = rec_list.replace("]", "");
+        
+        // rec_list = rec_list.replace("/", "");
         rec_list = rec_list.split(",");
 
         console.log(chalk.magenta(rec_list));
         let tempList = [];
-        
+
         for (var x of rec_list) {
-          console.log("rec_list ->",x)
+          // const matches = string.match(/\bhttp?::\/\/\S+/gi);
+          console.log("rec_list ->", x.toString());
           try {
-            tempList.push(await buildRecObj(x));
-          } catch (error) {}
+            tempList.push(await buildRecObj(x))
+          } catch (error) {
+            console.log(error.message)
+          }
         }
         console.log("tempList: ", chalk.red(tempList));
+
         return rec_list;
       }
     }
@@ -55,16 +60,20 @@ async function findBookRecs(bookTitle) {
 async function buildRecObj(url) {
   url = url.replace("[", " ");
   url = url.replace("[", " ");
-  console.log("build url -> ", url);
+
   rec = {};
   console.log(chalk.cyan("building book Rec obj..."));
-  try {
-    page = await axios.get(url)
-    .then(async function (response) {
-      // console.log("response :",response)
+  console.log("build url -> ", url);
+  // try {
+  page = await axios
+    .get(url)
+    .then(async = (response) =>{
+      console.log("response :", response);
       return response.data;
+    })
+    .catch((error) => {
+      console.log(chalk.red(error));
     });
-  
 
   let $ = cheerio.load(page);
   rec.bkTitle = $(".book-page-book-cover").next("h1").text();
@@ -73,9 +82,6 @@ async function buildRecObj(url) {
   rec.link = url;
   console.log(rec);
   return rec;
-} catch (error) {
-  console.log(chalk.red(error.message))
-}
 }
 
 getGenreLBVX = (genre) => {
@@ -85,28 +91,41 @@ getGenreLBVX = (genre) => {
   );
 };
 
+
 getSpecificBookLBVX = (id) => {
   console.log(chalk.green("contacting librivox"));
   return axios.get(`https://librivox.org/api/feed/audiobooks/id/${id}`);
 };
 
-// async function getRecommendations(bookTitle){
-//   console.log(chalk.green("getting recommendations from flask server: ", bookTitle));
-// try{
-//   // return await axios.get(encodeURI(`http://127.0.0.1:5000/recommend/${bookTitle}/`))
-//   return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend/${bookTitle}`))
-// }
-// catch(err){
-//     console.log(err.message)
-// }
-// }
+async function getRecs(bookTitle){
+  console.log(chalk.green("getting recommendations from flask server: ", bookTitle));
+try{
+  return await axios.get(encodeURI(`http://127.0.0.1:5000/recommend_static/${bookTitle}/`))
+  // return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend_static/${bookTitle}`))
+}
+catch(err){
+    console.log(err.message)
+}
+}
+
 
 //build book object
 async function buildBookObj(page) {
   console.log(chalk.green("building book object"));
   let $ = cheerio.load(page.data);
   book.bkTitle = $(".book-page-book-cover").next("h1").text();
-  book.bkRecs = await findBookRecs(book.bkTitle);
+  // try {
+  //   book.bkRecs = await getRecs(book.bkTitle);
+  // } catch (error) {
+  //   console.log(error);
+  // }
+  try{
+      book.bkRecs=await findBookRecs(book.bkTitle)
+    }catch{
+      console.log(error);
+    }
+  
+
 
   book.bkAuthor = $(".book-page-author").text();
   book.bkDescription = $(".description").text();
@@ -146,14 +165,10 @@ getSpecificBook = (id) => {
     .then(buildBookObj);
 };
 
-
-
-  searchGenre("");  
-
+searchGenre("");
 
 // buildRecObj('https://librivox.org/the-odyssey-by-homer/')
 // getSpecificBook(65)
-
 
 //should match to /api/audiobook
 router.route("/").get(
