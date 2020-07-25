@@ -8,7 +8,10 @@ const { parse, stringify } = require("flatted");
 
 let book = {};
 
-const csvFilePath = "./combined_recommendations_v1.csv";
+// const csvFilePath = "./rec_obj_dedup_test.csv";
+// const csvFilePath ="https://drive.google.com/file/d/1-0R8X1xsxmrR3Io0UVe28T4y7M3Hd2t6/view?usp=sharing"
+const csvFilePath = "./denormalized_scrape_match_v2.csv"
+// "https://docs.google.com/spreadsheets/d/e/2PACX-1vQzeX2vl5mzdEQd-M47lPLzloDpIHRiNsnp11ekJXwzkjkQdIIx05HnExOx9ST0J-DSGG6fZRRHULkD/pub?gid=1343365081&single=true&output=csv"
 const csv = require("csvtojson");
 
 async function findBookRecs(bookTitle) {
@@ -17,45 +20,66 @@ async function findBookRecs(bookTitle) {
   try {
     console.log(chalk.red("try"));
     rec_list = [];
-    // var obj = JSON.parse(result);
-    let keys = Object.keys(recommendations);
-    // console.log(chalk.red("keys: "), keys)
-    for (var i = 0; i < keys.length; i++) {
-      console.log(recommendations[keys[i]].book_title);
-      if (bookTitle.includes(recommendations[keys[i]].book_title)) {
-        console.log(
-          "found: ",
-          typeof recommendations[keys[i]].book_recommendation_urls
-        );
+    let data = JSON.parse(JSON.stringify(recommendations));
+tempObj=JSON.parse(data[2][0])
+console.log(JSON.parse(tempObj[0].Rec_Info_Arr))
+    // console.log(chalk.red("data :"), JSON.parse(data[2][0]))
+//     for (var i = 0; i < keys.length; i++) {
 
-        rec_list = recommendations[keys[i]].book_recommendation_urls;
-        rec_list = rec_list.replace("[", "");
-        rec_list = rec_list.replace("]", "");
+//       // console.log(recommendations[keys[i]].title);
+//       if (bookTitle.includes(recommendations[keys[i]].title) || recommendations[keys[i]].title.includes(bookTitle)) {
+//         console.log(
+//           "found: ",
+//            recommendations[keys[i]].rec_objects
+//         );
+
+//         // var apostropheRegex = """(?<=[a-zA-Z])'(?=[a-zA-Z])""";
+// // "john's carpet is 5' x 8'".replaceAll(apostropheRegex, "XXX"
+
+//         // str.replace(/'/g, "''");
+//         // temp_split = recommendations[keys[i]].rec_objects.split(" ")
+//         //  console.log(temp_split)
+//         // for(var x of temp_split){
+//         //   x=x.replace(/^\w/,"")
+//         // }
+//         // console.log(temp_split)
+//         recs_temp_js_obj = recommendations[keys[i]].rec_objects.replace(/([\w]+['][\w]+)/g, "")
+//         console.log(recs_temp_js_obj)
+  
+//         recs_temp_js_obj = recommendations[keys[i]].rec_objects.replace(/'/g, "\"")
+//         console.log(recs_temp_js_obj)
         
-        // rec_list = rec_list.replace("/", "");
-        rec_list = rec_list.split(",");
+        // recs_temp_js_obj = JSON.parse(recs_temp_js_obj)
+        //   console.log(recs_temp_js_obj[0])
+    //     rec_list = recommendations[keys[i]].book_recommendation_urls;
+    //     rec_list = rec_list.replace("[", "");
+    //     rec_list = rec_list.replace("]", "");
+        
+    //     // rec_list = rec_list.replace("/", "");
+    //     rec_list = rec_list.split(",");
 
-        console.log(chalk.magenta(rec_list));
-        let tempList = [];
+    //     console.log(chalk.magenta(rec_list));
+    //     let tempList = [];
 
-        for (var x of rec_list) {
-          // const matches = string.match(/\bhttp?::\/\/\S+/gi);
-          console.log("rec_list ->", x.toString());
-          try {
-            tempList.push(await buildRecObj(x))
-          } catch (error) {
-            console.log(error.message)
-          }
-        }
-        console.log("tempList: ", chalk.red(tempList));
+    //     for (var x of rec_list) {
+    //       // const matches = string.match(/\bhttp?::\/\/\S+/gi);
+    //       console.log("rec_list ->", x.toString());
+    //       try {
+    //         tempList.push(await buildRecObj(x))
+    //       } catch (error) {
+    //         console.log(error.message)
+    //       }
+    //     }
+    //     console.log("tempList: ", chalk.red(tempList));
 
-        return rec_list;
-      }
-    }
+    //     return rec_list;
+      // }
+    // }
   } catch (err) {
     console.log(err.message);
   }
 }
+
 
 async function buildRecObj(url) {
   url = url.replace("[", " ");
@@ -121,7 +145,7 @@ async function buildBookObj(page) {
   // }
   try{
       book.bkRecs=await findBookRecs(book.bkTitle)
-    }catch{
+    }catch(error){
       console.log(error);
     }
   
@@ -137,7 +161,7 @@ async function buildBookObj(page) {
     chapter.chLink = $(element).attr("href");
     book.CHS.push(chapter);
   });
-  console.log(Object.values(book));
+  // console.log(Object.values(book));
   return book;
 }
 
@@ -166,7 +190,7 @@ getSpecificBook = (id) => {
 };
 
 searchGenre("");
-
+// findBookRecs('The Colors of Space')
 // buildRecObj('https://librivox.org/the-odyssey-by-homer/')
 // getSpecificBook(65)
 

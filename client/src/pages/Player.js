@@ -11,12 +11,10 @@ import NextButton from "../components/NextButton";
 import LikeButton from "../components/LikeButton";
 import Footer from "../components/Footer";
 import axios from "axios";
-
-import {
-  Grid,
-  Container,
-} from "semantic-ui-react";
+import { Route, Link } from 'react-router-dom'  
+import { Grid, Container } from "semantic-ui-react";
 import Chapter from "../components/Chapter";
+const normalizeUrl = require('normalize-url');
 
 class Player extends React.Component {
   state = {
@@ -33,7 +31,7 @@ class Player extends React.Component {
     bookID: [],
     bookURL: [],
     loggedIn: false,
-    recommendations:[]
+    recommendations: [],
   };
 
   handleLogInClick() {
@@ -46,23 +44,23 @@ class Player extends React.Component {
     this.setState({ thisIsTheBoolean: false });
   }
 
-  handleNext = event => {
+  handleNext = (event) => {
     if (event) {
       event.preventDefault();
     }
 
     axios
       .get(`/api/audiobook/genre/${this.state.searchText || "science fiction"}`)
-      .then(res => {
+      .then((res) => {
         let bookData = res.data;
         // console.log("got here");
         this.setBook(bookData);
       });
   };
 
-  getSpecificBook = id => {
+  getSpecificBook = (id) => {
     console.log(id);
-    axios.get(`/api/audiobook/book/${id}`).then(res => {
+    axios.get(`/api/audiobook/book/${id}`).then((res) => {
       let bookData = res.data;
       // console.log("got here");
       this.setBook(bookData);
@@ -75,17 +73,17 @@ class Player extends React.Component {
     }
   }
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
   componentDidMount() {
-    axios.get(`/api/audiobook`).then(res => {
+    axios.get(`/api/audiobook`).then((res) => {
       const bookData = res.data;
-      console.log("componentDidMount bookData: ",bookData);
+      console.log("componentDidMount bookData: ", bookData);
       let randChap = this.playRandomChapter(bookData);
       this.setState({
         book: bookData,
@@ -96,12 +94,12 @@ class Player extends React.Component {
         randomChapter: randChap,
         bookID: bookData.bkID,
         bookURL: bookData.bkURL,
-        recommendations:bookData.bkRecs
+        recommendations: bookData.bkRecs,
       });
     });
   }
 
-  setBook = bookData => {
+  setBook = (bookData) => {
     console.log(bookData);
     let randChap = this.playRandomChapter(bookData);
     this.setState({
@@ -113,11 +111,11 @@ class Player extends React.Component {
       randomChapter: randChap,
       bookID: bookData.bkID,
       bookURL: bookData.bkURL,
-      recommendations:bookData.bkRecs
+      recommendations: bookData.bkRecs,
     });
   };
 
-  playRandomChapter = book => {
+  playRandomChapter = (book) => {
     let randIndex = Math.floor(Math.random() * book.CHS.length);
     let playedCh = book.CHS[randIndex];
     let secLink = playedCh.chLink.replace("http", "https");
@@ -125,12 +123,12 @@ class Player extends React.Component {
     return playedCh;
   };
 
-  getCurrentUser = userFromNav => {
+  getCurrentUser = (userFromNav) => {
     this.setState({ currentUser: userFromNav });
     this.getUserObj();
   };
 
-  handleLike = event => {
+  handleLike = (event) => {
     if (event) {
       event.preventDefault();
     }
@@ -147,7 +145,7 @@ class Player extends React.Component {
 
       axios
         .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     } else {
@@ -156,38 +154,67 @@ class Player extends React.Component {
     }
   };
 
-  deleteBook = titleToDelete => {
+  deleteBook = (titleToDelete) => {
     let tempUser = this.state.userObj;
     let titles = this.state.userObj.likes;
-    let newTitles = titles.filter(item => {
+    let newTitles = titles.filter((item) => {
       return item.bkTitle !== titleToDelete;
     });
     tempUser.likes = newTitles;
     this.setState({ userObj: tempUser });
     axios
       .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   };
 
   getUserObj() {
-    axios.get(`/api/users/?email=${this.state.currentUser}`).then(res => {
+    axios.get(`/api/users/?email=${this.state.currentUser}`).then((res) => {
       // console.log(res.data);
       this.setState({ userObj: res.data[0] });
       this.setState({ loggedIn: true });
     });
   }
 
-
   render() {
-   let listItems =  this.state.recommendations?(this.state.recommendations.map((rec) =>
-  <h5><a href={rec} >{rec}</a></h5>
-        )):""
+    // console.log(window.location);
+
+    // let tempItems=this.state.recommendations
+    // for(var x of tempItems)
+    // {
+    //   x = x.slice(2,-2)
+    // }
+    // console.log(tempItems)
+    // console.log(this.state.recommendations)
+
+    let listItems = this.state.recommendations
+      ? this.state.recommendations.map((rec) => (
+        <h5>
+        <Link to={{ pathname: `${rec}` }} target="_blank" >
+          {rec}
+        </Link>  
+        </h5>
+            // <Link target="_blank" 
+            // onClick={()=>{
+            //   // window.location.host=""
+            //   // window.location.hostname=""
+            //   // window.location.origin=""
+            //   // window.location.pathname=""
+            //   window.location.replace(rec)}}
+            // // to={rec}
+            // to="/" 
+            // href={rec}
+            // key={rec}>
+            //   {rec}
+            // </Link>
+
+        ))
+      : "";
 
     return (
       <div className="all">
-        <Navbar/>
+        <Navbar />
         <div>
           <Container
             fluid
@@ -233,22 +260,12 @@ class Player extends React.Component {
                 <Description description={this.state.description} />
               </Grid.Column>
             </Grid>
-            <div>
-            </div>
-            <h4
-            style={{color:"white"}}
-            >
-              Recommendations
-            </h4>
-            <div>
-        {
-        listItems
-        }
-        </div>
+            <div></div>
+            <h4 style={{ color: "white" }}>Recommendations</h4>
+            <div>{listItems}</div>
           </Container>
-          
         </div>
-       
+
         <Footer className="border footer" />
       </div>
     );
@@ -256,4 +273,3 @@ class Player extends React.Component {
 }
 
 export default Player;
-
