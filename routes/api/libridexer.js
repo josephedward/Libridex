@@ -34,7 +34,7 @@ async function findBookRecs(bookTitle) {
         console.log("recommendations: ");
         console.log(JSON.parse(tempObj[0].Rec_Info_Arr))
         tempRecArr = JSON.parse(tempObj[0].Rec_Info_Arr);
-        await locateImgs(tempRecArr);
+        tempRecArr = await locateImgs(tempRecArr);
         return tempRecArr;
       }
     }
@@ -117,8 +117,8 @@ async function locateImgs(tempRecArr) {
           tempObj[0].title == rec.title
         ) {
           console.log("found it:");
-          // console.log(tempObj[0].description)
           console.log(chalk.bgCyan(tempYObj[0].img_url));
+          console.log(rec.img_url = tempYObj[0].img_url)
           return
         }
       }
@@ -126,6 +126,7 @@ async function locateImgs(tempRecArr) {
   } catch (bs) {
     console.log(chalk.bgRed("some bs messed up: ", bs.message));
   }
+ return tempRecArr
 }
 
 // async function buildRecObj(url) {

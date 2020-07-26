@@ -188,29 +188,11 @@ class Player extends React.Component {
     // console.log(tempItems)
     console.log(this.state.recommendations)
 
-    // let listItems = this.state.recommendations
-    //   ? this.state.recommendations.map((rec) => (
-    //     <h5>
-    //     <Link to={{ pathname: `${rec}` }} target="_blank" >
-    //       {rec}
-    //     </Link>  
-    //     </h5>
-    //         // <Link target="_blank" 
-    //         // onClick={()=>{
-    //         //   // window.location.host=""
-    //         //   // window.location.hostname=""
-    //         //   // window.location.origin=""
-    //         //   // window.location.pathname=""
-    //         //   window.location.replace(rec)}}
-    //         // // to={rec}
-    //         // to="/" 
-    //         // href={rec}
-    //         // key={rec}>
-    //         //   {rec}
-    //         // </Link>
+    let listItems = this.state.recommendations
+      ? this.state.recommendations.map((rec) => (
+      <BookImage image={rec.img_url}/>
+        )):""
 
-    //     ))
-    //   : "";
 
     return (
       <div className="all">
@@ -262,7 +244,7 @@ class Player extends React.Component {
             </Grid>
             <div></div>
             <h4 style={{ color: "white" }}>Recommendations</h4>
-            {/* <div>{listItems}</div> */}
+            <div>{listItems}</div>
           </Container>
         </div>
 
