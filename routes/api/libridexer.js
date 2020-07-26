@@ -10,19 +10,32 @@ let book = {};
 
 // const csvFilePath = "./rec_obj_dedup_test.csv";
 // const csvFilePath ="https://drive.google.com/file/d/1-0R8X1xsxmrR3Io0UVe28T4y7M3Hd2t6/view?usp=sharing"
-const csvFilePath = "./denormalized_scrape_match_v2.csv"
+const csvFilePath = "./denormalized_scrape_match_v3-3.csv"
 // "https://docs.google.com/spreadsheets/d/e/2PACX-1vQzeX2vl5mzdEQd-M47lPLzloDpIHRiNsnp11ekJXwzkjkQdIIx05HnExOx9ST0J-DSGG6fZRRHULkD/pub?gid=1343365081&single=true&output=csv"
 const csv = require("csvtojson");
 
 async function findBookRecs(bookTitle) {
   let recommendations = await csv().fromFile(csvFilePath);
-  console.log(chalk.red("findBookRecs()"));
+console.log(chalk.bgGreen("searching recommendations for : ", bookTitle))
   try {
-    console.log(chalk.red("try"));
     rec_list = [];
     let data = JSON.parse(JSON.stringify(recommendations));
-tempObj=JSON.parse(data[2][0])
-console.log(JSON.parse(tempObj[0].Rec_Info_Arr))
+   for(var x of data)
+   {
+    tempObj=JSON.parse(x[0])
+    console.log(tempObj[0].title)
+    if (bookTitle.includes(tempObj[0].title) || tempObj[0].title.includes(bookTitle) || tempObj[0].title == bookTitle) {
+      
+        console.log("found it:")
+        console.log(tempObj[0].description)
+        return
+    } 
+   }
+
+    // console.log(data)
+// tempObj=JSON.parse(data[0][0])
+// console.log(tempObj[0].title)
+// console.log(JSON.parse(tempObj[0].Rec_Info_Arr))
     // console.log(chalk.red("data :"), JSON.parse(data[2][0]))
 //     for (var i = 0; i < keys.length; i++) {
 
