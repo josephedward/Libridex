@@ -14,7 +14,7 @@ import axios from "axios";
 import { Route, Link } from 'react-router-dom'  
 import { Grid, Container } from "semantic-ui-react";
 import Chapter from "../components/Chapter";
-const normalizeUrl = require('normalize-url');
+// const normalizeUrl = require('normalize-url');
 
 class Player extends React.Component {
   state = {
@@ -186,31 +186,31 @@ class Player extends React.Component {
     //   x = x.slice(2,-2)
     // }
     // console.log(tempItems)
-    // console.log(this.state.recommendations)
+    console.log(this.state.recommendations)
 
-    let listItems = this.state.recommendations
-      ? this.state.recommendations.map((rec) => (
-        <h5>
-        <Link to={{ pathname: `${rec}` }} target="_blank" >
-          {rec}
-        </Link>  
-        </h5>
-            // <Link target="_blank" 
-            // onClick={()=>{
-            //   // window.location.host=""
-            //   // window.location.hostname=""
-            //   // window.location.origin=""
-            //   // window.location.pathname=""
-            //   window.location.replace(rec)}}
-            // // to={rec}
-            // to="/" 
-            // href={rec}
-            // key={rec}>
-            //   {rec}
-            // </Link>
+    // let listItems = this.state.recommendations
+    //   ? this.state.recommendations.map((rec) => (
+    //     <h5>
+    //     <Link to={{ pathname: `${rec}` }} target="_blank" >
+    //       {rec}
+    //     </Link>  
+    //     </h5>
+    //         // <Link target="_blank" 
+    //         // onClick={()=>{
+    //         //   // window.location.host=""
+    //         //   // window.location.hostname=""
+    //         //   // window.location.origin=""
+    //         //   // window.location.pathname=""
+    //         //   window.location.replace(rec)}}
+    //         // // to={rec}
+    //         // to="/" 
+    //         // href={rec}
+    //         // key={rec}>
+    //         //   {rec}
+    //         // </Link>
 
-        ))
-      : "";
+    //     ))
+    //   : "";
 
     return (
       <div className="all">
@@ -262,7 +262,7 @@ class Player extends React.Component {
             </Grid>
             <div></div>
             <h4 style={{ color: "white" }}>Recommendations</h4>
-            <div>{listItems}</div>
+            {/* <div>{listItems}</div> */}
           </Container>
         </div>
 
