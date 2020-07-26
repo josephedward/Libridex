@@ -12,8 +12,8 @@ import LikeButton from "../components/LikeButton";
 import Footer from "../components/Footer";
 import axios from "axios";
 import { Route, Link } from "react-router-dom";
-import { Grid, Container } from "semantic-ui-react";
-import { Item } from "semantic-ui-react";
+import { Grid, Container, Popup, PopupContent } from "semantic-ui-react";
+import { Item, Icon } from "semantic-ui-react";
 import Chapter from "../components/Chapter";
 // const normalizeUrl = require('normalize-url');
 
@@ -179,32 +179,41 @@ class Player extends React.Component {
   }
 
   render() {
-    // console.log(window.location);
-
-    // let tempItems=this.state.recommendations
-    // for(var x of tempItems)
-    // {
-    //   x = x.slice(2,-2)
-    // }
-    // console.log(tempItems)
     console.log(this.state.recommendations);
 
     let listItems = this.state.recommendations
       ? this.state.recommendations.map((rec) => (
           // <BookImage image={rec.img_url}/>
           <Grid.Column key={rec}>
-            <Item>
-              <Item.Content centered verticalAlign="middle" className="recommendation layout tanish">
+            <Item >
+              <Item.Content
+                centered
+                verticalAlign="middle"
+                className="recommendation layout tanish"
+              >
                 <h5>{rec.title}</h5>
+               <Popup
+                inverted
+                position='bottom center'
+               trigger={
                 <Item.Image
-                  height="200px"
-                  width="200px"
-                  alt="book pic"
-                  src={rec.img_url}
-                  onClick={() => this.getSpecificBook(rec.lib_id)}
-                />
+                height="200px"
+                width="200px"
+                alt="book pic"
+                src={rec.img_url}
+                onClick={() => this.getSpecificBook(rec.lib_id)}
+              />
+               }
+               >
+                 <PopupContent>
+                   Libridex this book!
+                 </PopupContent>
+                </Popup>
                 <h5>{rec.author}</h5>
+                <div style={{color:"aqua", backgroundColor:"maroon"}}>{rec.copyright_year}</div>
+                <div style={{color:"aqua", backgroundColor:"maroon"}}>{rec.genre}</div>
               </Item.Content>
+
             </Item>
           </Grid.Column>
         ))
@@ -258,8 +267,7 @@ class Player extends React.Component {
                 <Description description={this.state.description} />
               </Grid.Column>
             </Grid>
-            <div></div>
-            <h4 style={{ color: "white" }}>Recommendations</h4>
+            <h3 style={{ color: "white" }}>Recommendations</h3>
             <Grid stackable centered columns={3} className="black">
               {listItems}
             </Grid>
