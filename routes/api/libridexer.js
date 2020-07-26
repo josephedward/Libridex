@@ -187,11 +187,7 @@ async function buildBookObj(page) {
   console.log(chalk.green("building book object"));
   let $ = cheerio.load(page.data);
   book.bkTitle = $(".book-page-book-cover").next("h1").text();
-  // try {
-  //   book.bkRecs = await getRecs(book.bkTitle);
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  
   try {
     book.bkRecs = await findBookRecs(book.bkTitle);
   } catch (error) {

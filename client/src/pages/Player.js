@@ -11,8 +11,9 @@ import NextButton from "../components/NextButton";
 import LikeButton from "../components/LikeButton";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { Route, Link } from 'react-router-dom'  
+import { Route, Link } from "react-router-dom";
 import { Grid, Container } from "semantic-ui-react";
+import { Item } from "semantic-ui-react";
 import Chapter from "../components/Chapter";
 // const normalizeUrl = require('normalize-url');
 
@@ -186,13 +187,28 @@ class Player extends React.Component {
     //   x = x.slice(2,-2)
     // }
     // console.log(tempItems)
-    console.log(this.state.recommendations)
+    console.log(this.state.recommendations);
 
     let listItems = this.state.recommendations
       ? this.state.recommendations.map((rec) => (
-      <BookImage image={rec.img_url}/>
-        )):""
-
+          // <BookImage image={rec.img_url}/>
+          <Grid.Column key={rec}>
+            <Item>
+              <Item.Content centered verticalAlign="middle" className="recommendation layout tanish">
+                <h5>{rec.title}</h5>
+                <Item.Image
+                  height="200px"
+                  width="200px"
+                  alt="book pic"
+                  src={rec.img_url}
+                  onClick={() => this.getSpecificBook(rec.lib_id)}
+                />
+                <h5>{rec.author}</h5>
+              </Item.Content>
+            </Item>
+          </Grid.Column>
+        ))
+      : "";
 
     return (
       <div className="all">
@@ -244,7 +260,9 @@ class Player extends React.Component {
             </Grid>
             <div></div>
             <h4 style={{ color: "white" }}>Recommendations</h4>
-            <div>{listItems}</div>
+            <Grid stackable centered columns={3} className="black">
+              {listItems}
+            </Grid>
           </Container>
         </div>
 
@@ -255,3 +273,7 @@ class Player extends React.Component {
 }
 
 export default Player;
+
+// const recSty={
+//   :hover = "color: grey"
+// }

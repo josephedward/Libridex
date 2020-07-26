@@ -226,3 +226,7 @@ a {
   height: 37px;
   display: inline-block;
  }
+
+ .recommendation:hover{
+  background-color: blue;
+ }
