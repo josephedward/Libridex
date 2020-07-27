@@ -1,6 +1,6 @@
 import React from "react";
 import {List, Icon, Popup} from 'semantic-ui-react';
-
+import { Route, Link } from 'react-router-dom'  
 function loadLibrary() {
     window.location.replace('../Library')
 }
