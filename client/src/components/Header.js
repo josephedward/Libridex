@@ -1,7 +1,7 @@
 import React 
 // { Component } 
 from "react";
-import { Header, Segment, Menu, MenuItem } from "semantic-ui-react";
+import { Header, Segment, Menu } from "semantic-ui-react";
 import { useAuth0 } from "../react-auth0-spa.js";
 
 const Navbar = () => {
@@ -24,18 +24,11 @@ const Navbar = () => {
             border: "tan 1px solid",
           }}
         >
-          <div
-          style={{
-            display:"flex",
-            flexDirection:"row"
-          }}
-          >
-            <MenuItem>
           <Header as="h1" style={{ ...headStyle }}>
             <Header.Content
               style={{
                 fontSize: "50px",
-
+                padding: "20px",
                 color: "darkblue",
                 WebkitTextStrokeWidth: "1px",
                 WebkitTextStrokeColor: "aqua",
@@ -43,20 +36,11 @@ const Navbar = () => {
             >
               Libridex
             </Header.Content>
-          </Header>
-          </MenuItem>
-          {/* <Header 
-                       
-          > */}
-          <MenuItem>
-          <div style={{ 
-            alignItems:"center",
-            color: "white" }}>
+
+            <Header.Subheader style={{ color: "white" }}>
               Audiobook Shuffle
-            </div>
-            </MenuItem>
-          {/* </Header> */}
-          </div>
+            </Header.Subheader>
+          </Header>
           <Menu.Item style={{ padding: "0" }}></Menu.Item>
           {/* <hr /> */}
           <Menu.Menu position="right">
