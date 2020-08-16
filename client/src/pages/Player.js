@@ -195,7 +195,7 @@ class Player extends React.Component {
                <Popup
                 inverted
                 position='bottom center'
-               trigger={
+                trigger={
                 <Item.Image
                 height="200px"
                 width="200px"
