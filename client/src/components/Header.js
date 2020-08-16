@@ -1,5 +1,6 @@
-import React from // { Component }
-"react";
+import React 
+// { Component } 
+from "react";
 import { Header, Segment, Menu, MenuItem } from "semantic-ui-react";
 import { useAuth0 } from "../react-auth0-spa.js";
 
@@ -24,38 +25,37 @@ const Navbar = () => {
           }}
         >
           <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-            }}
+          style={{
+            display:"flex",
+            flexDirection:"row"
+          }}
           >
             <MenuItem>
-              <Header as="h1" style={{ ...headStyle }}>
-                <Header.Content
-                  style={{
-                    fontSize: "50px",
+          <Header as="h1" style={{ ...headStyle }}>
+            <Header.Content
+              style={{
+                fontSize: "50px",
 
-                    color: "darkblue",
-                    WebkitTextStrokeWidth: "1px",
-                    WebkitTextStrokeColor: "aqua",
-                  }}
-                >
-                  Libridex
-                </Header.Content>
-              </Header>
+                color: "darkblue",
+                WebkitTextStrokeWidth: "1px",
+                WebkitTextStrokeColor: "aqua",
+              }}
+            >
+              Libridex
+            </Header.Content>
+          </Header>
+          </MenuItem>
+          {/* <Header 
+                       
+          > */}
+          <MenuItem>
+          <div style={{ 
+            alignItems:"center",
+            color: "white" }}>
+              Audiobook Shuffle
+            </div>
             </MenuItem>
-            
-            <MenuItem>
-              <div
-                style={{
-                  alignItems: "center",
-                  color: "white",
-                }}
-              >
-                Audiobook Shuffle
-              </div>
-            </MenuItem>
-            {/* </Header> */}
+          {/* </Header> */}
           </div>
           <Menu.Item style={{ padding: "0" }}></Menu.Item>
           {/* <hr /> */}
