@@ -1,7 +1,6 @@
-import React 
-// { Component } 
-from "react";
-import { Header, Segment, Menu } from "semantic-ui-react";
+import React from // { Component }
+"react";
+import { Header, Segment, Menu, MenuItem } from "semantic-ui-react";
 import { useAuth0 } from "../react-auth0-spa.js";
 
 const Navbar = () => {
@@ -24,23 +23,40 @@ const Navbar = () => {
             border: "tan 1px solid",
           }}
         >
-          <Header as="h1" style={{ ...headStyle }}>
-            <Header.Content
-              style={{
-                fontSize: "50px",
-                padding: "20px",
-                color: "darkblue",
-                WebkitTextStrokeWidth: "1px",
-                WebkitTextStrokeColor: "aqua",
-              }}
-            >
-              Libridex
-            </Header.Content>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <MenuItem>
+              <Header as="h1" style={{ ...headStyle }}>
+                <Header.Content
+                  style={{
+                    fontSize: "50px",
 
-            <Header.Subheader style={{ color: "white" }}>
-              Audiobook Shuffle
-            </Header.Subheader>
-          </Header>
+                    color: "darkblue",
+                    WebkitTextStrokeWidth: "1px",
+                    WebkitTextStrokeColor: "aqua",
+                  }}
+                >
+                  Libridex
+                </Header.Content>
+              </Header>
+            </MenuItem>
+            
+            <MenuItem>
+              <div
+                style={{
+                  alignItems: "center",
+                  color: "white",
+                }}
+              >
+                Audiobook Shuffle
+              </div>
+            </MenuItem>
+            {/* </Header> */}
+          </div>
           <Menu.Item style={{ padding: "0" }}></Menu.Item>
           {/* <hr /> */}
           <Menu.Menu position="right">

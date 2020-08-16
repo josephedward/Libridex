@@ -156,6 +156,7 @@ async function locateImgs(tempRecArr) {
 //   return rec;
 // }
 
+
 getGenreLBVX = (genre) => {
   console.log(chalk.green("contacting librivox"));
   return axios.get(
@@ -168,19 +169,19 @@ getSpecificBookLBVX = (id) => {
   return axios.get(`https://librivox.org/api/feed/audiobooks/id/${id}`);
 };
 
-async function getRecs(bookTitle) {
-  console.log(
-    chalk.green("getting recommendations from flask server: ", bookTitle)
-  );
-  try {
-    return await axios.get(
-      encodeURI(`http://127.0.0.1:5000/recommend_static/${bookTitle}/`)
-    );
-    // return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend_static/${bookTitle}`))
-  } catch (err) {
-    console.log(err.message);
-  }
-}
+// async function getRecs(bookTitle) {
+//   console.log(
+//     chalk.green("getting recommendations from flask server: ", bookTitle)
+//   );
+//   try {
+//     return await axios.get(
+//       encodeURI(`http://127.0.0.1:5000/recommend_static/${bookTitle}/`)
+//     );
+//     // return await axios.get(encodeURI(`https://gentle-tundra-97522.herokuapp.com/recommend_static/${bookTitle}`))
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+// }
 
 //build book object
 async function buildBookObj(page) {
