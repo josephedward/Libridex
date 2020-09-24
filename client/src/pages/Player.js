@@ -185,35 +185,38 @@ class Player extends React.Component {
       ? this.state.recommendations.map((rec) => (
           // <BookImage image={rec.img_url}/>
           <Grid.Column key={rec}>
-            <Item >
+            <Item
+             height="200px" width="200px"
+            >
               <Item.Content
+                 height="200px" width="200px"
                 centered
                 verticalAlign="middle"
                 className="recommendation layout tanish"
               >
                 <h5>{rec.title}</h5>
-               <Popup
-                inverted
-                position='bottom center'
-                trigger={
-                <Item.Image
-                height="200px"
-                width="200px"
-                alt="book pic"
-                src={rec.img_url}
-                onClick={() => this.getSpecificBook(rec.lib_id)}
-              />
-               }
-               >
-                 <PopupContent>
-                   Libridex this book!
-                 </PopupContent>
+                <Popup
+                  inverted
+                  position="bottom center"
+                  trigger={
+                    <Item.Image
+                    height="200px" width="200px"
+                      alt="book pic"
+                      src={rec.img_url}
+                      onClick={() => this.getSpecificBook(rec.lib_id)}
+                    />
+                  }
+                >
+                  <PopupContent>Libridex this book!</PopupContent>
                 </Popup>
                 <h5>{rec.author}</h5>
-                <div style={{color:"aqua", backgroundColor:"maroon"}}>{rec.copyright_year}</div>
-                <div style={{color:"aqua", backgroundColor:"maroon"}}>{rec.genre}</div>
+                <div style={{ color: "aqua", backgroundColor: "maroon" }}>
+                  {rec.copyright_year}
+                </div>
+                <div style={{ color: "aqua", backgroundColor: "maroon", height:"20px" }}>
+                  {rec.genre}
+                </div>
               </Item.Content>
-
             </Item>
           </Grid.Column>
         ))
