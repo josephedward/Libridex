@@ -56,7 +56,7 @@
     "react-sticky-footer": "0.1.0-rc3",
     "react-textarea-autosize": "^7.1.0",
     "request": "^2.88.0",
-    "sanitize-html": "^1.27.1",
+    "sanitize-html": "^2.3.2",
     "semantic-ui-react": "^0.87.3",
     "sinon": "^8.1.0",
     "sinon-chai": "^3.4.0",
