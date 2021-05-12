@@ -7,7 +7,7 @@
     "node": "12.13.0"
   },
   "scripts": {
-    "start": "sudo ./init.sh if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\" ",
     "client": "cd client && npm run start",
@@ -58,12 +58,12 @@
     "request": "^2.88.0",
     "sanitize-html": "^1.27.1",
     "semantic-ui-react": "^0.87.3",
+    "serialize-javascript": ">=3.1.0",
     "sinon": "^8.1.0",
     "sinon-chai": "^3.4.0",
     "typescript": "^3.5.3",
     "validator": "^11.1.0",
-    "whatwg-fetch": "^3.0.0",
-    "serialize-javascript": ">=3.1.0"
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "dependency-cruiser": "^9.9.2"
