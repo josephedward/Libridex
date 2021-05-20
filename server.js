@@ -22,13 +22,6 @@ if (process.env.NODE_ENV === "production") {
 app.use("/",routes);
 
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/libridex",
-//  [{useNewUrlParser:true},  {useUnifiedTopology: true}] 
-//  )
-//  .then(() => console.log(chalk.blue("MongoDB successfully connected @"+(process.env.MONGODB_URI || "mongodb://localhost/libridex"))))
-//   .catch(err => console.log(err));
-
-
 app.use(express.static(join(__dirname, "build")));
 
 app.use((_, res) => {
