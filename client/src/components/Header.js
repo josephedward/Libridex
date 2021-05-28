@@ -59,7 +59,7 @@ const Navbar = () => {
 
             <Menu.Item name="profile" href="/profile" />
           </Menu.Menu>
-          <Menu.Item position="right" style={{ paddingRight: "5%" }}>
+          <Menu.Item position="right" style={{ paddingRight: "1%" }}>
             <div
               style={{
                 alignItems: "center",
