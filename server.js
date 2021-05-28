@@ -1,15 +1,11 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const axios = require('axios');
-const cheerio = require('cheerio');
-const chalk= require('chalk');
 const logger = require('morgan');
 const { join } = require("path");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 require('dotenv').config();
+
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));

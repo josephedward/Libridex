@@ -18,7 +18,6 @@ import {
   Container
 } from "semantic-ui-react";
 import Header1 from "../components/Header";
-import Footer from "../components/Footer";
 import axios from "axios";
 
 function Registration(){
@@ -136,7 +135,6 @@ function  postUser() {
           </Grid>
         </Container>
         <footer>
-          <Footer className="border footer" />
         </footer>
       </div>
     );

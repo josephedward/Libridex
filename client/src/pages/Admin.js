@@ -1,4 +1,4 @@
-// https://medium.com/better-programming/building-basic-react-authentication-e20a574d5e71
+
 import React from "react";
 import { Button } from "semantic-ui-react";
 import { useAuth } from "../context/auth";

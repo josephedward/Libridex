@@ -1,20 +1,6 @@
 import React from "react"; 
-import Navbar from "../components/Header";
-import UserLibrary from "../components/UserLibrary";
-import Search from "../components/Search";
-import Title from "../components/Title";
-import Author from "../components/Author";
-import BookPlayer from "../components/BookPlayer";
-import BookImage from "../components/BookImage";
-import Description from "../components/Description";
-import NextButton from "../components/NextButton";
-import LikeButton from "../components/LikeButton";
-import Footer from "../components/Footer";
-import axios from "axios";
-import { Route, Link } from "react-router-dom";
-import { Grid, Container, Popup, PopupContent } from "semantic-ui-react";
-import { Item, Icon } from "semantic-ui-react";
-import Chapter from "../components/Chapter";
+import { Grid, Popup, PopupContent } from "semantic-ui-react";
+import { Item } from "semantic-ui-react";
 
 export default function Recommendations(props) {
   return (props.recommendations

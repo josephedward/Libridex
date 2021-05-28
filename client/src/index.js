@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-// import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from "./utils/history";
@@ -20,6 +19,16 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     }
     return memo;
   }, {});
+
+  function logTest() {
+    console.log("Hello?");
+    console.info("Hello-o-o-o?");
+    console.warn("Can anybody hear me?");
+    console.error("I guess there is nobody there...");
+    savedFunctions.log("logging from saved function");
+  }
+
+  logTest();
 }
 
 

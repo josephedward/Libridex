@@ -1,5 +1,4 @@
 import React, { 
-  // Component, 
   useState } from "react";
 import { 
   // Link,
@@ -16,7 +15,6 @@ import {
   // Error
 } from "semantic-ui-react";
 import Header1 from "../components/Header";
-import Footer from "../components/Footer";
 import axios from "axios";
 import { useAuth } from "../context/auth";
 
@@ -119,7 +117,6 @@ function Login(props) {
           </Grid.Column>
         </Grid>
       </Container>
-      <Footer className="border footer" />
     </div>
   );
 }

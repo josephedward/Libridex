@@ -1,6 +1,4 @@
-import React 
-// { Component } 
-from "react";
+import React from "react";
 import { Header, Segment, Menu, MenuItem } from "semantic-ui-react";
 import { useAuth0 } from "../react-auth0-spa.js";
 
@@ -25,31 +23,26 @@ const Navbar = () => {
           }}
         >
           <div
-          style={{
-            display:"flex",
-            flexDirection:"row"
-          }}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+            }}
           >
             <MenuItem>
-          <Header as="h1" style={{ ...headStyle }}>
-            <Header.Content
-              style={{
-                fontSize: "50px",
+              <Header as="h1" style={{ ...headStyle }}>
+                <Header.Content
+                  style={{
+                    fontSize: "50px",
 
-                color: "darkblue",
-                WebkitTextStrokeWidth: "1px",
-                WebkitTextStrokeColor: "aqua",
-              }}
-            >
-              Libridex
-            </Header.Content>
-          </Header>
-          </MenuItem>
-          {/* <Header 
-                       
-          > */}
-
-          {/* </Header> */}
+                    color: "darkblue",
+                    WebkitTextStrokeWidth: "1px",
+                    WebkitTextStrokeColor: "aqua",
+                  }}
+                >
+                  Libridex
+                </Header.Content>
+              </Header>
+            </MenuItem>
           </div>
           <Menu.Menu position="left">
             <Menu.Item name="home" href="/" />
@@ -66,27 +59,19 @@ const Navbar = () => {
 
             <Menu.Item name="profile" href="/profile" />
           </Menu.Menu>
-{/* 
-          <MenuItem>
-          
-            </MenuItem> */}
-          <Menu.Item 
-          position="right"
-          style={{ paddingRight: "5%" }}>
-          <div style={{ 
-            alignItems:"center",
-            color: "white" }}>
+          <Menu.Item position="right" style={{ paddingRight: "5%" }}>
+            <div
+              style={{
+                alignItems: "center",
+                color: "white",
+              }}
+            >
               Audiobook Shuffle
-            <p>
-             <a
-             href="https://github.com/josephedward"
-             > @josephedward</a>
-            </p>
+              <p>
+                <a href="https://github.com/josephedward"> @josephedward</a>
+              </p>
             </div>
-
           </Menu.Item>
-          {/* <hr /> */}
-
         </Menu>
       </Segment>
     </div>
