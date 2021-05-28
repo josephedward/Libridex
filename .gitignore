@@ -18,3 +18,14 @@ misc
 /python
 /python/*
 python
+
+
+ __pycache__
+ /__pycache__
+ /__pycache__/
+ / __pycache__/*
+
+ venv
+/venv
+/venv/
+/venv/*
