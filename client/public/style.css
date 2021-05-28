@@ -1,4 +1,3 @@
-
 body {
   background-image: url(./images/bookshelf.jpeg) !important;
 }
@@ -11,11 +10,9 @@ body {
   width: 100%;
 }
 
-.nicefont{
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- 
+.nicefont {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-
 
 .layout {
   text-align: center !important;
@@ -48,22 +45,18 @@ body {
 }
 
 .border {
-  border: 3px solid lightseagreen !important;
+  border: 3px solid rgb(131, 163, 162) !important;
 }
 
 .border2 {
-  border-top: 3px solid lightseagreen !important;
-  border-left: 3px solid lightseagreen !important;
-  border-right: 3px solid lightseagreen !important;
+  border: 3px solid lightseagreen !important;
+  /* border-left: 3px solid lightseagreen !important;
+  border-right: 3px solid lightseagreen !important; */
 }
 
-/* .height300{
-  h
-} */
-.padding{
-  padding:20px !important;
+.padding {
+  padding: 20px !important;
 }
-
 
 .width1000 {
   width: 1000px !important;
@@ -85,12 +78,11 @@ body {
   width: 100% !important;
 }
 
-.halfWidth{
-  width:50% !important;
+.halfWidth {
+  width: 50% !important;
 }
 
-.contentMargin
-{
+.contentMargin {
   margin-top: 10vh !important;
   margin-bottom: 10vh !important;
 }
@@ -132,9 +124,9 @@ body {
 
 .main {
   min-height: 100vh; /* will cover the 100% of viewport */
-  overflow: hidden;
+  overflow: visible;
   display: block;
-  position: relative;
+  /* position: fixed; */
 }
 * {
   box-sizing: border-box;
@@ -149,21 +141,20 @@ body {
   position: relative;
 }
 
-
-.vert50{
-  margin-top:30vh !important;
+.vert50 {
+  margin-top: 30vh !important;
 }
 
 .vertAlign {
-  display: 'flex';
-  justify-content: 'center';
-  align-items: 'center';
-  width: '..';
-  height: '..';
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  width: "..";
+  height: "..";
 }
 
 .main2 {
-  min-height: 100vh; 
+  min-height: 100vh;
   overflow: hidden;
   display: block;
   position: relative;
@@ -201,7 +192,8 @@ body {
 a {
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
- }.button {
+}
+.button {
   display: inline-block;
   max-width: 300px;
   margin-top: 50px;
@@ -219,14 +211,15 @@ a {
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
   font: inherit;
   outline: none;
- }.button .svgIcon {
+}
+.button .svgIcon {
   vertical-align: middle;
   fill: rgba(0, 0, 0, 0.54);
   padding-right: 4px;
   height: 37px;
   display: inline-block;
- }
+}
 
- .recommendation:hover{
+.recommendation:hover {
   background-color: blue;
- }
+}

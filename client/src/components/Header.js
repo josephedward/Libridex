@@ -48,18 +48,10 @@ const Navbar = () => {
           {/* <Header 
                        
           > */}
-          <MenuItem>
-          <div style={{ 
-            alignItems:"center",
-            color: "white" }}>
-              Audiobook Shuffle
-            </div>
-            </MenuItem>
+
           {/* </Header> */}
           </div>
-          <Menu.Item style={{ padding: "0" }}></Menu.Item>
-          {/* <hr /> */}
-          <Menu.Menu position="right">
+          <Menu.Menu position="left">
             <Menu.Item name="home" href="/" />
 
             {isAuthenticated ? (
@@ -74,6 +66,27 @@ const Navbar = () => {
 
             <Menu.Item name="profile" href="/profile" />
           </Menu.Menu>
+{/* 
+          <MenuItem>
+          
+            </MenuItem> */}
+          <Menu.Item 
+          position="right"
+          style={{ paddingRight: "5%" }}>
+          <div style={{ 
+            alignItems:"center",
+            color: "white" }}>
+              Audiobook Shuffle
+            <p>
+             <a
+             href="https://github.com/josephedward"
+             > @josephedward</a>
+            </p>
+            </div>
+
+          </Menu.Item>
+          {/* <hr /> */}
+
         </Menu>
       </Segment>
     </div>

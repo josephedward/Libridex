@@ -15,7 +15,7 @@ import { Route, Link } from "react-router-dom";
 import { Grid, Container, Popup, PopupContent } from "semantic-ui-react";
 import { Item, Icon } from "semantic-ui-react";
 import Chapter from "../components/Chapter";
-// const normalizeUrl = require('normalize-url');
+import Recommendations from "../components/Recommendations";
 
 class Player extends React.Component {
   state = {
@@ -85,20 +85,30 @@ class Player extends React.Component {
     axios.get(`/api/audiobook`).then((res) => {
       const bookData = res.data;
       console.log("componentDidMount bookData: ", bookData);
-      let randChap = this.playRandomChapter(bookData);
-      this.setState({
-        book: bookData,
-        image: bookData.bkImage,
-        title: bookData.bkTitle,
-        author: bookData.bkAuthor,
-        description: bookData.bkDescription,
-        randomChapter: randChap,
-        bookID: bookData.bkID,
-        bookURL: bookData.bkURL,
-        recommendations: bookData.bkRecs,
-      });
+      if (bookData.bkID) {
+        let randChap = this.playRandomChapter(bookData);
+        this.setState({
+          book: bookData,
+          image: bookData.bkImage,
+          title: bookData.bkTitle,
+          author: bookData.bkAuthor,
+          description: bookData.bkDescription,
+          randomChapter: randChap,
+          bookID: bookData.bkID,
+          bookURL: bookData.bkURL,
+          // recommendations: bookData.bkRecs,
+        });
+      }
     });
   }
+
+  getRecs = (title) => {
+    axios.get(`/api/audiobook/${title}/recs`).then((res) => {
+      if (res.data) {
+        this.setState({ recommendations: res.data });
+      }
+    });
+  };
 
   setBook = (bookData) => {
     console.log(bookData);
@@ -140,35 +150,34 @@ class Player extends React.Component {
       if (!tempUser.likes.includes(this.state.book)) {
         tempUser.likes.push(this.state.book);
       }
-
       this.setState({ userObj: tempUser });
       console.log(this.state.userObj);
-
       axios
         .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
         .catch((e) => {
           console.log(e);
         });
     } else {
-      alert("You must log in to store the books you like!");
-      window.location.reload();
+      alert(
+        "User preference storage is in the feature queue. Please check back later. "
+      );
     }
   };
 
-  deleteBook = (titleToDelete) => {
-    let tempUser = this.state.userObj;
-    let titles = this.state.userObj.likes;
-    let newTitles = titles.filter((item) => {
-      return item.bkTitle !== titleToDelete;
-    });
-    tempUser.likes = newTitles;
-    this.setState({ userObj: tempUser });
-    axios
-      .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  // deleteBook = (titleToDelete) => {
+  //   let tempUser = this.state.userObj;
+  //   let titles = this.state.userObj.likes;
+  //   let newTitles = titles.filter((item) => {
+  //     return item.bkTitle !== titleToDelete;
+  //   });
+  //   tempUser.likes = newTitles;
+  //   this.setState({ userObj: tempUser });
+  //   axios
+  //     .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
 
   getUserObj() {
     axios.get(`/api/users/?email=${this.state.currentUser}`).then((res) => {
@@ -179,53 +188,59 @@ class Player extends React.Component {
   }
 
   render() {
-    console.log(this.state.recommendations);
+    // console.log(this.state.recommendations);
 
-    let listItems = this.state.recommendations
-      ? this.state.recommendations.map((rec) => (
-          // <BookImage image={rec.img_url}/>
-          <Grid.Column key={rec}>
-            <Item
-             height="200px" width="200px"
-            >
-              <Item.Content
-                 height="200px" width="200px"
-                centered
-                verticalAlign="middle"
-                className="recommendation layout tanish"
-              >
-                <h5>{rec.title}</h5>
-                <Popup
-                  inverted
-                  position="bottom center"
-                  trigger={
-                    <Item.Image
-                    height="200px" width="200px"
-                      alt="book pic"
-                      src={rec.img_url}
-                      onClick={() => this.getSpecificBook(rec.lib_id)}
-                    />
-                  }
-                >
-                  <PopupContent>Libridex this book!</PopupContent>
-                </Popup>
-                <h5>{rec.author}</h5>
-                <div style={{ color: "aqua", backgroundColor: "maroon" }}>
-                  {rec.copyright_year}
-                </div>
-                <div style={{ color: "aqua", backgroundColor: "maroon", height:"20px" }}>
-                  {rec.genre}
-                </div>
-              </Item.Content>
-            </Item>
-          </Grid.Column>
-        ))
-      : "";
+    // let listItems = this.state.recommendations
+    //   ? this.state.recommendations.map((rec) => (
+    //       // <BookImage image={rec.img_url}/>
+    //       <Grid.Column key={rec}>
+    //         <Item height="200px" width="200px">
+    //           <Item.Content
+    //             height="200px"
+    //             width="200px"
+    //             centered
+    //             verticalAlign="middle"
+    //             className="recommendation layout tanish"
+    //           >
+    //             <h5>{rec.title}</h5>
+    //             <Popup
+    //               inverted
+    //               position="bottom center"
+    //               trigger={
+    //                 <Item.Image
+    //                   height="200px"
+    //                   width="200px"
+    //                   alt="book pic"
+    //                   src={rec.img_url}
+    //                   onClick={() => this.getSpecificBook(rec.lib_id)}
+    //                 />
+    //               }
+    //             >
+    //               <PopupContent>Libridex this book!</PopupContent>
+    //             </Popup>
+    //             <h5>{rec.author}</h5>
+    //             <div style={{ color: "aqua", backgroundColor: "maroon" }}>
+    //               {rec.copyright_year}
+    //             </div>
+    //             <div
+    //               style={{
+    //                 color: "aqua",
+    //                 backgroundColor: "maroon",
+    //                 height: "20px",
+    //               }}
+    //             >
+    //               {rec.genre}
+    //             </div>
+    //           </Item.Content>
+    //         </Item>
+    //       </Grid.Column>
+    //     ))
+    //   : "";
 
     return (
       <div className="all">
         <Navbar />
-        <div>
+        <div style={{ height: "100vh" }}>
           <Container
             fluid
             className="layout nicefont width1000 border2 maroon main"
@@ -270,21 +285,28 @@ class Player extends React.Component {
                 <Description description={this.state.description} />
               </Grid.Column>
             </Grid>
-            <h3 style={{ color: "white" }}>Recommendations</h3>
-            <Grid stackable centered columns={3} className="black">
-              {listItems}
-            </Grid>
+            <div>
+              {this.state.recommendations ? (
+                <div>
+                  <h3 style={{ color: "white" }}>Recommendations</h3>
+                  <Grid stackable centered columns={3}>
+                    <Recommendations
+                      style={{ overflow: "hidden", color: "black" }}
+                      getSpecificBook={this.getSpecificBook}
+                      recommendations={this.state.recommendations}
+                    />
+                  </Grid>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
           </Container>
         </div>
-
-        <Footer className="border footer" />
+        {/* <Footer className="border footer" /> */}
       </div>
     );
   }
 }
 
 export default Player;
-
-// const recSty={
-//   :hover = "color: grey"
-// }

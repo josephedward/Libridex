@@ -9,7 +9,6 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
 require('dotenv').config();
 
 app.use(logger('dev'));
@@ -21,8 +20,7 @@ if (process.env.NODE_ENV === "production") {
 }
 app.use("/",routes);
 
-
-app.use(express.static(join(__dirname, "build")));
+// app.use(express.static(join(__dirname, "build")));
 
 app.use((_, res) => {
   res.sendFile(join(__dirname, "build", "index.html"));

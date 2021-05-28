@@ -1,4 +1,4 @@
-brew services start mongodb-community
+# brew services start mongodb-community
 echo 'mongo started'
 echo 'attempting to close ports'
 sudo killall -9 node
