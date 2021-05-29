@@ -5,7 +5,7 @@ const chalk = require("chalk");
 const router = require("express").Router();
 const csv = require("csvtojson");
 let book = {};
-const csvFilePath = "./routes/api/denormalized_scrape_match_v3-3.csv";
+const csvFilePath = "./data/denormalized_scrape_match_v3-3.csv";
 
 
 
@@ -13,33 +13,31 @@ const csvFilePath = "./routes/api/denormalized_scrape_match_v3-3.csv";
 // findBookRecs('The Colors of Space')
 // buildRecObj('https://librivox.org/the-odyssey-by-homer/')
 // getSpecificBook(65)
-
 //should match to /api/audiobook
-router.route("/").get(
-  function (req, res) {
-    res.json(book);
-  }
-);
+// router.route("/").get(
+//   function (req, res) {
+//     res.json(book);
+//   }
+// );
+// router.route("/genre/:id").get(async function (req, res) {
+//   console.log(req.params.id);
+//   try {
+//     await searchGenre(req.params.id).then((bookData) => res.json(bookData));
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+// });
+// router.route("/book/:id").get(async function (req, res) {
+//   console.log(req.params.id);
+//   await getSpecificBook(req.params.id).then((bookData) => res.json(bookData));
+// });
+// router.route("/book/:name/recs").get(async function (req, res) {
+//   console.log(req.params.name);
+//  return await findBookRecs(req.params.name).then((recs)=>res.json(recs))
+// });
 
-router.route("/genre/:id").get(async function (req, res) {
-  console.log(req.params.id);
-  try {
-    await searchGenre(req.params.id).then((bookData) => res.json(bookData));
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-
-router.route("/book/:id").get(async function (req, res) {
-  console.log(req.params.id);
-  await getSpecificBook(req.params.id).then((bookData) => res.json(bookData));
-});
 
 
-router.route("/book/:name/recs").get(async function (req, res) {
-  console.log(req.params.name);
- return await findBookRecs(req.params.name).then((recs)=>res.json(recs))
-});
 
 searchGenre = (genre) => {
   return getGenreLBVX(genre)

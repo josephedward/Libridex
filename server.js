@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require('morgan');
 const { join } = require("path");
-const routes = require("./routes");
+const routes = require("./service/api");
 const app = express();
 const PORT = process.env.PORT || 3001;
 require('dotenv').config();
