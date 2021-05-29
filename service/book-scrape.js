@@ -7,36 +7,10 @@ const csv = require("csvtojson");
 let book = {};
 const csvFilePath = "./data/denormalized_scrape_match_v3-3.csv";
 
-
-
 // searchGenre("");
 // findBookRecs('The Colors of Space')
 // buildRecObj('https://librivox.org/the-odyssey-by-homer/')
 // getSpecificBook(65)
-//should match to /api/audiobook
-// router.route("/").get(
-//   function (req, res) {
-//     res.json(book);
-//   }
-// );
-// router.route("/genre/:id").get(async function (req, res) {
-//   console.log(req.params.id);
-//   try {
-//     await searchGenre(req.params.id).then((bookData) => res.json(bookData));
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// });
-// router.route("/book/:id").get(async function (req, res) {
-//   console.log(req.params.id);
-//   await getSpecificBook(req.params.id).then((bookData) => res.json(bookData));
-// });
-// router.route("/book/:name/recs").get(async function (req, res) {
-//   console.log(req.params.name);
-//  return await findBookRecs(req.params.name).then((recs)=>res.json(recs))
-// });
-
-
 
 
 searchGenre = (genre) => {
@@ -75,13 +49,12 @@ getSpecificBookLBVX = (id) => {
   return axios.get(`https://librivox.org/api/feed/audiobooks/id/${id}`);
 };
 
-
 //build book object
 async function buildBookObj(page) {
   console.log(chalk.green("building book object"));
   let $ = cheerio.load(page.data);
   book.bkTitle = $(".book-page-book-cover").next("h1").text();
-  
+
   try {
     book.bkRecs = await findBookRecs(book.bkTitle);
   } catch (error) {
@@ -120,14 +93,12 @@ async function findBookRecs(bookTitle) {
         // console.log(tempObj[0].description)
         console.log(tempObj[0].img_url);
         console.log("recommendations: ");
-        console.log(JSON.parse(tempObj[0].Rec_Info_Arr))
+        console.log(JSON.parse(tempObj[0].Rec_Info_Arr));
         tempRecArr = JSON.parse(tempObj[0].Rec_Info_Arr);
         tempRecArr = await locateImgs(tempRecArr);
         return tempRecArr;
       }
     }
-
-
   } catch (err) {
     console.log(chalk.bgRed("couldnt find"));
     console.log(chalk.bgRed(err.message));
@@ -139,7 +110,7 @@ async function locateImgs(tempRecArr) {
   try {
     let data = JSON.parse(JSON.stringify(recommendations));
     tempRecArr.forEach((rec) => {
-      console.log(chalk.bgMagenta("searching img URL for : ", rec.title))
+      console.log(chalk.bgMagenta("searching img URL for : ", rec.title));
       console.log(rec.title);
       for (var y of data) {
         tempYObj = JSON.parse(y[0]);
@@ -151,14 +122,14 @@ async function locateImgs(tempRecArr) {
         ) {
           console.log("found it:");
           console.log(chalk.bgCyan(tempYObj[0].img_url));
-          console.log(rec.img_url = tempYObj[0].img_url)
-          return
+          console.log((rec.img_url = tempYObj[0].img_url));
+          return;
         }
       }
     });
   } catch (bs) {
-    console.log(chalk.bgRed("some bs messed up: ", bs.message));
+    console.log(chalk.bgRed("error: ", bs.message));
   }
- return tempRecArr
+  return tempRecArr;
 }
 module.exports = router;

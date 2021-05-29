@@ -8,11 +8,13 @@ require("dotenv").config();
 console.log(PORT)
 process.env.NODE_ENV === "production"? (axios.defaults.baseURL = "https://libridex.herokuapp.com/"):(axios.defaults.baseURL = `http://localhost:${PORT}/`)
 
-describe("Test a 200", () => {
-  test("It should respond with a 200 status", async () => {
-    console.log(axios.defaults.baseURL)
-    const response = await axios.get("/");
-    expect(response.status).toBe(200);
+describe("Get The Count of Monte Cristo by ID", () => {
+    test("It should respond with a 200 status", async () => {
+      console.log(axios.defaults.baseURL)
+      const response = await axios.get("/api/audiobook/book/47");
+      //   console.log(Object.keys(response.data))
+        expect(response.data.bkTitle).toBe("The Count of Monte Cristo");
+    });
   });
-});
-
+  
+  
