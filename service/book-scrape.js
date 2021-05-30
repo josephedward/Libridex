@@ -31,7 +31,7 @@ getSpecificBook = (id) => {
   return getSpecificBookLBVX(id)
     .then((res) => {
       const books = res.data.books;
-      // there are books with the same id? 
+      // comes in array 
       const { url_librivox, id} = books[Math.floor(Math.random() * books.length)];
       book.bkID = id;
       book.bkURL = url_librivox;
