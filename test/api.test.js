@@ -4,7 +4,12 @@ const { join } = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const axios = require("axios");
+const api = require("../service/api")
+const books = require("../service/book-scrape")
+// import testObj1 from "./testObj1"
 const testObj1 = require("./testObj1")
+
+
 require("dotenv").config();
 console.log(PORT);
 process.env.NODE_ENV === "production"
@@ -26,7 +31,10 @@ describe("Get a Specific Book", () => {
     const response = await axios.get("/api/audiobook/book/47");
     //   console.log(Object.keys(response.data))
     // expect(response.data.bkTitle).toBe("The Count of Monte Cristo");
-    expect(response.data).toMatchObject(testObj1)
+    // console.log(testObj1[0])
+    // console.log(response.data)
+    expect(response.data).toMatchObject(testObj1[0])
+
   });
 });
 

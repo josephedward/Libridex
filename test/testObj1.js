@@ -536,3 +536,5 @@ const testObj1 ={
       }
     ]
   }
+
+  module.exports = [testObj1];
