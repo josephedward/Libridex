@@ -32,9 +32,9 @@ getSpecificBook = (id) => {
     .then((res) => {
       const books = res.data.books;
       // there are books with the same id? 
-      const { url_librivox } = books[Math.floor(Math.random() * books.length)];
-      book.bkID = url_librivox.id
-      book.bkURL = url_librivox.url_librivox
+      const { url_librivox, id} = books[Math.floor(Math.random() * books.length)];
+      book.bkID = id;
+      book.bkURL = url_librivox;
       return axios.get(url_librivox);
     })
     .then(buildBookObj);

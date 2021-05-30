@@ -29,10 +29,6 @@ describe("Should return a book", () => {
 describe("Get a Specific Book", () => {
   test("Get The Count of Monte Cristo by ID", async () => {
     const response = await axios.get("/api/audiobook/book/47");
-    //   console.log(Object.keys(response.data))
-    // expect(response.data.bkTitle).toBe("The Count of Monte Cristo");
-    // console.log(testObj1[0])
-    // console.log(response.data)
     expect(response.data).toMatchObject(testObj1[0])
 
   });
