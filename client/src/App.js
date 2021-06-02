@@ -1,5 +1,5 @@
 import React from "react"; // , { useState }
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Player";
 import Library from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";

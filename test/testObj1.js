@@ -1,540 +1,328 @@
-const testObj1 ={
-    "bkID": "967",
-    "bkURL": "https://librivox.org/plague-ship-by-andre-norton/",
-    "bkTitle": "The Count of Monte Cristo",
-    "bkRecs": [
-      {
-        "index": 1,
-        "Unnamed: 0": 1,
-        "lib_id": 47,
-        "title": "Count of Monte Cristo",
-        "author": "Alexandre Dumas",
-        "genre": " Literary Fiction, Published 1800 -1900",
-        "description": "<p><i>The Count of Monte Cristo</i> (French: <i>Le Comte de Monte-Cristo</i>) is an adventure novel by Alexandre Dumas, père. It is often considered, along with <i>The Three Musketeers</i>, as Dumas's most popular work. The writing of the work was completed in 1844. Like many of his novels, it is expanded from the plot outlines suggested by his collaborating ghostwriter Auguste Maquet.</p><p>The story takes place in France, Italy, islands in the Mediterranean and the Levant during the historical events of 1815–1838 (from just before the Hundred Days through the reign of Louis-Philippe of France). The historical setting is a fundamental element of the book. It is primarily concerned with themes of justice, vengeance, mercy, and forgiveness, and is told in the style of an adventure story. (Summary from Wikipedia)</p>\n<p>This book contains alternate versions of a number of chapters – indicated by an alt after the file number. The Zip files contain both versions of these chapters.</p><p>There are 2 versions of the M4Bs made , one containing the original files for these chapters (4 parts), the other containing the alternate files for the chapters (5 parts).</p>",
-        "language": "English",
-        "copyright_year": 1844,
-        "lib_url": "https://librivox.org/the-count-of-monte-cristo-by-alexandre-dumas/",
-        "cleaned_desc": "p i the count monte cristo i french i le comte de monte cristo i adventure novel alexandre dumas père often considered along i the three musketeers i dumas s popular work writing work completed 1844 like many novels expanded plot outlines suggested collaborating ghostwriter auguste maquet p p the story takes place france italy islands mediterranean levant historical events 1815 1838 from hundred days reign louis philippe france historical setting fundamental element book primarily concerned themes justice vengeance mercy forgiveness told style adventure story summary wikipedia p p this book contains alternate versions number chapters indicated alt file number zip files contain versions chapters p p there 2 versions m4bs made one containing original files chapters 4 parts containing alternate files chapters 5 parts p",
-        "img_url": "http://www.archive.org/download/LibrivoxCdCoverArt12/Count_Monte_Cristo_1110.jpg"
-      }
-    ],
-    "bkAuthor": "Alexandre Dumas (1802 - 1870)",
-    "bkDescription": "The Count of Monte Cristo (French: Le Comte de Monte-Cristo) is an adventure novel by Alexandre Dumas, père. It is often considered, along with The Three Musketeers, as Dumas's most popular work. The writing of the work was completed in 1844. Like many of his novels, it is expanded from the plot outlines suggested by his collaborating ghostwriter Auguste Maquet.The story takes place in France, Italy, islands in the Mediterranean and the Levant during the historical events of 1815–1838 (from just before the Hundred Days through the reign of Louis-Philippe of France). The historical setting is a fundamental element of the book. It is primarily concerned with themes of justice, vengeance, mercy, and forgiveness, and is told in the style of an adventure story. (Summary from Wikipedia)\nThis book contains alternate versions of a number of chapters – indicated by an alt after the file number. The Zip files contain both versions of these chapters.There are 2 versions of the M4Bs made , one containing the original files for these chapters (4 parts), the other containing the alternate files for the chapters (5 parts).",
-    "bkImage": "http://www.archive.org/download/LibrivoxCdCoverArt12/Count_Monte_Cristo_1110.jpg",
-    "CHS": [
-      {
-        "chTitle": "Marseilles–The Arrival ",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_001_dumas.mp3"
-      },
-      {
-        "chTitle": "Father and Son",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_002_dumas.mp3"
-      },
-      {
-        "chTitle": "The Catalans",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_003_dumas.mp3"
-      },
-      {
-        "chTitle": "Conspiracy",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_004_dumas.mp3"
-      },
-      {
-        "chTitle": "The Marriage-Feast",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_005_dumas.mp3"
-      },
-      {
-        "chTitle": "The Deputy Procureur du Roi",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_006_dumas.mp3"
-      },
-      {
-        "chTitle": "The Examination",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_007_dumas.mp3"
-      },
-      {
-        "chTitle": "The Chateau D’If",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_008_dumas.mp3"
-      },
-      {
-        "chTitle": "The Evening of the Betrothal",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_009_dumas.mp3"
-      },
-      {
-        "chTitle": "The King’s Closet at the Tuileries",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_010_dumas.mp3"
-      },
-      {
-        "chTitle": "The Corsican Ogre",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_011_dumas.mp3"
-      },
-      {
-        "chTitle": "Father and Son",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_012_dumas.mp3"
-      },
-      {
-        "chTitle": "The Hundred Days",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_013_dumas.mp3"
-      },
-      {
-        "chTitle": "The Two Prisoners",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_014_dumas.mp3"
-      },
-      {
-        "chTitle": "Number 34 and Number 27",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_015_dumas.mp3"
-      },
-      {
-        "chTitle": "A Learned Italian",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_016_dumas.mp3"
-      },
-      {
-        "chTitle": "The Abbe’s Chamb",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_017_dumas.mp3"
-      },
-      {
-        "chTitle": "The Treasure",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_018_dumas.mp3"
-      },
-      {
-        "chTitle": "The Third Attack",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_019_dumas.mp3"
-      },
-      {
-        "chTitle": "The Cemetary of Chateau D’If ",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_020_dumas.mp3"
-      },
-      {
-        "chTitle": "The Island of Tiboulen ",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_021_dumas.mp3"
-      },
-      {
-        "chTitle": "The Smugglers",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_022_dumas.mp3"
-      },
-      {
-        "chTitle": "The Island of Monte Cristo",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_023_dumas.mp3"
-      },
-      {
-        "chTitle": "The Secret Cave",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_024_dumas.mp3"
-      },
-      {
-        "chTitle": "The Unknown",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_025_dumas.mp3"
-      },
-      {
-        "chTitle": "The Unknown, alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_025alt_dumas.mp3"
-      },
-      {
-        "chTitle": "The Pont du Gard Inn",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_026_dumas.mp3"
-      },
-      {
-        "chTitle": "The Pont du Gard Inn, alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_026alt_dumas.mp3"
-      },
-      {
-        "chTitle": "The Story",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_027_dumas.mp3"
-      },
-      {
-        "chTitle": "The Prison Register",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_028_dumas.mp3"
-      },
-      {
-        "chTitle": "The House of Morrel & Son",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_029_dumas.mp3"
-      },
-      {
-        "chTitle": "The Fifth of September",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_030_dumas.mp3"
-      },
-      {
-        "chTitle": "Italy: Sinbad the Sailor",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_031_dumas.mp3"
-      },
-      {
-        "chTitle": "Italy: Sinbad the Sailor, alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_031alt_dumas.mp3"
-      },
-      {
-        "chTitle": "The Waking",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_032_dumas.mp3"
-      },
-      {
-        "chTitle": "The Waking, alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_032alt_dumas.mp3"
-      },
-      {
-        "chTitle": "Roman Bandits",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_033_dumas.mp3"
-      },
-      {
-        "chTitle": "Roman Bandits, alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_033alt_dumas.mp3"
-      },
-      {
-        "chTitle": "The Colosseum part 1",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_034a_dumas.mp3"
-      },
-      {
-        "chTitle": "The Colosseum part 2",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_034b_dumas.mp3"
-      },
-      {
-        "chTitle": "La Mazzolata",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_035_dumas.mp3"
-      },
-      {
-        "chTitle": "The Carnival at Rom",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_036_dumas.mp3"
-      },
-      {
-        "chTitle": "The Catacombs of Saint Sebastian",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_037_dumas.mp3"
-      },
-      {
-        "chTitle": "The Compact",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_038_dumas.mp3"
-      },
-      {
-        "chTitle": "The Guest",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_039_dumas.mp3"
-      },
-      {
-        "chTitle": "The Breakfast",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_040_dumas.mp3"
-      },
-      {
-        "chTitle": "The Presentation",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_041_dumas.mp3"
-      },
-      {
-        "chTitle": "Monsieur Bertuccio",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_042_dumas.mp3"
-      },
-      {
-        "chTitle": "The House at Auteuil",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_043_dumas.mp3"
-      },
-      {
-        "chTitle": "The House at Auteuil, altenate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_043alt_dumas.mp3"
-      },
-      {
-        "chTitle": "The Vendetta",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_044_dumas.mp3"
-      },
-      {
-        "chTitle": "The Vendetta , alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_044alt_dumas.mp3"
-      },
-      {
-        "chTitle": "The Rain of Blood",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_045_dumas.mp3"
-      },
-      {
-        "chTitle": "The Rain of Blood, alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_045alt_dumas.mp3"
-      },
-      {
-        "chTitle": "Unlimited Credit",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_046_dumas.mp3"
-      },
-      {
-        "chTitle": "The Dappled Greys",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_047_dumas.mp3"
-      },
-      {
-        "chTitle": "The Ideology",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_048_dumas.mp3"
-      },
-      {
-        "chTitle": "Haidee",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_049_dumas.mp3"
-      },
-      {
-        "chTitle": "The Morrel Family",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_050_dumas.mp3"
-      },
-      {
-        "chTitle": "Pyramus and Thisbe",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_051_dumas.mp3"
-      },
-      {
-        "chTitle": "Toxicology",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_052_dumas.mp3"
-      },
-      {
-        "chTitle": " Robert le Diable",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_053_dumas.mp3"
-      },
-      {
-        "chTitle": "A Flurry in Stocks",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_054_dumas.mp3"
-      },
-      {
-        "chTitle": "Major Cavalcanti",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_055_dumas.mp3"
-      },
-      {
-        "chTitle": "Andrea Cavalcanti",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_056_dumas.mp3"
-      },
-      {
-        "chTitle": "In the Lucerne Patch",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_057_dumas.mp3"
-      },
-      {
-        "chTitle": "M. Noirtier de Villefort",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_058_dumas.mp3"
-      },
-      {
-        "chTitle": "The Will",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_059_dumas.mp3"
-      },
-      {
-        "chTitle": "The Telegraph",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_060_dumas.mp3"
-      },
-      {
-        "chTitle": "How a Gardener…",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_061_dumas.mp3"
-      },
-      {
-        "chTitle": "Ghosts",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_062_dumas.mp3"
-      },
-      {
-        "chTitle": "The Dinner",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_063_dumas.mp3"
-      },
-      {
-        "chTitle": "The Beggar",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_064_dumas.mp3"
-      },
-      {
-        "chTitle": "A Conjugal Scene",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_065_dumas.mp3"
-      },
-      {
-        "chTitle": "Matrimonial Projects",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_066_dumas.mp3"
-      },
-      {
-        "chTitle": "At the Office of the King’s Attorney",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_067_dumas.mp3"
-      },
-      {
-        "chTitle": "A Summer Ball",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_068_dumas.mp3"
-      },
-      {
-        "chTitle": "The Inquiry",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_069_dumas.mp3"
-      },
-      {
-        "chTitle": "The Ball ",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_070_dumas.mp3"
-      },
-      {
-        "chTitle": "Bread and Salt",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_071_dumas.mp3"
-      },
-      {
-        "chTitle": "Madame de Saint-Meran",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_072_dumas.mp3"
-      },
-      {
-        "chTitle": "The Promise, part 1",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_073a_dumas.mp3"
-      },
-      {
-        "chTitle": "The Promise, part 2",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_073b_dumas.mp3"
-      },
-      {
-        "chTitle": "The Villefort Family Vault",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_074_dumas.mp3"
-      },
-      {
-        "chTitle": "A Signed Statement",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_075_dumas.mp3"
-      },
-      {
-        "chTitle": "The Progress of Cavalcanti the Younger",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_076_dumas.mp3"
-      },
-      {
-        "chTitle": "Haidee",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_077_dumas.mp3"
-      },
-      {
-        "chTitle": "We Hear from Yanina",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_078_dumas.mp3"
-      },
-      {
-        "chTitle": " The Lemonade",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_079_dumas.mp3"
-      },
-      {
-        "chTitle": "The Accusation",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_080_dumas.mp3"
-      },
-      {
-        "chTitle": "The Room of the Retired Baker",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_081_dumas.mp3"
-      },
-      {
-        "chTitle": "The Burglary",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_082_dumas.mp3"
-      },
-      {
-        "chTitle": "The Hand of God",
-        "chLink": "https://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_083_dumas.mp3"
-      },
-      {
-        "chTitle": "Beauchamp",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_084_dumas.mp3"
-      },
-      {
-        "chTitle": "The Journey",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_085_dumas.mp3"
-      },
-      {
-        "chTitle": "The Trial",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_086_dumas.mp3"
-      },
-      {
-        "chTitle": "The Challenge",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_087_dumas.mp3"
-      },
-      {
-        "chTitle": "The Insult",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_088_dumas.mp3"
-      },
-      {
-        "chTitle": "A Nocturnal Visit",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_089_dumas.mp3"
-      },
-      {
-        "chTitle": "The Meeting",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_090_dumas.mp3"
-      },
-      {
-        "chTitle": "Mother and Son",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_091_dumas.mp3"
-      },
-      {
-        "chTitle": "The Suicide",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_092_dumas.mp3"
-      },
-      {
-        "chTitle": " Valentine",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_093_dumas.mp3"
-      },
-      {
-        "chTitle": "Maximilian’s Avowal",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_094_dumas.mp3"
-      },
-      {
-        "chTitle": "Maximilian’s Avowal, alternate version",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_094alt_dumas.mp3"
-      },
-      {
-        "chTitle": " Father and Daughter",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_095_dumas.mp3"
-      },
-      {
-        "chTitle": "The Contract",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_096_dumas.mp3"
-      },
-      {
-        "chTitle": "The Departure for Belgium",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_097_dumas.mp3"
-      },
-      {
-        "chTitle": "The Bell and Bottle Tavern",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_098_dumas.mp3"
-      },
-      {
-        "chTitle": "The Law",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_099_dumas.mp3"
-      },
-      {
-        "chTitle": "The Apparition",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_100_dumas.mp3"
-      },
-      {
-        "chTitle": "Locusta",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_101_dumas.mp3"
-      },
-      {
-        "chTitle": "Valentine",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_102_dumas.mp3"
-      },
-      {
-        "chTitle": "Maximilian",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_103_dumas.mp3"
-      },
-      {
-        "chTitle": "Danglars Signature",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_104_dumas.mp3"
-      },
-      {
-        "chTitle": "The Cemetery of Pere-la-Chaise",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_105_dumas.mp3"
-      },
-      {
-        "chTitle": "Dividing the Proceeds",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_106_dumas.mp3"
-      },
-      {
-        "chTitle": "The Lions’ Den",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_107_dumas.mp3"
-      },
-      {
-        "chTitle": "The Judge",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_108_dumas.mp3"
-      },
-      {
-        "chTitle": "The Assizes",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_109_dumas.mp3"
-      },
-      {
-        "chTitle": "The Indictment",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_110_dumas.mp3"
-      },
-      {
-        "chTitle": " Expiation",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_111_dumas.mp3"
-      },
-      {
-        "chTitle": "The Departure",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_112_dumas.mp3"
-      },
-      {
-        "chTitle": "The Past ",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_113_dumas.mp3"
-      },
-      {
-        "chTitle": "Peppino",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_114_dumas.mp3"
-      },
-      {
-        "chTitle": " Luigi Vampa’s Bill of Fare",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_115_dumas.mp3"
-      },
-      {
-        "chTitle": "The Pardon",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_116_dumas.mp3"
-      },
-      {
-        "chTitle": "The Fifth of October",
-        "chLink": "http://www.archive.org/download/count_monte_cristo_0711_librivox/count_of_monte_cristo_117_dumas.mp3"
-      }
-    ]
-  }
+const testObj1 = {
+  bkID: "1459",
+  bkURL: "https://librivox.org/greener-than-you-think-by-ward-moore/",
+  bkTitle: "Greener Than You Think",
+  bkRecs: [
+    {
+      index: 90,
+      "Unnamed: 0": 90,
+      lib_id: 174,
+      title: "Journey to the Interior of the Earth",
+      author: "Jules Verne",
+      genre: " Action & Adventure Fiction, Fantastic Fiction",
+      description:
+        "<p>Journey to the Interior of the Earth is an 1864 science fiction novel by Jules Verne (published in the original French as Voyage au centre de la Terre). The story involves a professor who leads his nephew and hired guide down a volcano in Iceland to the “center of the Earth”. They encounter many adventures, including prehistoric animals and natural hazards, eventually coming to the surface again in southern Italy. (Summary from wikipedia.org)</p>",
+      language: "English",
+      copyright_year: 1864,
+      lib_url:
+        "https://librivox.org/a-journey-to-the-interior-of-the-earth-by-jules-verne/",
+      cleaned_desc:
+        "p journey interior earth 1864 science fiction novel jules verne published original french voyage au centre de la terre story involves professor leads nephew hired guide volcano iceland center earth encounter many adventures including prehistoric animals natural hazards eventually coming surface southern italy summary wikipedia org p",
+      img_url:
+        "http://archive.org/download/journey_verne_librivox/a_journey_to_the_interior_of_the_earth.jpg",
+    },
+    {
+      index: 283,
+      "Unnamed: 0": 283,
+      lib_id: 382,
+      title: "Gods of Mars",
+      author: "Edgar Rice Burroughs",
+      genre: " Science Fiction",
+      description:
+        '<p>\nThe Gods of Mars is a 1918 Edgar Rice Burroughs science fiction novel, the second of his famous Barsoom series.It can be said that the novel set the tone for much science fiction to come. Its influence can clearly be seen in franchises such as Star Trek and Farscape. While Burroughs no doubt borrowed liberally from the pulp fiction of his day, particularly westerns and swashbuckling tales, the pacing and themes set the tone for the soft science fiction genre.<br><br>The protagonist, John Carter, with his proficiency in hand-to-hand combat and flirtations with beautiful alien women, could be said to have set the mold for later influential icons like Captain James T. Kirk and James Bond.<br><br>At the end of the first book, <a href="http://librivox.org/a-princess-of-mars-by-edgar-rice-burroughs/">A Princess of Mars</a>, John Carter is unwillingly transported back to Earth. The Gods of Mars begins with his arrival back on Barsoom (Mars) after a ten year hiatus, separated from his wife Dejah Thoris, his unborn child, and the Red Martian people of the nation of Helium, whom he has adopted as his own. Unfortunately, John Carter materializes in the one place on Barsoom from which nobody is allowed to depart: the Valley Dor, which is the Barsoomian heaven. (Summary from wikipedia)\n</p>',
+      language: "English",
+      copyright_year: 1918,
+      lib_url: "https://librivox.org/the-gods-of-mars-by-edgar-rice-burroughs/",
+      cleaned_desc:
+        "p gods mars 1918 edgar rice burroughs science fiction novel second famous barsoom series it said novel set tone much science fiction come influence clearly seen franchises star trek farscape burroughs doubt borrowed liberally pulp fiction day particularly westerns swashbuckling tales pacing themes set tone soft science fiction genre br br the protagonist john carter proficiency hand to hand combat flirtations beautiful alien women could said set mold later influential icons like captain james t kirk james bond br br at end first book a href http librivox org a princess of mars by edgar rice burroughs a princess mars a john carter unwillingly transported back earth gods mars begins arrival back barsoom mars ten year hiatus separated wife dejah thoris unborn child red martian people nation helium adopted own unfortunately john carter materializes one place barsoom nobody allowed depart valley dor barsoomian heaven summary wikipedia p",
+      img_url:
+        "http://archive.org/download/gods_of_mars_librivox/Gods_Mars_1105.jpg",
+    },
+    {
+      index: 326,
+      "Unnamed: 0": 326,
+      lib_id: 426,
+      title: "Invisible Man",
+      author: "H. G. Wells",
+      genre: " Science Fiction",
+      description:
+        "<i>The Invisible Man</i> (1897) is one of the most famous science fiction novels of all time. Written by H.G. Wells (1866-1946), it tells the story of a scientist who discovers the secret of invisibility and uses it on himself. The story begins as the Invisible Man, with a bandaged face and a heavy coat and gloves, takes a train to lodge in a country inn whilst he tries to discover the antidote and make himself visible again. The book inspired several films and is notable for its vivid descriptions of the invisible man--no mean feat, given that you can't see him!</p>",
+      language: "English",
+      copyright_year: 1897,
+      lib_url: "https://librivox.org/invisible-man-by-h-g-wells/",
+      cleaned_desc:
+        "i the invisible man i 1897 one famous science fiction novels time written h g wells 1866 1946 tells story scientist discovers secret invisibility uses himself story begins invisible man bandaged face heavy coat gloves takes train lodge country inn whilst tries discover antidote make visible again book inspired several films notable vivid descriptions invisible man no mean feat given can t see him p",
+      img_url:
+        "http://archive.org/download/invisible_man_librivox/Invisible_Man_1003.jpg",
+    },
+    {
+      index: 336,
+      "Unnamed: 0": 336,
+      lib_id: 436,
+      title: "War of the Worlds",
+      author: "H. G. Wells",
+      genre: " Science Fiction",
+      description:
+        'H. G. Wells wrote <em>The War of the Worlds</em> in 1898, when there was much speculation about life on the planet Mars. The book is considered to be one of the first science fiction novels.  In the story, an English gentleman narrates the events of a violent and fast paced Martian invasion.</p>\n<p>The frightening images of people fleeing from gigantic tripod machines and the prospect of life under Martian rule have served as a bottomless well of inspiration for popular culture.  The novel has served as a template for many derivative or inspired works, including comics, countless books, a tv series, several films, a bestselling musical, and the famous Orson Wells broadcast. Overall, <em>The War of the Worlds</em> has become an early milestone in and inspiration for the invasion genre.</p>\n<p>The novel demonstrates Wells\' typical pessimistic outlook on human nature and offers a good deal of critisism on society and people\'s ignorance and vanity. <em>The War of the Worlds</em> can be read as an indictment of European colonial actions around the globe at that time - with which the injustice of the Martian invasion can be compared.  Wells has since been credited with predicting quite a number of technologies, such as laser-like rays, industrial robot-like machines, and chemical-warfare.<br />(Summary by Stephan Möbius and Annie Coleman)</p>\n<p><b>Illustrations by </b><a href="http://librivox.org/reader/91">Stephan Möbius</a></b><br>\nBook 1 - Chapter 1: <a href="http://archive.org/details/waroftheworlds_illustrations_librivox/00_chapter00__map_of_surrey.gif">Map of Surrey</a><br>\nBook 1 - Chapter 5: <a href="http://archive.org/details/waroftheworlds_illustrations_librivox/01_chapter04__the_cylinder_opens.gif">The Cylinder Opens - 1</a>, <a href="http://archive.org/details/waroftheworlds_illustrations_librivox/02_chapter04__the_cylinder_opens_2.gif">The Cylinder Opens - 2</a><br>\nBook 1 - Chapter 11: <a href="http://archive.org/details/waroftheworlds_illustrations_librivox/03_chapter10__in_the_storm.gif">In the Storm</a><br>\nBook 1 - Chapter 12: <a >At the Window</a><br>\nBook 1 - Chapter 16: <a href="http://archive.org/details/waroftheworlds_illustrations_librivox/05_chapter15__what_had_happened_in_surrey.gif">What Had Happened in Surrey</a><br>\nBook 1 - Chapter 17: <a href="http://archive.org/details/waroftheworlds_illustrations_librivox/06_chapter16__the_exodus_from_london.gif">The Exodus from London</a><br>\nBook 2 - Chapter 2: <a href="http://archive.org/details/waroftheworlds_illustrations_librivox/07_chapter18__under_foot.gif">Under Foot</a><br></p>\n\n\n',
+      language: "English",
+      copyright_year: 1898,
+      lib_url: "https://librivox.org/the-war-of-the-worlds-by-h-g-wells-group/",
+      cleaned_desc:
+        "h g wells wrote em the war worlds em 1898 much speculation life planet mars book considered one first science fiction novels story english gentleman narrates events violent fast paced martian invasion p p the frightening images people fleeing gigantic tripod machines prospect life martian rule served bottomless well inspiration popular culture novel served template many derivative inspired works including comics countless books tv series several films bestselling musical famous orson wells broadcast overall em the war worlds em become early milestone inspiration invasion genre p p the novel demonstrates wells typical pessimistic outlook human nature offers good deal critisism society people s ignorance vanity em the war worlds em read indictment european colonial actions around globe time injustice martian invasion compared wells since credited predicting quite number technologies laser like rays industrial robot like machines chemical warfare br summary stephan möbius annie coleman p p b illustrations b a href http librivox org reader 91 stephan möbius a b br book 1 chapter 1 a href http archive org details waroftheworlds_illustrations_librivox 00_chapter00__map_of_surrey gif map surrey a br book 1 chapter 5 a href http archive org details waroftheworlds_illustrations_librivox 01_chapter04__the_cylinder_opens gif the cylinder opens 1 a a href http archive org details waroftheworlds_illustrations_librivox 02_chapter04__the_cylinder_opens_2 gif the cylinder opens 2 a br book 1 chapter 11 a href http archive org details waroftheworlds_illustrations_librivox 03_chapter10__in_the_storm gif in storm a br book 1 chapter 12 a at window a br book 1 chapter 16 a href http archive org details waroftheworlds_illustrations_librivox 05_chapter15__what_had_happened_in_surrey gif what happened surrey a br book 1 chapter 17 a href http archive org details waroftheworlds_illustrations_librivox 06_chapter16__the_exodus_from_london gif the exodus london a br book 2 chapter 2 a href http archive org details waroftheworlds_illustrations_librivox 07_chapter18__under_foot gif under foot a br p",
+      img_url:
+        "http://archive.org/download/war_of_the_worlds_librivox/war_worlds_group_1109.jpg",
+    },
+    {
+      index: 382,
+      "Unnamed: 0": 382,
+      lib_id: 490,
+      title: "Warlord of Mars",
+      author: "Edgar Rice Burroughs",
+      genre: " Science Fiction",
+      description:
+        "<p>Warlord of Mars is a Edgar Rice Burroughs science fiction novel, the third of his famous Barsoom series. John Carter continues his quest to be reunited with his wife, the princess Dejah Thoris, and discovers more fantastic creatures and ancient mysterious Martian races. (Summary from Wikipedia)</p>",
+      language: "English",
+      copyright_year: 1919,
+      lib_url:
+        "https://librivox.org/the-warlord-of-mars-by-edgar-rice-burroughs/",
+      cleaned_desc:
+        "p warlord mars edgar rice burroughs science fiction novel third famous barsoom series john carter continues quest reunited wife princess dejah thoris discovers fantastic creatures ancient mysterious martian races summary wikipedia p",
+      img_url:
+        "http://www.archive.org/download/LibrivoxCdCoverArt12/Warlord_Mars_1110.jpg",
+    },
+  ],
+  bkAuthor: " Ward Moore (1908 - 1973)",
+  bkDescription:
+    "Do remember reading a panic-mongering news story a while back about genetically engineered “Frankengrass” “escaping” from the golf course where it had been planted? That news story was foreshadowed decades previously in the form of prophetic fiction wherein a pushy salesman, a cash-strapped scientist, and a clump of crabgrass accidentally merge forces with apocalyptic consequences. A triple-genre combo of science fiction, horror, and satire, Greener Than You Think is a forgotten classic that resonates beautifully with modern times. This is a faithful reading of a 1947 first edition text. (Summary by Lee Elliot)",
+  bkImage:
+    "http://www.archive.org/download/LibrivoxCdCoverArt5/Greener_Than_You_Think_1005.jpg",
+  CHS: [
+    {
+      chTitle: "Chapter 1, Part A",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_01a_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 1, Part B",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_01b_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 1, Part C",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_01c_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 1, Part D",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_01d_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 1, Part E",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_01e_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 1, Part F",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_01f_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 1, Part G",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_01g_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 2, Part A",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_02a_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 2, Part B",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_02b_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 2, Part C",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_02c_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 2, Part D",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_02d_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 2, Part E",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_02e_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 2, Part F",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_02f_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 2, Part G",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_02g_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part A",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03a_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part B",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03b_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part C",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03c_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part D",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03d_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part E",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03e_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part F",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03f_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part G",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03g_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 3, Part H",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_03h_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part A",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04a_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part B",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04b_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part C",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04c_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part D",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04d_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part E",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04e_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part F",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04f_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part G",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04g_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part H",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04h_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part I",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04i_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part J",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04j_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 4, Part K",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_04k_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part A",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05a_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part B",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05b_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part C",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05c_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part D",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05d_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part E",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05e_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part F",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05f_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part G",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05g_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 5, Part H",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_05h_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 6, Part A",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_06a_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 6, Part B",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_06b_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 6, Part C",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_06c_moore.mp3",
+    },
+    {
+      chTitle: "Chapter 6, Part D",
+      chLink:
+        "http://www.archive.org/download/greener_than_you_think_le_librivox/greenerthan_06d_moore.mp3",
+    },
+  ],
+};
 
-  module.exports = [testObj1];
+module.exports = [testObj1];
