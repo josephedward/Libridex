@@ -1,7 +1,7 @@
 **Recommendation System for Audiobook Shuffle App (Libridex)**
 1. Scrape as much data as possible from librivox.org 
 2. Store indexing information alongside classification data in database. 
-3. Pull from database into python, and train our model via Cosine Similarity algorithm. 
+3. Pull from database into python, and train our model via content filtering algorithm. 
 4. Store the results as a set number of ‘recommended’ (ex. 3) audiobooks alongside each audiobook in the database. 
 5. Serve these recommendations from Flask to the UI client layer application.  
     
