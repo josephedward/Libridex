@@ -5,7 +5,7 @@ const chalk = require("chalk");
 const router = require("express").Router();
 const csv = require("csvtojson");
 let book = {};
-const csvFilePath = "./data/csv/denormalized_scrape_match_v3-3.csv";
+const csvFilePath = "./data/denormalized_scrape_match_v3-3.csv";
 
 // searchGenre("");
 // findBookRecs('The Colors of Space')
