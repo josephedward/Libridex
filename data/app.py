@@ -33,30 +33,30 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def default():
-    return render_template("index.html")
+    return ("test")
 
 
-@app.route("/load072420", methods=['GET'])
-def load072420():
-    pgControls.createBookList072420()
-    return ""
+# @app.route("/load072420", methods=['GET'])
+# def load072420():
+#     pgControls.createBookList072420()
+#     return ""
 
-@app.route("/displaydata", methods=['GET'])
-def display072420():
-    bookTableHTML = pgControls.displayBookList072420()
-    return render_template('table.html')
-    # return render_template("booktable.html",bookTableHTML=bookTableHTML)
+# @app.route("/displaydata", methods=['GET'])
+# def display072420():
+#     bookTableHTML = pgControls.displayBookList072420()
+#     return render_template('table.html')
+#     # return render_template("booktable.html",bookTableHTML=bookTableHTML)
 
 
-@app.route("/init_db", methods=["GET"])
-def init_db():
-    # scrape_to_pg.initialize_db()
-    return render_template("dbstats.html", dbState=scrape_to_pg.initialize_db())
+# @app.route("/init_db", methods=["GET"])
+# def init_db():
+#     # scrape_to_pg.initialize_db()
+#     return render_template("dbstats.html", dbState=scrape_to_pg.initialize_db())
 
 
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(threaded=True, port=6000)
     app.config['TEMPLATES_AUTO_RELOAD'] = True
 
