@@ -1,8 +1,5 @@
 import React, {Fragment} from 'react';
-// import Login from '../components/Login';
-// import Signup from '../../../misc/Signup';
 import { 
-  // Button, Menu, Grid, 
   Container, 
 } from 'semantic-ui-react';
 import Header1 from '../components/Header';

@@ -7,7 +7,7 @@ const csv = require("csvtojson");
 let book = {};
 const csvFilePath = "./data/denormalized_scrape_match_v3-3.csv";
 
-// searchGenre("");
+
 // findBookRecs('The Colors of Space')
 // buildRecObj('https://librivox.org/the-odyssey-by-homer/')
 // getSpecificBook(65)
@@ -85,7 +85,7 @@ async function findBookRecs(bookTitle) {
     let data = JSON.parse(JSON.stringify(recommendations));
     for (var x of data) {
       tempObj = JSON.parse(x[0]);
-      console.log(tempObj[0].title);
+      // console.log(tempObj[0].title);
       if (
         bookTitle.includes(tempObj[0].title) ||
         tempObj[0].title.includes(bookTitle) ||
@@ -94,8 +94,8 @@ async function findBookRecs(bookTitle) {
         console.log("found it:");
         // console.log(tempObj[0].description)
         console.log(tempObj[0].img_url);
-        console.log("recommendations: ");
-        console.log(JSON.parse(tempObj[0].Rec_Info_Arr));
+        // console.log("recommendations: ");
+        // console.log(JSON.parse(tempObj[0].Rec_Info_Arr));
         tempRecArr = JSON.parse(tempObj[0].Rec_Info_Arr);
         tempRecArr = await locateImgs(tempRecArr);
         return tempRecArr;
@@ -113,10 +113,10 @@ async function locateImgs(tempRecArr) {
     let data = JSON.parse(JSON.stringify(recommendations));
     tempRecArr.forEach((rec) => {
       console.log(chalk.bgMagenta("searching img URL for : ", rec.title));
-      console.log(rec.title);
+      // console.log(rec.title);
       for (var y of data) {
         tempYObj = JSON.parse(y[0]);
-        console.log(tempYObj[0].title);
+        // console.log(tempYObj[0].title);
         if (
           rec.title.includes(tempYObj[0].title) ||
           tempYObj[0].title.includes(rec.title) ||
@@ -135,3 +135,6 @@ async function locateImgs(tempRecArr) {
   return tempRecArr;
 }
 module.exports = router;
+
+// searchGenre("science fiction");
+

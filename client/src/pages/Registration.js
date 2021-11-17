@@ -1,38 +1,21 @@
-/* NEEDS TO BE BLOCKED IF LOGGED IN - CONTEXT */
-/* SEND REGISTRATION NODEMAILER */
-
-import React, {
-  //  Component, 
-   useState } from "react";
-import { 
-  // Link,
-   Redirect } from "react-router-dom";
-// import { useAuth } from "../context/auth";
-
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import {
   Button,
   Form,
   Image,
   Header,
   Grid,
-  Container
+  Container,
 } from "semantic-ui-react";
 import Header1 from "../components/Header";
 import axios from "axios";
 
-function Registration(){
-let userObj={}
-const [isLoggedIn, 
-  // setLoggedIn
-] = useState(false);
-// const [isError, setIsError] = useState(false);
-// const [email, setemail] = useState("");
-// const [password, setPassword] = useState("");
-// const { setAuthTokens } = useAuth();
+function Registration() {
+  let userObj = {};
+  const [isLoggedIn] = useState(false);
 
-
-function  postUser() {
-
+  function postUser() {
     //test
     console.table(userObj);
     axios
@@ -40,28 +23,26 @@ function  postUser() {
         firstname: userObj.firstname,
         lastname: userObj.lastname,
         email: userObj.email,
-        password:  userObj.password,
-        password2:  userObj.password2
+        password: userObj.password,
+        password2: userObj.password2,
       })
-      .then(response => {
+      .then((response) => {
         return response;
         // console.log(response);
       })
-      .catch(error => {
+      .catch((error) => {
         console.table(error);
       });
   }
 
-  function handleInputChange (event) {
-    const {name, value } = event.target;
-    userObj[name]= value
-  };
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    userObj[name] = value;
+  }
 
-
-
-  if (isLoggedIn===true) {
+  if (isLoggedIn === true) {
     return <Redirect to="/library" />;
-  }else
+  } else
     return (
       <div className="All">
         <Header1 />
@@ -134,17 +115,13 @@ function  postUser() {
             </Grid.Column>
           </Grid>
         </Container>
-        <footer>
-        </footer>
+        <footer></footer>
       </div>
     );
-  
-
 }
 
 export default Registration;
 
 const padSty = {
-  padding: "20px"
+  padding: "20px",
 };
-

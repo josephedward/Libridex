@@ -1,31 +1,5 @@
 node_modules
-/node_modules
-/node_modules/
-*/node_modules/*
-authentication/
 misc
 .env
 .DS_Store
-.idea
-.idea/*
-/.idea
-/python/libridex_venv
-/python/libridex_venv/
-/python/libridex_venv/*
-/python/resources/libridex_venv
-/python/resources/libridex_venv/
-/python/resources/libridex_venv/*
-/python
-/python/*
-python
-
-
- __pycache__
- /__pycache__
- /__pycache__/
- / __pycache__/*
-
- venv
-/venv
-/venv/
-/venv/*
+build
