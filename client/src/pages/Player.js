@@ -14,6 +14,8 @@ import { Grid, Container} from "semantic-ui-react";
 import Chapter from "../components/Chapter";
 import Recommendations from "../components/Recommendations";
 
+
+
 class Player extends React.Component {
   state = {
     currentUser: null,
@@ -96,7 +98,6 @@ class Player extends React.Component {
         });
       }
     });
-    this.handleNext();
   }
 
   getRecs = (title) => {
@@ -161,6 +162,20 @@ class Player extends React.Component {
     }
   };
 
+  // deleteBook = (titleToDelete) => {
+  //   let tempUser = this.state.userObj;
+  //   let titles = this.state.userObj.likes;
+  //   let newTitles = titles.filter((item) => {
+  //     return item.bkTitle !== titleToDelete;
+  //   });
+  //   tempUser.likes = newTitles;
+  //   this.setState({ userObj: tempUser });
+  //   axios
+  //     .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
 
   getUserObj() {
     axios.get(`/api/users/?email=${this.state.currentUser}`).then((res) => {
@@ -238,6 +253,7 @@ class Player extends React.Component {
             </div>
           </Container>
         </div>
+        {/* <Footer className="border footer" /> */}
       </div>
     );
   }

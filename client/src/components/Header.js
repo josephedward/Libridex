@@ -1,7 +1,9 @@
 import React from "react";
 import { Header, Segment, Menu, MenuItem } from "semantic-ui-react";
+import { useAuth0 } from "../react-auth0-spa.js";
 
 const Navbar = () => {
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
   return (
     <div>
@@ -42,7 +44,21 @@ const Navbar = () => {
               </Header>
             </MenuItem>
           </div>
+          <Menu.Menu position="left">
+            <Menu.Item name="home" href="/" />
 
+            {isAuthenticated ? (
+              //what to do when logged in
+              <Menu.Item name="logout" onClick={() => logout()}>
+                Logout {user.name}
+              </Menu.Item>
+            ) : (
+              //what to do when not logged in
+              <Menu.Item name="login" onClick={() => loginWithRedirect({})} />
+            )}
+
+            <Menu.Item name="profile" href="/profile" />
+          </Menu.Menu>
           <Menu.Item position="right" style={{ paddingRight: "1%" }}>
             <div
               style={{
