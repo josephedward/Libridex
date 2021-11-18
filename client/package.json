@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.15.0",
     "axios": "^0.21.2",
     "history": "^4.10.1",
     "react": "^16.6.0",
