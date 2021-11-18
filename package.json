@@ -19,7 +19,7 @@
     "cleanClient": "cd client && npm run clean",
     "cleanAll": "npm run clean && npm run cleanClient",
     "buildClient": "cd client && npm install && npm run build",
-    "buildAll": "npm install && npm run buildClient",
+    "buildAll": "npm install && npm run buildClient || { cat /opt/buildhome/.npm/_logs/* ; sleep 30 ; false; }",
     "cleanBuildAll": "npm run cleanAll && npm run buildAll"
   },
   "author": "Joseph Edward",
