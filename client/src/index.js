@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import history from "./utils/history";
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   // dev code
@@ -28,17 +27,6 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 
   logTest();
 }
-
-
-// A function that routes the user to the right place
-// after login
-const onRedirectCallback = appState => {
-  history.push(
-    appState && appState.targetUrl
-      ? appState.targetUrl
-      : window.location.pathname
-  );
-};
 
 ReactDOM.render(
     <App />,  
