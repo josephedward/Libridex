@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Audiobook Shuffling App",
   "main": "server.js",
-  "engines": { 
-    "node": "v17.1.0", 
-    "npm": "8.1.2" 
+  "engines": {
+    "node": "v17.1.0",
+    "npm": "8.1.2"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -18,10 +18,10 @@
     "clean": "rm -rf node_modules && rm package-lock.json",
     "cleanClient": "cd client && npm run clean",
     "cleanAll": "npm run clean && npm run cleanClient",
-    "build":"npm install && npm run buildClient",
+    "build": "npm install && npm run buildClient",
     "buildClient": "cd client && npm install && npm run build",
     "buildAll": "npm install && npm run buildClient",
-    "buildAllNetlifi":"npm run buildAll || { cat /opt/buildhome/.npm/_logs/* ; sleep 30 ; false; }",
+    "buildAllNetlifi": "npm run buildAll || { cat /opt/buildhome/.npm/_logs/* ; sleep 30 ; false; }",
     "cleanBuildAll": "npm run cleanAll && npm run buildAll"
   },
   "author": "Joseph Edward",
@@ -36,6 +36,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "flatted": "^2.0.2",
+    "handsontable": "^11.1.0",
     "heroku": "^7.42.2",
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
