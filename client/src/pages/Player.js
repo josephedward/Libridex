@@ -33,13 +33,13 @@ class Player extends React.Component {
   };
 
   handleLogInClick() {
-    console.log("login");
-    this.setState({ thisIsTheBoolean: true });
+    // console.log("login");
+    // this.setState({ thisIsTheBoolean: true });
   }
 
   handleSignUpClick() {
-    console.log("signup");
-    this.setState({ thisIsTheBoolean: false });
+    // console.log("signup");
+    // this.setState({ thisIsTheBoolean: false });
   }
 
   handleNext = (event) => {
@@ -47,22 +47,22 @@ class Player extends React.Component {
       event.preventDefault();
     }
 
-    axios
-      .get(`/api/audiobook/genre/${this.state.searchText || "science fiction"}`)
-      .then((res) => {
-        let bookData = res.data;
-        // console.log("got here");
-        this.setBook(bookData);
-      });
+    // axios
+    //   .get(`/api/audiobook/genre/${this.state.searchText || "science fiction"}`)
+    //   .then((res) => {
+    //     let bookData = res.data;
+    //     // console.log("got here");
+    //     this.setBook(bookData);
+    //   });
   };
 
   getSpecificBook = (id) => {
     console.log(id);
-    axios.get(`/api/audiobook/book/${id}`).then((res) => {
-      let bookData = res.data;
-      // console.log("got here");
-      this.setBook(bookData);
-    });
+    // axios.get(`/api/audiobook/book/${id}`).then((res) => {
+    //   let bookData = res.data;
+    //   // console.log("got here");
+    //   this.setBook(bookData);
+    // });
   };
 
   handleKeyPress(e) {
@@ -79,32 +79,34 @@ class Player extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`/api/audiobook`).then((res) => {
-      const bookData = res.data;
-      console.log("componentDidMount bookData: ", bookData);
-      if (bookData.bkID) {
-        let randChap = this.playRandomChapter(bookData);
-        this.setState({
-          book: bookData,
-          image: bookData.bkImage,
-          title: bookData.bkTitle,
-          author: bookData.bkAuthor,
-          description: bookData.bkDescription,
-          randomChapter: randChap,
-          bookID: bookData.bkID,
-          bookURL: bookData.bkURL
-        });
-      }
-    });
+    console.log("componentDidMount() : ", this.props);
+
+    // axios.get(`/api/audiobook`).then((res) => {
+    //   const bookData = res.data;
+    //   console.log("componentDidMount bookData: ", bookData);
+    //   if (bookData.bkID) {
+    //     let randChap = this.playRandomChapter(bookData);
+    //     this.setState({
+    //       book: bookData,
+    //       image: bookData.bkImage,
+    //       title: bookData.bkTitle,
+    //       author: bookData.bkAuthor,
+    //       description: bookData.bkDescription,
+    //       randomChapter: randChap,
+    //       bookID: bookData.bkID,
+    //       bookURL: bookData.bkURL
+    //     });
+    //   }
+    // });
     this.handleNext();
   }
 
   getRecs = (title) => {
-    axios.get(`/api/audiobook/${title}/recs`).then((res) => {
-      if (res.data) {
-        this.setState({ recommendations: res.data });
-      }
-    });
+    // axios.get(`/api/audiobook/${title}/recs`).then((res) => {
+    //   if (res.data) {
+    //     this.setState({ recommendations: res.data });
+    //   }
+    // });
   };
 
   setBook = (bookData) => {
@@ -141,33 +143,33 @@ class Player extends React.Component {
       event.preventDefault();
     }
 
-    if (this.state.loggedIn) {
-      let tempUser = this.state.userObj;
+    // if (this.state.loggedIn) {
+    //   let tempUser = this.state.userObj;
 
-      if (!tempUser.likes.includes(this.state.book)) {
-        tempUser.likes.push(this.state.book);
-      }
-      this.setState({ userObj: tempUser });
-      console.log(this.state.userObj);
-      axios
-        .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
-        .catch((e) => {
-          console.log(e);
-        });
-    } else {
-      alert(
-        "User preference storage is in the feature queue. Please check back later. "
-      );
-    }
+    //   if (!tempUser.likes.includes(this.state.book)) {
+    //     tempUser.likes.push(this.state.book);
+    //   }
+    //   this.setState({ userObj: tempUser });
+    //   console.log(this.state.userObj);
+    //   axios
+    //     .put(`api/users/?email=${this.state.userObj.email}`, this.state.userObj)
+    //     .catch((e) => {
+    //       console.log(e);
+    //     });
+    // } else {
+    //   alert(
+    //     "User preference storage is in the feature queue. Please check back later. "
+    //   );
+    // }
   };
 
 
   getUserObj() {
-    axios.get(`/api/users/?email=${this.state.currentUser}`).then((res) => {
-      // console.log(res.data);
-      this.setState({ userObj: res.data[0] });
-      this.setState({ loggedIn: true });
-    });
+    // axios.get(`/api/users/?email=${this.state.currentUser}`).then((res) => {
+    //   // console.log(res.data);
+    //   this.setState({ userObj: res.data[0] });
+    //   this.setState({ loggedIn: true });
+    // });
   }
 
   render() {
