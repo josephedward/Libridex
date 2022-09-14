@@ -59,6 +59,7 @@ export default function Player() {
         console.log('data:', data);
     });
   }
+  
 
   useEffect(() => {
     API.searchGenre(genre)
