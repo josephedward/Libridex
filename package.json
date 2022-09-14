@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Audiobook Shuffling App",
   "main": "server.js",
-  "engines": {
-    "node": "v17.1.0",
-    "npm": "8.1.2"
-  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -27,6 +23,8 @@
   "author": "Joseph Edward",
   "license": "MIT",
   "dependencies": {
+    "@netlify/functions": "^1.2.0",
+    "@types/node": "^14.18.29",
     "axios": "^0.21.1",
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.3",
@@ -43,7 +41,10 @@
     "jest": "^24.9.0",
     "lodash": "^4.17.21",
     "morgan": "^1.9.1",
+    "netlify": "^12.0.1",
+    "netlify-cli-slim": "^3.2.3",
     "node": "^10.16.1",
+    "node-fetch": "^2.6.7",
     "nodemon": "^2.0.7",
     "npm": "^6.14.15",
     "validator": "^13.7.0"
