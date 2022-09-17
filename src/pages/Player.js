@@ -119,6 +119,7 @@ export default function Player() {
   }
 
   async function getBook(id) {
+    setLoading(true);
     API.queryBookId(id)
       .then((res) => {
         // console.log(res.data);
