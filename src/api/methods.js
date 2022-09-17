@@ -1,9 +1,6 @@
 import axios from "axios";
 import * as Papa from "papaparse";
-// import { createContext } from 'react';
-const _ = require("lodash");
 const cheerio = require("cheerio");
-// const R = require('ramda');
 let book = {};
 const csvFilePath = "./data/denormalized_scrape_match_v3-3.csv";
 
@@ -30,9 +27,7 @@ export default {
           dynamicTyping: true,
           complete: function (results) {
             console.log("Finished:", results.data);
-            // data =
             return results.data;
-            // setRecs(data);
           },
         });
         return res.data;
@@ -91,20 +86,12 @@ export default {
 
   getRandomBook: (books) => {
     let randomBook = books[Math.floor(Math.random() * books.length)];
-    // console.log(randomBook);
     return cors("get", randomBook.url_librivox);
   },
 
   buildBookObj: async (page) => {
-    // console.log("building book object");
     let $ = cheerio.load(page);
     book.bkTitle = $(".book-page-book-cover").next("h1").text();
-
-    // try {
-    //   book.bkRecs = await findBookRecs(book.bkTitle);
-    // } catch (error) {
-    //   console.log(error);
-    // }
 
     book.bkAuthor = $(".book-page-author").text();
     book.bkDescription = $(".description").text();
@@ -116,7 +103,6 @@ export default {
       chapter.chLink = $(element).attr("href");
       book.bkChapters.push(chapter);
     });
-    // console.log(Object.values(book));
     return book;
   },
 

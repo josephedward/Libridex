@@ -4,7 +4,6 @@ import IframeResizer from "iframe-resizer-react";
 function BookPlayer(props) {
   function replaceUrl(url) {
     try {
-      // console.log("BookPlayer url : ", url);
       if (url.includes("httpss")) {
         let test = url.replace("httpss", "https");
         return test;
@@ -12,7 +11,7 @@ function BookPlayer(props) {
         return url;
       }
     } catch (bs) {
-      console.log(bs.error);
+      console.log(bs);
     }
   }
 
@@ -33,12 +32,6 @@ function BookPlayer(props) {
         sizeWidth="true"
         sizeHeight="true"
       />
-      {/* // <iframe
-      // id="myFrame"
-      //   className="bookPlayer"
-      //   title="book MP3"
-      //   src={replaceUrl(props.randomChapter.chLink)}
-      // ></iframe> */}
     </div>
   );
 }
@@ -47,7 +40,6 @@ export default BookPlayer;
 
 const audioControlStyle = {
   display: "flex",
-  // height: "100px",
   width: "100%",
   overflowY: "show",
 };

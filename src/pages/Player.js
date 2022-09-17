@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
 import Navbar from "../components/Header";
-// import UserLibrary from "../components/UserLibrary";
 import Search from "../components/Search";
 import Title from "../components/Title";
 import Author from "../components/Author";
@@ -8,26 +7,18 @@ import BookPlayer from "../components/BookPlayer";
 import BookImage from "../components/BookImage";
 import Description from "../components/Description";
 import NextButton from "../components/NextButton";
-// import LikeButton from "../components/LikeButton";
-// import axios from "axios";
-import {
-  Grid,
-  Container,
-  // List,
-  Dimmer,
-  Loader,
-  // Image,
-  // Segment,
-} from "semantic-ui-react";
+import { Grid, Container, Dimmer, Loader } from "semantic-ui-react";
 import Chapter from "../components/Chapter";
 import Recommendations from "../components/Recommendations";
 import API from "../api/methods";
 import * as Papa from "papaparse";
 import { RecsContext } from "../api/methods";
+import Modal from "../components/Modal";
 const csvFilePath = "./data/denormalized_scrape_match_v3-3.csv";
 
 export default function Player() {
   const [genre, setGenre] = useState("science");
+  const [tempGenre, setTempGenre] = useState("");
   const [book, setBook] = useState([]);
   const [randomChapter, setRandomChapter] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,8 +27,7 @@ export default function Player() {
   const [chLink, setChLink] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [recs, setRecs] = useState([]);
-
-  var data;
+  const [images, setImages] = useState([]);
 
   function handleNext() {
     setLoading(true);
@@ -52,8 +42,9 @@ export default function Player() {
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setGenre(value);
-    // handleNext();
+    setTempGenre(value);
+    // setGenre(value);
+    // setSearchText(value);
   }
 
   async function getAllRecs() {
@@ -66,9 +57,7 @@ export default function Player() {
           header: true,
           dynamicTyping: true,
           complete: function (results) {
-            // console.log("Finished:", results.data);
-            data = results.data;
-            // setRecs(data);
+            let data = results.data;
           },
         });
         return res.data;
@@ -81,14 +70,29 @@ export default function Player() {
   }, []);
 
   function getGenre(genre) {
-    setGenre(genre);
-    API.searchGenre(genre)
+    API.searchGenre(tempGenre)
       .then((res) => {
         populateGenreBook(res);
+        //if res is empty, then set error to true, and do not set the genre
+        if (res.length === 0) {
+          setError(true);
+          setErrorMessage("Unable to find book. Please try again.");
+          setGenre(genre);
+          setTempGenre(genre);
+          setLoading(false);
+        }
+        //if res is not empty, then set error to false, and set the genre
+        else {
+          setError(false);
+          setGenre(tempGenre);
+          setLoading(false);
+        }
       })
       .catch((err) => {
         console.log(err);
-        setErrorMessage("Error loading data");
+        setErrorMessage("Unable to find book. Please try again.");
+        setGenre(genre);
+        setTempGenre(genre);
         setError(true);
         setLoading(false);
       });
@@ -106,8 +110,10 @@ export default function Player() {
 
     getAllRecs().then(async (allRecs) => {
       let bookRecs = await API.findBookRecs(book.bkTitle, allRecs);
+      
+      bookRecs = await API.locateImgs(bookRecs, allRecs);
       setRecs(bookRecs);
-      let imgs = await API.locateImgs(bookRecs, allRecs);
+      
       setLoading(false);
     });
   }
@@ -115,6 +121,7 @@ export default function Player() {
   async function getBook(id) {
     API.queryBookId(id)
       .then((res) => {
+        // console.log(res.data);
         populateIdBook(res.data);
       })
       .catch((err) => {
@@ -134,7 +141,6 @@ export default function Player() {
 
     getAllRecs().then(async (allRecs) => {
       let bookRecs = await API.findBookRecs(book.bkTitle, allRecs);
-
       let tempRecArr = await API.locateImgs(bookRecs, allRecs);
       setRecs(tempRecArr);
       setLoading(false);
@@ -152,7 +158,14 @@ export default function Player() {
             </Loader>
           </Dimmer>
         ) : error ? (
-          <div>{errorMessage}</div>
+          <div>
+            <Modal
+              header="Error!"
+              content={errorMessage}
+              genre={genre}
+              getGenre={getGenre}
+            />
+          </div>
         ) : (
           <Container fluid className="nicefont width1000 border2 maroon main">
             <Grid celled stackable columns={2} className="black">
@@ -221,7 +234,6 @@ export default function Player() {
                 >
                   You might also like...
                 </h3>
-                {/* }}>Recommendations</h3> */}
                 <Grid stackable centered columns={3}>
                   <Recommendations
                     style={{ overflow: "hidden", color: "black" }}
@@ -231,7 +243,20 @@ export default function Player() {
                 </Grid>
               </div>
             ) : (
-              "No recommendations currently"
+              <h3
+                style={{
+                  color: "white",
+                  textAlign: "center",
+                  marginTop: "20px",
+                  marginBottom: "20px",
+                  fontSize: "30px",
+                  fontFamily: "sans-serif",
+                  fontWeight: "bold",
+                  textShadow: "2px 2px 4px #000000",
+                }}
+              >
+                No recommendations currently ☹️
+              </h3>
             )}
             ,
           </Container>
