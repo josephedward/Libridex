@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="initdb">init db()</button>
+      </div>
+      
+      <script>
+        document.querySelector("#initdb").addEventListener("click", function () {
+          window.location.replace("/init_db");
+            
+          // try {
+            var test = document.createElement("div",`{{dbState}}`);
+            document.appendChild(test)
+          // } catch {
+            document.write("error logging db state");
+          // }
+          // }
+      
+          //   (function(){
+          //     var oldLog = console.log;
+          //     document.write = function (message) {
+          //         // DO MESSAGE HERE.
+          //         oldLog.apply(console, arguments);
+          //     };
+          // })();
+        });
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,17 @@
+numpy
+pandas
+tqdm
+Flask
+matplotlib
+splinter
+nltk
+gensim
+beautifulsoup4
+scikit_learn
+Werkzeug
+gunicorn
+SQLAlchemy
+# dotenv
+psycopg2-binary
+python-dotenv
+IPython
