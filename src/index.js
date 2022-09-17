@@ -24,7 +24,6 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     console.error("I guess there is nobody there...");
     savedFunctions.log("logging from saved function");
   }
-
   logTest();
 }
 
