@@ -1,10 +1,4 @@
-node_modules
-misc
-.env
+
 .DS_Store
-build
-.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-.vercel
+client/.env
+client/.DS_Store
