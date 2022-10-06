@@ -37,6 +37,7 @@ export default function Recommendations(props) {
                     alt="book pic"
                     src={rec.img_url}
                     onClick={() => {
+                      
                       props.getBook(rec.lib_id);
                     }}
                   >
