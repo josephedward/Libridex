@@ -1,6 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import App from "./App";
+import { createRoot } from 'react-dom/client';
+// import { useLocation } from 'react-router-dom';
+
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   // dev code
@@ -27,7 +30,6 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   logTest();
 }
 
-ReactDOM.render(
-    <App />,  
-  document.getElementById("root")
-);
+const container = document.getElementById('root');
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(<App tab="home" />);
