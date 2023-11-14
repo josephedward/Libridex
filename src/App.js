@@ -1,5 +1,5 @@
 import React from "react"; 
-import {Router, Route, Switch } from "react-router-dom";
+import {Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Player";
 import Player from "./pages/Player";
 import NoMatch from "./pages/NoMatch";
@@ -10,10 +10,10 @@ function App(props) {
   return (
     <Router history={history}>
       <div>
-        <Switch>
+        <Routes>
           <Route className="fullHeight" exact path="/" component={Player} />
           <Route component={NoMatch} />
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );
